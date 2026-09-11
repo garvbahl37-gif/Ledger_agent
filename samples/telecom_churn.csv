@@ -1,0 +1,1401 @@
+customer_id,tenure_months,monthly_charges,contract_type,churned,support_calls,satisfaction,region,paperless
+C00000,11,101.06,Month-to-month,Yes,1,4.0,West,No
+C00001,22,80.32,Two year,No,3,,North,No
+C00002,11,63.44,One year,Yes,2,2.0,West,Yes
+C00003,15,51.95,Month-to-month,No,1,4.0,West,No
+C00004,44,53.45,One year,No,0,5.0,South,No
+C00005,20,31.22,One year,Yes,6,3.0,West,No
+C00006,15,81.01,One year,Yes,2,2.0,East,Yes
+C00007,22,35.14,One year,Yes,1,1.0,East,Yes
+C00008,56,69.16,One year,No,2,4.0,North,No
+C00009,32,44.81,Two year,No,1,3.0,North,No
+C00010,43,38.32,One year,No,3,2.0,East,Yes
+C00011,2,64.29,Two year,Yes,0,1.0,South,Yes
+C00012,38,57.99,One year,No,1,5.0,West,No
+C00013,19,75.09,Two year,Yes,2,5.0,North,No
+C00014,72,37.18,Two year,No,3,3.0,West,No
+C00015,72,60.37,Month-to-month,No,2,2.0,East,No
+C00016,72,31.02,Month-to-month,No,4,4.0,West,No
+C00017,26,24.68,One year,No,1,5.0,West,Yes
+C00018,33,106.37,Month-to-month,Yes,2,3.0,West,Yes
+C00019,27,101.5,One year,No,3,1.0,South,Yes
+C00020,9,65.67,One year,Yes,3,1.0,East,No
+C00021,22,45.17,Two year,No,6,1.0,North,No
+C00022,15,68.63,Month-to-month,Yes,3,3.0,South,No
+C00023,11,79.72,One year,Yes,4,3.0,South,No
+C00024,3,64.74,Month-to-month,Yes,0,3.0,South,No
+C00025,38,78.28,Month-to-month,No,0,4.0,East,No
+C00026,20,73.77,Month-to-month,No,3,1.0,North,No
+C00027,21,63.76,Month-to-month,No,0,5.0,East,Yes
+C00028,42,64.53,Month-to-month,No,6,2.0,South,No
+C00029,42,69.28,One year,No,4,3.0,North,No
+C00030,17,46.42,One year,Yes,1,2.0,East,No
+C00031,27,82.13,Month-to-month,Yes,3,2.0,West,No
+C00032,47,65.51,Month-to-month,No,2,5.0,East,No
+C00033,25,76.29,Month-to-month,No,3,1.0,North,Yes
+C00034,14,84.91,Two year,No,2,3.0,East,Yes
+C00035,72,56.97,Two year,No,3,3.0,East,No
+C00036,43,90.56,Month-to-month,No,2,3.0,East,No
+C00037,30,41.74,Month-to-month,No,2,2.0,South,No
+C00038,26,65.53,Month-to-month,No,1,2.0,North,Yes
+C00039,25,64.5,One year,No,2,5.0,North,No
+C00040,63,108.62,Month-to-month,No,6,2.0,South,No
+C00041,61,38.72,Month-to-month,Yes,4,3.0,East,Yes
+C00042,45,72.27,Month-to-month,No,2,2.0,East,No
+C00043,45,100.22,Month-to-month,No,4,4.0,East,Yes
+C00044,14,59.87,Month-to-month,Yes,0,5.0,South,Yes
+C00045,39,70.17,Month-to-month,Yes,1,5.0,South,No
+C00046,70,69.97,One year,No,1,1.0,North,Yes
+C00047,54,77.32,Month-to-month,No,1,1.0,West,No
+C00048,30,102.18,Month-to-month,No,2,2.0,South,No
+C00049,26,72.07,One year,No,2,3.0,East,Yes
+C00050,35,97.9,Month-to-month,No,3,1.0,South,Yes
+C00051,30,57.52,One year,No,2,5.0,South,No
+C00052,4,46.67,Two year,Yes,0,5.0,North,No
+C00053,39,69.94,Month-to-month,No,2,3.0,West,Yes
+C00054,33,39.14,Two year,No,2,4.0,North,No
+C00055,13,72.7,One year,Yes,0,3.0,West,No
+C00056,30,57.05,One year,No,4,4.0,North,No
+C00057,26,61.91,Month-to-month,No,2,5.0,North,Yes
+C00058,38,82.98,Month-to-month,No,4,1.0,West,No
+C00059,42,53.41,Month-to-month,No,3,2.0,West,Yes
+C00060,44,73.87,Two year,No,5,3.0,West,Yes
+C00061,44,55.39,One year,No,2,5.0,West,No
+C00062,38,94.86,Month-to-month,No,2,3.0,South,No
+C00063,9,66.93,Month-to-month,Yes,4,2.0,North,Yes
+C00064,50,85.37,Month-to-month,No,1,1.0,East,Yes
+C00065,23,77.23,Month-to-month,No,0,3.0,East,No
+C00066,26,77.39,One year,No,0,2.0,East,Yes
+C00067,16,75.98,Month-to-month,No,2,2.0,North,Yes
+C00068,23,34.06,One year,No,2,5.0,North,Yes
+C00069,60,82.16,One year,No,2,3.0,East,Yes
+C00070,49,62.42,One year,No,2,1.0,West,No
+C00071,72,74.21,Two year,No,5,1.0,West,No
+C00072,16,86.42,Month-to-month,Yes,3,2.0,East,Yes
+C00073,49,50.08,One year,No,2,1.0,South,No
+C00074,40,47.53,One year,No,1,3.0,South,No
+C00075,38,85.8,Month-to-month,No,4,3.0,East,No
+C00076,11,68.54,Month-to-month,No,0,,East,No
+C00077,36,90.86,Month-to-month,No,7,2.0,North,No
+C00078,28,70.79,Month-to-month,No,0,2.0,South,Yes
+C00079,11,92.42,Month-to-month,Yes,0,4.0,East,Yes
+C00080,45,81.62,Month-to-month,No,3,4.0,West,Yes
+C00081,34,69.18,One year,No,2,1.0,West,Yes
+C00082,22,67.27,Month-to-month,Yes,2,1.0,West,No
+C00083,22,78.18,Month-to-month,No,2,,North,Yes
+C00084,55,95.47,Month-to-month,No,1,4.0,South,Yes
+C00085,30,73.02,Month-to-month,No,2,2.0,East,No
+C00086,44,69.56,Two year,No,1,5.0,West,No
+C00087,31,74.83,Month-to-month,No,6,3.0,South,Yes
+C00088,10,76.24,Month-to-month,No,6,5.0,West,No
+C00089,46,105.02,Month-to-month,No,1,2.0,East,Yes
+C00090,35,95.63,Month-to-month,No,2,3.0,East,Yes
+C00091,16,65.43,One year,No,4,1.0,East,No
+C00092,20,67.86,One year,No,1,5.0,West,No
+C00093,56,61.37,Month-to-month,No,2,3.0,East,Yes
+C00094,16,60.89,One year,No,0,1.0,East,No
+C00095,29,79.57,Month-to-month,No,5,4.0,South,No
+C00096,72,75.31,Two year,No,3,5.0,South,No
+C00097,47,77.49,One year,No,1,4.0,East,Yes
+C00098,52,54.03,Month-to-month,No,3,5.0,West,Yes
+C00099,7,81.59,One year,Yes,5,2.0,East,Yes
+C00100,5,58.4,Two year,Yes,5,3.0,West,Yes
+C00101,41,56.23,Month-to-month,No,1,5.0,East,Yes
+C00102,21,84.05,Two year,No,1,4.0,South,No
+C00103,19,86.34,Two year,Yes,5,4.0,East,Yes
+C00104,4,78.75,Month-to-month,Yes,4,4.0,East,No
+C00105,22,76.76,One year,No,2,4.0,West,No
+C00106,37,77.81,One year,No,0,1.0,South,Yes
+C00107,26,99.12,Month-to-month,No,1,2.0,North,Yes
+C00108,36,87.11,Month-to-month,No,4,4.0,North,No
+C00109,14,36.1,Two year,Yes,0,2.0,North,No
+C00110,36,100.18,One year,No,4,4.0,East,Yes
+C00111,70,93.18,Month-to-month,No,3,3.0,West,No
+C00112,53,64.83,Month-to-month,No,5,4.0,East,Yes
+C00113,35,55.47,Month-to-month,No,3,2.0,North,Yes
+C00114,65,69.09,Two year,No,4,2.0,South,No
+C00115,19,58.99,One year,Yes,4,4.0,West,No
+C00116,42,79.94,Month-to-month,Yes,1,1.0,North,No
+C00117,17,73.38,Two year,No,2,2.0,East,No
+C00118,22,49.8,Two year,No,3,5.0,South,Yes
+C00119,41,53.91,Month-to-month,No,1,1.0,West,Yes
+C00120,34,80.94,Month-to-month,No,3,3.0,East,No
+C00121,37,54.4,One year,No,1,1.0,East,No
+C00122,48,76.63,Month-to-month,No,2,4.0,East,No
+C00123,41,49.82,Month-to-month,No,4,1.0,West,Yes
+C00124,55,59.46,One year,No,1,3.0,East,Yes
+C00125,55,72.87,Two year,No,5,3.0,East,No
+C00126,22,84.91,Month-to-month,No,0,4.0,West,No
+C00127,10,45.81,Two year,No,4,1.0,East,Yes
+C00128,22,38.97,Two year,No,2,3.0,East,No
+C00129,21,74.28,Month-to-month,No,3,3.0,South,No
+C00130,38,84.1,Month-to-month,No,2,2.0,South,Yes
+C00131,5,71.29,One year,Yes,1,2.0,North,No
+C00132,33,54.78,One year,No,3,4.0,East,No
+C00133,45,79.36,Month-to-month,No,0,3.0,South,No
+C00134,72,91.04,One year,No,2,3.0,West,Yes
+C00135,33,67.69,One year,No,2,5.0,West,No
+C00136,4,34.6,One year,Yes,1,3.0,West,Yes
+C00137,37,67.66,One year,No,3,5.0,South,Yes
+C00138,3,110.79,Month-to-month,Yes,2,5.0,East,Yes
+C00139,48,50.83,Month-to-month,No,2,3.0,West,No
+C00140,32,74.54,Month-to-month,No,4,2.0,East,Yes
+C00141,24,55.93,Two year,No,3,3.0,East,Yes
+C00142,22,61.73,Two year,Yes,1,,South,Yes
+C00143,56,67.5,One year,No,0,4.0,South,Yes
+C00144,48,94.52,Month-to-month,No,4,2.0,East,Yes
+C00145,29,65.53,One year,No,3,5.0,West,Yes
+C00146,45,96.99,Month-to-month,No,4,4.0,North,No
+C00147,37,71.88,Month-to-month,No,3,3.0,North,No
+C00148,42,67.7,Month-to-month,No,2,1.0,North,No
+C00149,27,47.95,Two year,No,3,1.0,East,No
+C00150,19,41.29,Month-to-month,Yes,1,4.0,South,Yes
+C00151,14,68.96,One year,Yes,2,4.0,South,Yes
+C00152,23,96.97,Two year,No,2,2.0,West,Yes
+C00153,22,72.25,One year,No,3,1.0,North,No
+C00154,18,86.36,Month-to-month,No,1,2.0,North,Yes
+C00155,10,52.57,Two year,No,3,,North,No
+C00156,29,59.6,One year,No,5,3.0,South,Yes
+C00157,61,91.72,Month-to-month,No,3,1.0,East,Yes
+C00158,54,100.16,One year,No,2,1.0,North,No
+C00159,10,86.78,Two year,Yes,2,1.0,North,Yes
+C00160,22,88.49,Month-to-month,No,0,4.0,North,No
+C00161,10,74.63,Month-to-month,Yes,3,,West,No
+C00162,34,77.77,Month-to-month,No,2,3.0,North,No
+C00163,25,60.44,Month-to-month,No,0,4.0,East,No
+C00164,58,37.93,One year,No,5,1.0,East,No
+C00165,35,53.72,Month-to-month,No,5,3.0,North,Yes
+C00166,17,74.9,Month-to-month,Yes,2,2.0,East,Yes
+C00167,10,68.74,Month-to-month,Yes,2,5.0,South,No
+C00168,44,47.55,Month-to-month,No,5,3.0,East,Yes
+C00169,50,73.33,Month-to-month,Yes,1,5.0,North,Yes
+C00170,20,58.27,One year,No,4,3.0,East,Yes
+C00171,41,52.89,Month-to-month,No,3,3.0,West,No
+C00172,70,67.34,Month-to-month,No,1,5.0,North,No
+C00173,14,54.22,Two year,Yes,3,5.0,East,Yes
+C00174,16,48.9,Two year,No,5,3.0,East,No
+C00175,45,90.68,Month-to-month,No,2,2.0,North,Yes
+C00176,43,39.75,Month-to-month,No,4,4.0,East,No
+C00177,4,38.26,Month-to-month,Yes,4,1.0,East,Yes
+C00178,50,74.06,Month-to-month,Yes,2,2.0,South,No
+C00179,16,75.73,Month-to-month,Yes,3,5.0,South,No
+C00180,10,67.28,Two year,Yes,4,5.0,East,No
+C00181,15,54.3,One year,Yes,1,3.0,East,Yes
+C00182,40,57.48,Month-to-month,No,4,2.0,West,No
+C00183,59,59.87,Two year,No,2,5.0,North,Yes
+C00184,28,66.05,Month-to-month,Yes,6,2.0,West,No
+C00185,72,101.92,Month-to-month,No,4,1.0,North,Yes
+C00186,45,68.16,Month-to-month,No,2,1.0,East,No
+C00187,54,73.04,Month-to-month,No,2,1.0,South,No
+C00188,4,104.56,Two year,Yes,6,5.0,North,Yes
+C00189,44,70.49,Month-to-month,No,2,1.0,East,Yes
+C00190,19,74.01,One year,Yes,0,,East,No
+C00191,5,85.63,Month-to-month,No,2,4.0,East,Yes
+C00192,51,73.17,Two year,No,4,4.0,South,No
+C00193,9,69.21,One year,Yes,5,5.0,South,Yes
+C00194,36,77.49,Month-to-month,No,4,5.0,East,Yes
+C00195,44,75.81,Month-to-month,No,2,3.0,North,No
+C00196,60,49.63,Two year,No,3,2.0,West,No
+C00197,8,79.86,Month-to-month,Yes,1,1.0,East,Yes
+C00198,29,110.52,Month-to-month,No,4,5.0,West,Yes
+C00199,31,81.79,Two year,No,4,2.0,North,Yes
+C00200,27,79.47,Month-to-month,Yes,1,5.0,East,No
+C00201,72,89.4,Month-to-month,Yes,1,,East,No
+C00202,48,58.35,Month-to-month,No,2,4.0,West,No
+C00203,14,69.31,Month-to-month,No,5,4.0,South,No
+C00204,34,91.06,Month-to-month,No,5,4.0,West,Yes
+C00205,72,100.77,Month-to-month,No,6,4.0,North,No
+C00206,32,60.12,Month-to-month,No,0,2.0,West,No
+C00207,45,65.3,Month-to-month,No,2,1.0,East,Yes
+C00208,56,113.26,Month-to-month,No,5,1.0,West,No
+C00209,44,61.73,Two year,No,2,3.0,North,No
+C00210,72,96.82,One year,No,6,5.0,South,Yes
+C00211,38,77.72,Month-to-month,No,1,4.0,East,No
+C00212,49,78.43,Month-to-month,No,3,4.0,East,No
+C00213,15,58.5,One year,Yes,0,,North,No
+C00214,67,90.97,Month-to-month,No,2,3.0,East,Yes
+C00215,12,98.44,Month-to-month,Yes,0,3.0,South,No
+C00216,72,45.37,One year,No,4,1.0,North,No
+C00217,27,67.66,Month-to-month,No,3,4.0,East,No
+C00218,21,80.47,One year,Yes,3,2.0,East,No
+C00219,22,57.67,Two year,No,3,3.0,North,No
+C00220,49,51.12,Two year,No,2,3.0,West,Yes
+C00221,37,92.17,Month-to-month,No,5,1.0,East,Yes
+C00222,55,93.86,Month-to-month,No,1,5.0,South,Yes
+C00223,10,65.91,Month-to-month,Yes,2,2.0,West,No
+C00224,54,67.82,One year,No,6,4.0,West,No
+C00225,12,38.25,Two year,Yes,3,4.0,West,No
+C00226,15,43.88,Two year,No,1,,West,No
+C00227,20,76.23,Month-to-month,No,3,2.0,North,No
+C00228,19,60.57,Two year,No,2,3.0,North,Yes
+C00229,21,56.6,Month-to-month,No,1,5.0,North,Yes
+C00230,27,47.11,Two year,No,4,4.0,West,Yes
+C00231,27,54.83,Month-to-month,No,2,3.0,South,Yes
+C00232,16,82.19,Month-to-month,Yes,3,5.0,South,No
+C00233,24,38.58,Month-to-month,No,0,3.0,West,No
+C00234,7,41.79,Two year,Yes,3,5.0,North,Yes
+C00235,15,40.47,Month-to-month,Yes,2,4.0,South,No
+C00236,59,81.54,Month-to-month,No,1,1.0,South,Yes
+C00237,2,41.55,Month-to-month,Yes,2,2.0,South,Yes
+C00238,36,74.57,Month-to-month,No,2,1.0,East,No
+C00239,39,89.51,Two year,No,3,2.0,East,No
+C00240,18,104.12,Month-to-month,Yes,2,1.0,South,Yes
+C00241,24,41.49,Month-to-month,Yes,3,1.0,North,Yes
+C00242,26,69.37,One year,No,0,1.0,East,Yes
+C00243,56,56.2,Month-to-month,No,3,4.0,East,Yes
+C00244,54,52.52,Month-to-month,No,2,3.0,East,Yes
+C00245,6,71.96,Month-to-month,Yes,2,3.0,South,No
+C00246,36,96.11,Month-to-month,No,4,4.0,West,Yes
+C00247,49,84.79,Month-to-month,No,0,5.0,East,No
+C00248,43,61.13,Month-to-month,No,2,3.0,West,Yes
+C00249,45,86.69,Month-to-month,No,0,3.0,East,Yes
+C00250,23,23.61,One year,No,2,4.0,South,Yes
+C00251,5,46.45,Two year,Yes,3,3.0,South,Yes
+C00252,27,45.17,Two year,No,4,3.0,East,Yes
+C00253,27,75.41,Month-to-month,No,3,2.0,East,Yes
+C00254,19,70.35,Month-to-month,No,4,1.0,East,No
+C00255,38,57.45,Two year,Yes,3,1.0,East,No
+C00256,16,60.86,One year,Yes,2,4.0,South,Yes
+C00257,43,74.4,Month-to-month,No,2,5.0,North,No
+C00258,35,83.72,Month-to-month,No,0,3.0,South,No
+C00259,52,76.69,Month-to-month,No,3,1.0,West,No
+C00260,61,68.88,Month-to-month,No,4,4.0,East,No
+C00261,1,81.23,Month-to-month,Yes,3,5.0,West,No
+C00262,13,88.87,Month-to-month,No,5,3.0,East,No
+C00263,52,49.99,Two year,No,2,1.0,West,Yes
+C00264,6,62.93,One year,Yes,1,1.0,North,No
+C00265,25,84.91,One year,No,4,3.0,East,Yes
+C00266,46,54.15,Month-to-month,No,1,5.0,North,Yes
+C00267,62,96.48,One year,No,1,,North,No
+C00268,28,39.9,One year,No,2,4.0,North,Yes
+C00269,56,67.78,Month-to-month,No,1,4.0,South,No
+C00270,43,46.9,One year,No,1,1.0,North,Yes
+C00271,6,103.38,One year,No,8,2.0,South,Yes
+C00272,37,50.94,Two year,No,2,1.0,North,Yes
+C00273,42,64.98,Month-to-month,No,4,3.0,North,No
+C00274,32,53.33,Two year,No,3,1.0,South,No
+C00275,44,75.72,Month-to-month,No,2,5.0,South,No
+C00276,35,68.09,Month-to-month,No,3,1.0,South,Yes
+C00277,72,71.61,Month-to-month,No,6,4.0,South,Yes
+C00278,11,18.0,Month-to-month,Yes,6,4.0,South,Yes
+C00279,36,75.03,Month-to-month,Yes,5,1.0,North,Yes
+C00280,55,74.32,Month-to-month,No,4,2.0,South,Yes
+C00281,33,82.69,One year,No,3,4.0,West,No
+C00282,36,97.56,Month-to-month,No,1,1.0,North,Yes
+C00283,34,56.62,Two year,No,6,3.0,North,Yes
+C00284,53,88.69,Month-to-month,No,2,2.0,West,Yes
+C00285,21,44.17,One year,No,2,1.0,East,Yes
+C00286,56,73.81,Two year,No,2,3.0,South,Yes
+C00287,48,49.7,Two year,No,2,3.0,West,No
+C00288,72,42.68,One year,No,2,2.0,South,No
+C00289,41,60.66,One year,No,4,5.0,East,No
+C00290,6,99.21,Month-to-month,Yes,6,1.0,East,Yes
+C00291,41,77.26,Month-to-month,No,0,3.0,North,Yes
+C00292,9,100.94,Month-to-month,Yes,3,1.0,West,Yes
+C00293,64,60.52,Month-to-month,No,4,4.0,East,Yes
+C00294,12,92.86,Month-to-month,Yes,5,3.0,North,No
+C00295,21,62.26,Month-to-month,Yes,1,4.0,West,Yes
+C00296,14,64.06,Two year,Yes,5,1.0,East,No
+C00297,26,63.9,Two year,Yes,1,3.0,West,Yes
+C00298,12,71.91,Two year,Yes,4,1.0,West,Yes
+C00299,52,68.51,One year,No,6,2.0,South,No
+C00300,26,60.69,Month-to-month,Yes,4,5.0,West,No
+C00301,38,89.85,Month-to-month,No,4,4.0,North,No
+C00302,65,95.17,One year,No,1,,South,No
+C00303,44,53.49,One year,No,3,2.0,East,Yes
+C00304,12,40.97,Month-to-month,Yes,2,5.0,East,Yes
+C00305,38,82.99,Month-to-month,No,1,1.0,North,No
+C00306,49,68.04,Month-to-month,No,2,4.0,North,Yes
+C00307,4,71.64,Month-to-month,No,1,2.0,West,Yes
+C00308,36,84.01,Month-to-month,No,3,3.0,West,Yes
+C00309,24,65.78,Month-to-month,No,2,5.0,East,No
+C00310,55,59.16,One year,No,3,4.0,East,No
+C00311,30,58.2,Two year,No,0,2.0,West,No
+C00312,46,100.46,Month-to-month,No,2,1.0,North,No
+C00313,37,64.54,One year,No,2,2.0,West,Yes
+C00314,30,37.76,Two year,No,5,3.0,North,No
+C00315,72,52.47,Month-to-month,No,2,1.0,East,Yes
+C00316,28,66.51,One year,No,2,5.0,South,Yes
+C00317,39,53.67,Month-to-month,No,1,1.0,West,No
+C00318,37,35.88,One year,No,2,3.0,North,Yes
+C00319,15,85.44,Month-to-month,Yes,1,5.0,East,Yes
+C00320,17,72.32,Two year,Yes,3,2.0,North,No
+C00321,49,53.37,Two year,No,3,3.0,North,Yes
+C00322,29,79.29,Month-to-month,No,2,1.0,South,No
+C00323,71,77.39,Month-to-month,No,3,4.0,West,Yes
+C00324,14,84.84,Month-to-month,Yes,4,5.0,South,No
+C00325,30,74.89,One year,No,1,4.0,East,Yes
+C00326,1,18.0,One year,Yes,3,1.0,East,No
+C00327,18,69.67,Month-to-month,No,0,2.0,West,No
+C00328,21,69.32,Two year,No,2,,South,Yes
+C00329,15,66.61,Month-to-month,No,6,4.0,North,Yes
+C00330,25,74.65,Month-to-month,Yes,1,3.0,West,Yes
+C00331,64,87.51,Month-to-month,No,2,5.0,South,Yes
+C00332,41,75.46,Month-to-month,No,2,2.0,North,Yes
+C00333,24,101.14,Month-to-month,Yes,0,4.0,West,Yes
+C00334,37,94.29,Month-to-month,No,1,3.0,West,Yes
+C00335,57,71.87,Month-to-month,No,1,4.0,North,No
+C00336,26,56.44,Two year,No,2,3.0,West,No
+C00337,32,22.69,Month-to-month,No,0,3.0,East,No
+C00338,72,54.12,Two year,No,3,5.0,South,No
+C00339,72,39.64,One year,Yes,2,5.0,East,No
+C00340,17,67.98,One year,No,3,5.0,North,Yes
+C00341,10,76.75,Month-to-month,Yes,3,1.0,North,No
+C00342,9,76.53,One year,Yes,5,3.0,North,Yes
+C00343,51,99.14,Month-to-month,No,3,4.0,North,No
+C00344,18,73.53,Month-to-month,Yes,0,5.0,East,No
+C00345,12,115.05,Month-to-month,Yes,2,2.0,West,Yes
+C00346,29,78.18,Month-to-month,Yes,3,4.0,South,Yes
+C00347,20,36.42,Two year,No,2,3.0,North,Yes
+C00348,18,49.88,Two year,No,4,2.0,South,Yes
+C00349,21,57.29,One year,No,1,5.0,East,Yes
+C00350,57,84.66,Month-to-month,No,1,3.0,West,Yes
+C00351,48,42.95,Two year,No,1,4.0,East,Yes
+C00352,28,58.64,One year,No,1,2.0,South,Yes
+C00353,27,71.1,Month-to-month,No,1,1.0,East,No
+C00354,46,65.93,Month-to-month,No,2,3.0,North,Yes
+C00355,42,78.61,One year,No,3,4.0,South,Yes
+C00356,14,85.54,Month-to-month,Yes,1,2.0,East,No
+C00357,9,95.0,Month-to-month,Yes,4,5.0,North,No
+C00358,21,58.04,One year,No,1,4.0,North,Yes
+C00359,24,95.65,Month-to-month,No,1,,West,Yes
+C00360,16,49.45,Month-to-month,Yes,1,5.0,North,Yes
+C00361,43,49.01,Month-to-month,No,3,5.0,North,Yes
+C00362,11,42.15,One year,No,1,4.0,East,No
+C00363,38,60.17,Two year,No,5,5.0,South,Yes
+C00364,72,81.64,Two year,No,2,4.0,West,Yes
+C00365,54,53.16,One year,No,4,,West,Yes
+C00366,8,55.42,One year,Yes,2,1.0,West,No
+C00367,25,60.11,One year,No,2,2.0,South,Yes
+C00368,44,84.31,Month-to-month,No,2,5.0,West,Yes
+C00369,21,65.4,Month-to-month,Yes,1,3.0,South,No
+C00370,16,54.4,One year,Yes,2,1.0,North,No
+C00371,43,39.78,One year,No,3,5.0,West,Yes
+C00372,32,63.71,Month-to-month,No,1,4.0,East,No
+C00373,41,81.19,Two year,No,1,,North,No
+C00374,17,65.64,One year,No,1,1.0,West,Yes
+C00375,64,60.68,Month-to-month,No,2,1.0,North,No
+C00376,20,96.25,Month-to-month,Yes,0,3.0,East,Yes
+C00377,52,63.47,Month-to-month,No,1,1.0,South,Yes
+C00378,72,99.56,Month-to-month,No,1,,North,No
+C00379,31,99.26,Month-to-month,No,1,2.0,West,No
+C00380,42,75.01,Month-to-month,No,2,2.0,East,Yes
+C00381,19,47.03,Month-to-month,Yes,5,4.0,West,Yes
+C00382,14,115.21,Month-to-month,Yes,2,1.0,East,Yes
+C00383,33,70.97,One year,No,6,5.0,West,Yes
+C00384,35,58.17,One year,No,6,1.0,West,Yes
+C00385,6,91.21,Month-to-month,Yes,1,3.0,West,Yes
+C00386,37,86.64,Month-to-month,No,2,5.0,East,Yes
+C00387,14,97.6,Month-to-month,Yes,2,1.0,North,No
+C00388,36,62.08,Month-to-month,No,1,5.0,South,No
+C00389,18,79.73,Month-to-month,Yes,0,2.0,East,No
+C00390,39,52.65,Month-to-month,No,2,4.0,North,Yes
+C00391,50,85.99,Month-to-month,No,3,5.0,North,No
+C00392,27,59.59,Two year,No,2,2.0,South,No
+C00393,42,79.06,Month-to-month,No,5,2.0,West,No
+C00394,27,57.37,Two year,No,1,5.0,South,No
+C00395,30,69.48,Month-to-month,No,2,1.0,West,Yes
+C00396,7,58.37,Month-to-month,Yes,2,,West,No
+C00397,34,74.23,Two year,No,1,2.0,South,No
+C00398,59,100.81,Month-to-month,No,3,4.0,North,Yes
+C00399,30,53.98,One year,No,2,5.0,West,No
+C00400,40,69.96,Two year,No,1,3.0,West,Yes
+C00401,56,71.78,One year,Yes,1,3.0,East,Yes
+C00402,3,74.15,Month-to-month,Yes,1,5.0,West,Yes
+C00403,14,46.52,Month-to-month,No,2,1.0,North,Yes
+C00404,53,50.57,Month-to-month,Yes,4,5.0,South,No
+C00405,25,59.94,Month-to-month,Yes,3,2.0,East,Yes
+C00406,29,35.5,Month-to-month,No,2,2.0,North,Yes
+C00407,17,85.34,Two year,Yes,2,5.0,West,Yes
+C00408,28,70.62,One year,No,0,4.0,East,No
+C00409,13,73.46,Month-to-month,Yes,3,3.0,South,No
+C00410,32,34.58,Month-to-month,No,2,2.0,North,Yes
+C00411,38,31.17,One year,No,2,3.0,North,Yes
+C00412,33,59.96,Two year,No,2,4.0,East,Yes
+C00413,10,109.47,Month-to-month,Yes,2,1.0,West,Yes
+C00414,42,61.42,Month-to-month,No,6,1.0,North,Yes
+C00415,15,75.55,Two year,No,3,2.0,South,No
+C00416,24,51.36,Two year,No,2,3.0,East,No
+C00417,7,60.99,Two year,Yes,3,5.0,South,No
+C00418,17,95.86,Month-to-month,No,1,2.0,East,Yes
+C00419,9,67.77,Month-to-month,Yes,8,4.0,East,No
+C00420,30,61.58,Month-to-month,No,1,5.0,West,Yes
+C00421,29,99.53,Month-to-month,No,1,3.0,East,No
+C00422,56,60.82,Two year,No,3,5.0,East,No
+C00423,61,93.64,Month-to-month,No,2,5.0,South,No
+C00424,21,51.67,One year,No,4,4.0,North,Yes
+C00425,21,85.32,Two year,Yes,3,2.0,North,Yes
+C00426,12,64.93,Two year,No,1,2.0,North,Yes
+C00427,7,71.83,One year,Yes,0,5.0,West,No
+C00428,37,62.37,Two year,No,1,3.0,North,No
+C00429,7,64.9,Month-to-month,Yes,3,1.0,South,Yes
+C00430,34,73.97,Month-to-month,Yes,3,4.0,East,No
+C00431,4,66.03,Month-to-month,Yes,1,2.0,East,Yes
+C00432,24,77.27,Two year,No,1,5.0,North,Yes
+C00433,3,56.34,Two year,Yes,1,5.0,West,No
+C00434,69,47.06,Month-to-month,No,3,1.0,South,No
+C00435,22,43.77,Month-to-month,No,4,5.0,North,No
+C00436,37,42.92,Month-to-month,No,3,5.0,North,No
+C00437,46,85.12,Month-to-month,No,0,4.0,West,No
+C00438,19,39.27,Two year,Yes,0,2.0,West,No
+C00439,38,79.4,Month-to-month,No,0,4.0,West,Yes
+C00440,1,66.46,One year,Yes,3,5.0,South,No
+C00441,39,62.84,One year,No,2,5.0,West,No
+C00442,21,81.89,Month-to-month,Yes,4,3.0,South,No
+C00443,22,76.85,Month-to-month,No,2,,North,Yes
+C00444,32,18.0,Two year,No,0,2.0,West,No
+C00445,10,58.17,One year,No,0,2.0,South,Yes
+C00446,17,81.65,Month-to-month,Yes,2,4.0,East,Yes
+C00447,29,103.53,Month-to-month,No,0,3.0,East,Yes
+C00448,72,90.36,Two year,No,4,2.0,North,Yes
+C00449,65,35.46,Two year,No,3,4.0,West,Yes
+C00450,46,53.7,Two year,No,1,2.0,North,Yes
+C00451,21,35.81,One year,Yes,2,3.0,West,Yes
+C00452,22,87.36,Two year,No,2,2.0,South,Yes
+C00453,39,92.23,Month-to-month,No,3,5.0,South,No
+C00454,52,70.31,One year,No,2,5.0,South,No
+C00455,22,76.99,Month-to-month,No,0,3.0,East,Yes
+C00456,33,88.85,One year,Yes,1,4.0,North,Yes
+C00457,43,81.8,Two year,No,2,1.0,North,No
+C00458,10,80.84,Two year,Yes,4,5.0,East,No
+C00459,48,82.22,Month-to-month,No,0,2.0,East,No
+C00460,61,57.71,One year,No,1,5.0,West,Yes
+C00461,23,73.81,Two year,No,2,5.0,West,Yes
+C00462,36,74.69,Two year,Yes,3,1.0,West,Yes
+C00463,60,60.57,One year,No,4,1.0,West,No
+C00464,38,67.68,Month-to-month,No,2,4.0,West,Yes
+C00465,56,94.4,Month-to-month,No,2,5.0,South,Yes
+C00466,33,89.95,Two year,No,1,4.0,West,Yes
+C00467,59,50.51,One year,Yes,1,1.0,West,No
+C00468,38,59.26,One year,No,5,4.0,East,No
+C00469,72,70.32,One year,No,1,2.0,North,Yes
+C00470,54,82.76,Month-to-month,No,3,5.0,North,No
+C00471,26,64.6,Month-to-month,No,6,5.0,South,Yes
+C00472,41,93.9,Two year,No,1,4.0,East,No
+C00473,32,81.6,Month-to-month,No,4,3.0,East,Yes
+C00474,29,73.56,One year,No,4,2.0,West,No
+C00475,47,95.66,One year,No,1,,East,No
+C00476,43,51.92,Two year,No,2,1.0,East,Yes
+C00477,23,72.41,Month-to-month,No,2,1.0,West,Yes
+C00478,38,41.44,One year,No,3,1.0,West,Yes
+C00479,28,70.9,Month-to-month,No,2,3.0,East,No
+C00480,46,47.2,Month-to-month,No,2,1.0,East,No
+C00481,28,87.46,Month-to-month,No,2,3.0,North,Yes
+C00482,34,81.56,Month-to-month,No,0,1.0,East,Yes
+C00483,29,55.01,Two year,No,0,5.0,North,No
+C00484,14,58.19,Two year,No,3,3.0,South,No
+C00485,72,87.71,Month-to-month,No,1,1.0,East,Yes
+C00486,38,39.56,Two year,No,1,4.0,North,Yes
+C00487,72,77.68,Month-to-month,No,2,2.0,East,Yes
+C00488,38,76.59,One year,No,3,2.0,South,Yes
+C00489,51,27.92,Two year,No,2,4.0,East,Yes
+C00490,27,76.33,One year,No,3,5.0,South,Yes
+C00491,27,43.87,Month-to-month,No,1,5.0,South,Yes
+C00492,37,71.88,Month-to-month,No,6,3.0,South,Yes
+C00493,72,53.06,Month-to-month,No,3,5.0,North,No
+C00494,14,85.76,Two year,Yes,2,2.0,North,Yes
+C00495,12,43.17,One year,No,4,5.0,West,No
+C00496,59,44.3,Month-to-month,No,2,5.0,North,No
+C00497,52,76.4,Month-to-month,No,3,3.0,South,Yes
+C00498,30,52.55,Two year,No,2,3.0,North,No
+C00499,72,46.92,Month-to-month,No,5,3.0,East,Yes
+C00500,24,73.46,One year,Yes,4,1.0,East,No
+C00501,3,28.15,One year,Yes,1,5.0,South,Yes
+C00502,32,55.35,Month-to-month,Yes,3,4.0,West,No
+C00503,36,63.65,Month-to-month,No,5,5.0,South,No
+C00504,45,88.44,Month-to-month,No,3,1.0,East,Yes
+C00505,7,97.32,Month-to-month,Yes,2,,South,No
+C00506,37,83.85,One year,No,4,2.0,East,No
+C00507,9,57.24,Two year,Yes,3,5.0,North,No
+C00508,48,30.31,Month-to-month,No,1,5.0,South,Yes
+C00509,49,81.04,Month-to-month,No,2,5.0,East,No
+C00510,57,100.47,Month-to-month,No,3,5.0,West,No
+C00511,19,96.21,Month-to-month,Yes,1,1.0,South,Yes
+C00512,34,72.33,One year,No,6,2.0,South,Yes
+C00513,29,42.59,One year,No,3,2.0,South,Yes
+C00514,20,54.54,One year,No,0,3.0,South,Yes
+C00515,33,108.81,Month-to-month,No,3,5.0,West,No
+C00516,22,38.5,One year,No,3,4.0,East,No
+C00517,23,53.34,Month-to-month,Yes,6,3.0,South,Yes
+C00518,53,76.97,Two year,No,3,5.0,South,Yes
+C00519,41,56.24,One year,Yes,2,1.0,East,Yes
+C00520,16,38.73,Two year,Yes,3,4.0,East,No
+C00521,64,101.5,Month-to-month,No,5,3.0,South,Yes
+C00522,50,82.3,Month-to-month,No,2,2.0,West,No
+C00523,12,57.13,One year,No,1,4.0,South,No
+C00524,45,53.38,Month-to-month,No,2,5.0,South,Yes
+C00525,45,100.85,One year,No,2,5.0,North,No
+C00526,30,73.56,Month-to-month,Yes,1,5.0,South,No
+C00527,16,85.15,Two year,Yes,3,5.0,West,No
+C00528,6,90.09,Month-to-month,Yes,0,3.0,West,No
+C00529,72,50.62,Two year,No,0,1.0,South,Yes
+C00530,33,64.77,Month-to-month,No,3,5.0,North,No
+C00531,44,100.03,Month-to-month,No,4,3.0,East,Yes
+C00532,34,100.33,Month-to-month,No,3,4.0,East,No
+C00533,26,40.22,Month-to-month,No,3,1.0,West,Yes
+C00534,55,69.9,Two year,No,3,5.0,East,No
+C00535,40,57.82,Two year,No,1,5.0,North,No
+C00536,33,41.4,Two year,No,5,5.0,West,No
+C00537,44,64.71,Two year,No,2,1.0,East,Yes
+C00538,36,39.71,One year,No,7,5.0,West,Yes
+C00539,8,65.6,Month-to-month,Yes,1,4.0,North,No
+C00540,10,45.63,Two year,Yes,4,,South,No
+C00541,47,65.0,Month-to-month,No,3,3.0,South,No
+C00542,10,58.71,Two year,Yes,1,3.0,South,No
+C00543,19,55.72,Month-to-month,Yes,1,4.0,West,No
+C00544,47,92.32,One year,No,2,1.0,North,Yes
+C00545,22,82.88,Month-to-month,No,4,3.0,North,No
+C00546,16,106.3,Month-to-month,No,5,4.0,North,No
+C00547,53,71.12,Month-to-month,No,2,4.0,West,Yes
+C00548,18,64.12,Month-to-month,Yes,0,4.0,North,Yes
+C00549,27,105.65,Month-to-month,No,1,4.0,East,No
+C00550,27,63.59,Month-to-month,No,2,4.0,North,Yes
+C00551,40,70.79,Month-to-month,No,1,1.0,South,Yes
+C00552,30,76.96,One year,No,7,4.0,East,No
+C00553,27,51.72,Month-to-month,Yes,3,2.0,North,No
+C00554,22,72.8,Two year,No,1,3.0,North,Yes
+C00555,43,84.5,Month-to-month,No,2,3.0,East,No
+C00556,23,86.85,One year,No,3,5.0,North,Yes
+C00557,57,90.02,Month-to-month,No,0,2.0,South,No
+C00558,47,97.4,Month-to-month,No,5,2.0,East,No
+C00559,44,62.01,One year,No,2,4.0,North,Yes
+C00560,39,48.47,One year,No,1,4.0,North,Yes
+C00561,25,111.98,Month-to-month,No,1,2.0,South,No
+C00562,28,46.52,Month-to-month,Yes,2,2.0,East,Yes
+C00563,25,48.32,Month-to-month,No,1,5.0,North,No
+C00564,59,84.17,Month-to-month,No,3,5.0,South,Yes
+C00565,72,103.25,Month-to-month,No,2,1.0,West,No
+C00566,15,67.41,One year,Yes,4,2.0,South,No
+C00567,68,91.99,Month-to-month,No,7,4.0,South,No
+C00568,22,28.08,One year,No,6,1.0,East,No
+C00569,47,65.01,Month-to-month,No,1,1.0,South,No
+C00570,37,40.27,Month-to-month,No,5,1.0,South,Yes
+C00571,14,88.05,Month-to-month,Yes,1,3.0,West,Yes
+C00572,12,46.15,Month-to-month,No,6,3.0,North,Yes
+C00573,33,51.0,Month-to-month,Yes,2,2.0,East,Yes
+C00574,18,69.25,Two year,Yes,2,1.0,South,No
+C00575,38,83.11,One year,No,3,4.0,West,Yes
+C00576,7,71.14,Month-to-month,Yes,1,5.0,East,No
+C00577,48,84.26,Month-to-month,No,4,2.0,West,No
+C00578,24,69.68,Two year,Yes,2,4.0,North,No
+C00579,43,70.12,Month-to-month,No,2,4.0,North,No
+C00580,62,54.3,Month-to-month,No,1,3.0,West,Yes
+C00581,54,70.17,Two year,No,3,3.0,South,Yes
+C00582,44,85.04,Month-to-month,No,3,1.0,West,Yes
+C00583,41,90.09,Month-to-month,No,1,5.0,East,Yes
+C00584,14,79.62,Month-to-month,Yes,0,5.0,South,Yes
+C00585,36,42.97,One year,No,3,4.0,North,No
+C00586,20,86.43,Month-to-month,No,2,5.0,North,Yes
+C00587,48,63.98,One year,No,1,4.0,East,No
+C00588,28,65.31,Month-to-month,No,1,,North,Yes
+C00589,34,68.7,Month-to-month,No,5,5.0,North,No
+C00590,44,61.58,Month-to-month,Yes,2,,North,Yes
+C00591,36,76.0,Two year,No,4,2.0,West,Yes
+C00592,35,48.47,Month-to-month,No,0,2.0,East,Yes
+C00593,40,46.12,One year,No,2,4.0,East,No
+C00594,32,68.08,Month-to-month,No,3,2.0,East,No
+C00595,72,103.05,Month-to-month,No,1,2.0,East,Yes
+C00596,72,92.98,Month-to-month,No,1,3.0,South,No
+C00597,72,44.46,Month-to-month,No,1,4.0,South,Yes
+C00598,37,98.32,Month-to-month,Yes,4,,East,Yes
+C00599,27,84.29,Two year,No,2,1.0,West,No
+C00600,57,38.87,Two year,No,4,4.0,West,No
+C00601,30,18.61,One year,Yes,2,3.0,East,Yes
+C00602,38,62.7,One year,Yes,2,1.0,West,No
+C00603,27,94.2,Month-to-month,No,5,4.0,West,No
+C00604,57,92.64,One year,Yes,2,2.0,East,No
+C00605,25,58.33,Month-to-month,Yes,1,3.0,West,Yes
+C00606,7,91.54,Two year,Yes,3,5.0,North,No
+C00607,33,19.9,Two year,No,1,2.0,North,Yes
+C00608,31,67.38,Month-to-month,Yes,0,5.0,South,No
+C00609,27,52.49,Two year,No,3,,North,No
+C00610,43,80.74,Two year,No,3,5.0,South,No
+C00611,46,97.37,Month-to-month,No,4,5.0,North,Yes
+C00612,13,77.18,Two year,Yes,2,5.0,West,No
+C00613,4,49.69,Month-to-month,Yes,2,2.0,East,Yes
+C00614,32,89.53,Month-to-month,No,1,4.0,North,No
+C00615,11,83.16,Month-to-month,Yes,4,2.0,East,Yes
+C00616,8,33.92,One year,Yes,4,5.0,East,No
+C00617,15,36.79,Month-to-month,No,3,5.0,South,Yes
+C00618,21,78.68,Two year,No,0,4.0,West,No
+C00619,54,70.76,Month-to-month,No,2,5.0,West,No
+C00620,18,50.87,Month-to-month,Yes,2,3.0,West,No
+C00621,68,60.25,One year,No,2,1.0,North,Yes
+C00622,39,80.55,Month-to-month,Yes,2,5.0,South,Yes
+C00623,33,62.51,One year,No,3,3.0,West,No
+C00624,6,46.06,Month-to-month,Yes,2,1.0,South,No
+C00625,34,93.94,Two year,No,1,1.0,South,No
+C00626,34,82.08,One year,Yes,3,,South,Yes
+C00627,26,67.96,Month-to-month,No,2,5.0,South,No
+C00628,59,68.69,Month-to-month,No,1,4.0,East,Yes
+C00629,14,80.47,Month-to-month,Yes,3,3.0,North,Yes
+C00630,6,39.67,Two year,Yes,5,2.0,West,Yes
+C00631,13,69.81,One year,Yes,2,3.0,East,No
+C00632,28,50.05,Month-to-month,No,4,2.0,North,No
+C00633,44,72.73,Month-to-month,No,6,2.0,West,No
+C00634,37,38.97,Two year,No,1,1.0,East,Yes
+C00635,53,53.87,Month-to-month,No,2,3.0,South,Yes
+C00636,63,93.62,One year,No,1,2.0,South,Yes
+C00637,15,65.07,One year,No,4,1.0,East,No
+C00638,21,77.73,Month-to-month,Yes,2,2.0,North,No
+C00639,8,37.8,Month-to-month,Yes,1,4.0,East,Yes
+C00640,4,63.25,Month-to-month,Yes,2,3.0,East,No
+C00641,16,82.3,Month-to-month,Yes,0,,South,Yes
+C00642,13,63.49,Two year,No,0,3.0,South,Yes
+C00643,50,25.23,One year,No,3,3.0,East,No
+C00644,49,63.73,Two year,No,3,3.0,East,No
+C00645,21,80.6,Month-to-month,Yes,4,5.0,South,Yes
+C00646,22,97.11,Month-to-month,No,3,4.0,West,No
+C00647,54,52.21,One year,No,3,1.0,West,Yes
+C00648,45,33.64,Month-to-month,No,1,5.0,South,No
+C00649,32,56.06,Month-to-month,No,1,1.0,East,Yes
+C00650,47,54.25,Month-to-month,No,1,1.0,West,Yes
+C00651,17,77.26,One year,Yes,2,,North,Yes
+C00652,24,18.0,One year,No,1,2.0,East,No
+C00653,56,65.93,Month-to-month,No,6,4.0,West,No
+C00654,6,85.66,Two year,Yes,2,4.0,North,No
+C00655,38,74.13,Month-to-month,No,1,1.0,South,Yes
+C00656,29,90.13,Month-to-month,Yes,1,3.0,West,No
+C00657,72,44.45,Month-to-month,No,3,4.0,West,No
+C00658,22,31.16,Two year,No,4,4.0,West,Yes
+C00659,33,99.87,Month-to-month,No,3,3.0,East,No
+C00660,34,75.82,Month-to-month,No,1,4.0,North,Yes
+C00661,13,75.86,Month-to-month,Yes,5,3.0,North,Yes
+C00662,28,43.87,One year,No,0,2.0,West,Yes
+C00663,52,65.81,One year,No,6,3.0,East,Yes
+C00664,29,53.37,Month-to-month,No,3,4.0,North,No
+C00665,21,81.36,Two year,No,4,1.0,North,Yes
+C00666,16,123.1,Month-to-month,Yes,0,4.0,North,No
+C00667,17,82.71,Month-to-month,Yes,2,2.0,West,No
+C00668,41,52.57,One year,No,0,1.0,West,No
+C00669,45,18.39,One year,No,2,4.0,West,Yes
+C00670,16,43.68,Month-to-month,No,3,2.0,North,Yes
+C00671,31,91.99,One year,No,2,3.0,East,Yes
+C00672,13,55.47,Month-to-month,Yes,1,4.0,West,No
+C00673,54,57.32,One year,No,1,3.0,East,No
+C00674,51,75.8,One year,No,2,4.0,West,No
+C00675,25,86.68,Two year,No,1,5.0,East,Yes
+C00676,11,70.41,Month-to-month,Yes,5,4.0,North,No
+C00677,46,56.72,One year,No,0,1.0,South,Yes
+C00678,33,65.29,One year,No,4,2.0,South,Yes
+C00679,26,62.7,Month-to-month,No,5,3.0,North,No
+C00680,37,63.67,Month-to-month,No,3,3.0,East,Yes
+C00681,44,67.41,Two year,No,1,2.0,West,No
+C00682,23,77.34,Month-to-month,No,1,1.0,North,Yes
+C00683,49,102.37,One year,No,1,1.0,South,Yes
+C00684,40,81.9,Month-to-month,No,4,1.0,East,Yes
+C00685,50,80.72,Two year,No,4,5.0,South,Yes
+C00686,36,54.72,Month-to-month,No,2,2.0,North,No
+C00687,19,69.45,Two year,Yes,3,5.0,North,Yes
+C00688,28,50.99,One year,Yes,3,2.0,North,No
+C00689,52,81.12,Month-to-month,No,2,2.0,West,Yes
+C00690,49,76.39,One year,No,1,3.0,South,Yes
+C00691,8,64.9,One year,Yes,2,5.0,West,Yes
+C00692,42,117.33,Month-to-month,No,3,3.0,East,No
+C00693,28,99.7,Month-to-month,No,1,1.0,South,Yes
+C00694,23,85.19,One year,Yes,5,2.0,West,Yes
+C00695,46,77.76,One year,No,3,5.0,South,No
+C00696,71,105.74,Month-to-month,Yes,2,1.0,North,Yes
+C00697,68,34.13,Two year,No,4,5.0,West,No
+C00698,35,98.67,Month-to-month,No,3,5.0,East,Yes
+C00699,56,56.16,Month-to-month,No,1,2.0,South,No
+C00700,15,53.84,One year,No,2,3.0,East,Yes
+C00701,62,84.11,Month-to-month,No,5,3.0,West,No
+C00702,45,96.2,Month-to-month,No,2,4.0,South,Yes
+C00703,10,53.24,Month-to-month,Yes,0,4.0,West,Yes
+C00704,45,64.77,Month-to-month,No,1,1.0,West,No
+C00705,72,75.76,Month-to-month,No,0,2.0,West,Yes
+C00706,24,60.65,One year,Yes,4,5.0,North,Yes
+C00707,12,89.37,Month-to-month,Yes,3,2.0,North,No
+C00708,34,121.85,Two year,No,2,2.0,North,No
+C00709,39,71.55,One year,No,4,4.0,East,Yes
+C00710,6,60.77,Month-to-month,Yes,0,1.0,South,No
+C00711,47,50.66,Month-to-month,No,1,1.0,West,Yes
+C00712,2,58.15,One year,Yes,1,4.0,North,Yes
+C00713,4,57.08,Month-to-month,Yes,4,1.0,South,No
+C00714,11,82.42,Month-to-month,Yes,3,5.0,South,Yes
+C00715,50,68.14,Two year,No,9,2.0,West,Yes
+C00716,36,55.66,One year,No,2,1.0,North,No
+C00717,34,99.73,One year,No,2,4.0,South,Yes
+C00718,42,60.76,Month-to-month,No,1,1.0,West,No
+C00719,19,71.85,Month-to-month,Yes,4,2.0,West,No
+C00720,26,85.5,Month-to-month,No,3,2.0,West,Yes
+C00721,54,80.06,One year,No,1,3.0,East,No
+C00722,36,97.0,Month-to-month,No,0,3.0,North,No
+C00723,67,81.71,Month-to-month,Yes,4,1.0,North,No
+C00724,72,92.92,Month-to-month,No,2,2.0,South,Yes
+C00725,51,52.03,One year,No,4,1.0,South,Yes
+C00726,29,80.53,One year,No,5,1.0,East,Yes
+C00727,45,90.29,Month-to-month,No,2,4.0,North,No
+C00728,58,101.23,Month-to-month,No,2,3.0,East,No
+C00729,51,43.97,Month-to-month,No,0,1.0,South,No
+C00730,11,57.67,Month-to-month,No,3,2.0,North,No
+C00731,6,88.82,Month-to-month,No,1,,West,Yes
+C00732,37,26.28,Month-to-month,No,2,2.0,South,No
+C00733,46,72.86,One year,No,0,3.0,North,No
+C00734,45,83.08,One year,No,5,4.0,South,No
+C00735,30,49.63,Two year,No,2,4.0,West,No
+C00736,52,52.26,Two year,No,3,4.0,West,No
+C00737,62,54.67,Month-to-month,No,2,2.0,North,No
+C00738,16,64.61,Month-to-month,No,0,3.0,East,Yes
+C00739,15,65.13,Month-to-month,No,3,5.0,East,Yes
+C00740,45,51.71,One year,No,3,,West,Yes
+C00741,54,60.72,Month-to-month,No,2,1.0,West,No
+C00742,41,69.12,Month-to-month,Yes,3,,East,Yes
+C00743,12,68.9,Month-to-month,No,4,5.0,East,Yes
+C00744,38,107.73,Month-to-month,No,1,5.0,South,Yes
+C00745,45,56.9,One year,No,4,,West,Yes
+C00746,33,70.19,One year,No,1,3.0,West,No
+C00747,59,63.62,Month-to-month,No,3,1.0,West,Yes
+C00748,20,49.39,Two year,Yes,2,1.0,West,Yes
+C00749,28,43.32,Month-to-month,Yes,0,,East,Yes
+C00750,28,45.72,Month-to-month,No,2,2.0,West,Yes
+C00751,38,52.27,Month-to-month,No,3,2.0,West,Yes
+C00752,32,67.31,One year,No,4,2.0,North,Yes
+C00753,15,83.37,One year,No,2,3.0,North,No
+C00754,42,41.84,Month-to-month,No,4,1.0,West,Yes
+C00755,29,50.12,Two year,No,0,5.0,South,No
+C00756,31,49.4,Month-to-month,No,2,4.0,West,Yes
+C00757,16,69.24,Month-to-month,Yes,4,4.0,South,Yes
+C00758,72,83.36,One year,No,2,5.0,South,Yes
+C00759,50,51.96,Two year,No,2,4.0,West,No
+C00760,72,63.14,One year,No,2,2.0,East,Yes
+C00761,33,86.19,Two year,No,3,5.0,East,No
+C00762,51,82.24,Month-to-month,No,4,3.0,South,No
+C00763,42,50.32,One year,No,3,3.0,East,Yes
+C00764,49,62.86,Two year,Yes,1,3.0,South,Yes
+C00765,33,59.1,Month-to-month,No,2,1.0,West,No
+C00766,50,81.57,Month-to-month,No,2,5.0,South,Yes
+C00767,22,69.28,Two year,No,5,5.0,North,No
+C00768,59,49.39,Month-to-month,No,4,4.0,East,Yes
+C00769,41,77.15,Month-to-month,No,5,2.0,West,No
+C00770,56,57.88,Two year,No,3,5.0,West,No
+C00771,45,69.8,Two year,No,3,1.0,North,No
+C00772,16,74.96,Two year,No,1,2.0,West,No
+C00773,12,68.59,Two year,Yes,2,1.0,South,No
+C00774,60,68.54,Month-to-month,No,4,2.0,West,No
+C00775,31,76.8,Two year,Yes,5,2.0,East,No
+C00776,38,58.28,Month-to-month,No,2,4.0,West,Yes
+C00777,40,40.23,One year,No,3,2.0,South,Yes
+C00778,35,18.0,Month-to-month,Yes,1,5.0,East,No
+C00779,12,58.74,Two year,Yes,4,2.0,East,Yes
+C00780,10,49.21,One year,No,2,3.0,North,Yes
+C00781,20,67.16,Two year,Yes,2,3.0,West,No
+C00782,32,38.52,Month-to-month,No,1,5.0,North,Yes
+C00783,46,62.35,Month-to-month,No,2,4.0,West,Yes
+C00784,12,82.46,Month-to-month,Yes,2,5.0,North,No
+C00785,53,55.46,Month-to-month,No,3,5.0,North,Yes
+C00786,22,71.37,One year,Yes,4,1.0,South,No
+C00787,48,63.97,Month-to-month,No,1,1.0,North,Yes
+C00788,5,63.41,One year,Yes,3,3.0,North,Yes
+C00789,26,84.71,Month-to-month,No,2,1.0,North,No
+C00790,45,91.15,Month-to-month,No,1,3.0,South,Yes
+C00791,62,65.66,One year,No,1,3.0,South,No
+C00792,24,59.35,Month-to-month,No,3,2.0,North,No
+C00793,24,65.76,Month-to-month,No,0,1.0,North,Yes
+C00794,44,85.47,Month-to-month,No,1,5.0,East,No
+C00795,72,55.62,Month-to-month,No,3,2.0,South,Yes
+C00796,28,60.79,One year,No,4,5.0,West,No
+C00797,31,67.05,Month-to-month,No,5,4.0,West,Yes
+C00798,29,72.14,Month-to-month,No,4,4.0,North,No
+C00799,36,45.83,One year,No,2,4.0,West,Yes
+C00800,4,40.67,Month-to-month,Yes,1,2.0,East,No
+C00801,37,73.37,One year,No,3,2.0,West,No
+C00802,42,91.35,Month-to-month,Yes,1,5.0,South,Yes
+C00803,40,27.74,Two year,No,3,4.0,North,Yes
+C00804,67,80.64,Month-to-month,No,1,2.0,West,Yes
+C00805,33,93.5,Month-to-month,No,0,4.0,East,No
+C00806,20,70.73,Two year,No,2,2.0,North,No
+C00807,36,56.5,One year,No,5,5.0,North,Yes
+C00808,48,47.02,One year,No,4,3.0,North,Yes
+C00809,24,61.46,Two year,Yes,4,2.0,South,Yes
+C00810,62,78.46,Month-to-month,No,3,4.0,South,Yes
+C00811,30,61.72,Two year,No,3,4.0,South,No
+C00812,31,60.76,One year,Yes,2,2.0,West,No
+C00813,72,54.51,Month-to-month,No,3,,West,Yes
+C00814,25,81.61,Month-to-month,No,2,2.0,East,Yes
+C00815,16,82.48,Month-to-month,Yes,4,2.0,East,Yes
+C00816,9,63.61,Two year,Yes,1,5.0,West,Yes
+C00817,32,76.0,Month-to-month,No,2,4.0,South,Yes
+C00818,22,104.23,Month-to-month,No,3,1.0,East,No
+C00819,28,52.76,One year,No,1,4.0,East,No
+C00820,72,87.07,One year,No,1,2.0,South,No
+C00821,49,60.79,Month-to-month,No,2,2.0,West,Yes
+C00822,54,79.96,Two year,No,4,3.0,North,Yes
+C00823,43,96.2,Month-to-month,No,4,3.0,North,No
+C00824,20,54.73,Two year,Yes,1,5.0,South,Yes
+C00825,31,103.9,Month-to-month,No,0,3.0,West,No
+C00826,40,82.44,Month-to-month,No,3,2.0,South,No
+C00827,12,48.21,One year,No,4,4.0,North,No
+C00828,14,67.27,Month-to-month,Yes,2,3.0,West,Yes
+C00829,31,94.39,Month-to-month,No,6,1.0,North,No
+C00830,21,90.62,Month-to-month,No,1,4.0,North,Yes
+C00831,41,44.96,One year,No,3,3.0,West,No
+C00832,34,57.49,Two year,No,2,3.0,South,Yes
+C00833,57,63.66,Two year,No,0,1.0,North,No
+C00834,37,50.86,Two year,No,4,3.0,South,Yes
+C00835,28,102.44,Two year,No,2,4.0,East,Yes
+C00836,10,78.21,Month-to-month,Yes,1,4.0,West,Yes
+C00837,12,72.89,Month-to-month,Yes,1,4.0,North,No
+C00838,58,81.44,Two year,No,2,5.0,South,Yes
+C00839,49,53.43,Two year,No,5,3.0,East,No
+C00840,59,78.13,Two year,No,2,3.0,East,Yes
+C00841,21,33.98,One year,Yes,1,3.0,East,Yes
+C00842,24,65.83,Month-to-month,No,3,2.0,South,No
+C00843,54,78.88,Two year,No,3,2.0,West,No
+C00844,63,88.26,Two year,No,0,4.0,North,No
+C00845,7,50.08,One year,Yes,4,2.0,West,Yes
+C00846,21,43.98,Two year,No,2,4.0,West,No
+C00847,30,74.21,One year,No,2,4.0,East,No
+C00848,27,48.79,Two year,No,2,5.0,South,Yes
+C00849,10,69.17,Month-to-month,Yes,0,1.0,South,Yes
+C00850,47,75.78,Two year,No,3,2.0,South,Yes
+C00851,41,64.21,Month-to-month,No,2,4.0,North,Yes
+C00852,29,38.62,Month-to-month,Yes,1,3.0,North,No
+C00853,9,50.58,Month-to-month,Yes,4,4.0,East,Yes
+C00854,29,74.18,Month-to-month,No,3,4.0,East,Yes
+C00855,66,40.46,Month-to-month,No,2,5.0,South,Yes
+C00856,9,54.65,Two year,Yes,3,2.0,South,Yes
+C00857,23,38.94,One year,Yes,2,2.0,North,Yes
+C00858,54,89.52,Two year,No,3,3.0,West,No
+C00859,45,112.97,Month-to-month,No,4,3.0,West,Yes
+C00860,16,54.95,Month-to-month,Yes,2,5.0,North,No
+C00861,17,68.62,One year,Yes,3,1.0,South,No
+C00862,7,46.71,One year,Yes,3,2.0,East,Yes
+C00863,49,68.43,Month-to-month,No,2,5.0,North,Yes
+C00864,46,92.46,Two year,No,2,4.0,North,Yes
+C00865,25,51.6,Two year,Yes,0,4.0,West,No
+C00866,13,58.85,One year,Yes,0,2.0,North,No
+C00867,5,43.03,Two year,Yes,3,4.0,East,No
+C00868,38,84.63,One year,No,3,2.0,West,Yes
+C00869,52,18.0,One year,No,2,4.0,East,Yes
+C00870,22,66.03,Month-to-month,Yes,4,1.0,South,Yes
+C00871,49,73.17,Month-to-month,No,2,2.0,North,Yes
+C00872,20,62.1,Month-to-month,Yes,2,4.0,East,No
+C00873,39,79.54,One year,No,1,4.0,South,Yes
+C00874,46,85.64,One year,No,3,5.0,West,No
+C00875,5,48.58,Month-to-month,Yes,3,5.0,East,Yes
+C00876,72,101.68,One year,No,5,1.0,North,Yes
+C00877,19,48.38,Month-to-month,No,1,1.0,South,Yes
+C00878,36,97.2,Month-to-month,No,1,2.0,East,Yes
+C00879,49,62.7,Two year,No,3,5.0,East,No
+C00880,48,64.93,Month-to-month,No,0,3.0,East,Yes
+C00881,33,66.63,Month-to-month,No,2,5.0,North,No
+C00882,18,73.4,Month-to-month,Yes,2,1.0,North,Yes
+C00883,20,77.75,Month-to-month,No,5,5.0,North,Yes
+C00884,42,47.44,One year,No,2,1.0,East,No
+C00885,13,55.79,Two year,No,2,5.0,North,No
+C00886,51,50.13,One year,No,4,5.0,West,No
+C00887,65,42.13,One year,No,4,2.0,South,Yes
+C00888,55,59.29,Month-to-month,No,3,,South,No
+C00889,60,43.3,One year,No,3,3.0,North,No
+C00890,13,66.44,Month-to-month,No,2,4.0,South,No
+C00891,9,81.78,Month-to-month,Yes,2,1.0,West,No
+C00892,23,62.17,Two year,No,1,2.0,North,No
+C00893,17,109.54,Month-to-month,No,3,4.0,East,Yes
+C00894,15,34.21,Month-to-month,Yes,1,5.0,North,No
+C00895,2,82.45,Month-to-month,Yes,2,1.0,North,No
+C00896,72,60.12,Two year,No,1,5.0,East,Yes
+C00897,25,88.68,Month-to-month,No,1,5.0,East,No
+C00898,40,86.9,Month-to-month,No,1,5.0,East,No
+C00899,46,57.03,Two year,No,3,2.0,North,Yes
+C00900,34,77.11,Month-to-month,No,3,4.0,North,No
+C00901,67,46.61,Two year,No,6,1.0,South,Yes
+C00902,31,85.05,Month-to-month,No,2,1.0,North,No
+C00903,28,30.18,One year,No,2,1.0,West,No
+C00904,5,73.98,Two year,Yes,0,3.0,South,Yes
+C00905,34,73.58,Month-to-month,No,3,4.0,East,Yes
+C00906,8,55.23,One year,No,4,1.0,North,No
+C00907,35,69.81,Month-to-month,No,2,1.0,East,Yes
+C00908,41,61.13,One year,No,2,2.0,North,No
+C00909,42,83.35,Two year,No,2,1.0,South,No
+C00910,11,122.2,One year,Yes,6,5.0,South,Yes
+C00911,19,81.96,Two year,Yes,2,1.0,North,Yes
+C00912,9,53.82,One year,Yes,2,2.0,North,Yes
+C00913,14,75.34,One year,Yes,4,2.0,West,Yes
+C00914,6,86.12,Month-to-month,Yes,3,2.0,South,No
+C00915,21,47.35,One year,Yes,2,5.0,East,No
+C00916,34,37.31,Two year,No,0,2.0,East,Yes
+C00917,15,62.86,One year,No,1,3.0,East,Yes
+C00918,53,88.54,Month-to-month,No,4,3.0,East,No
+C00919,24,44.99,Month-to-month,No,2,2.0,West,No
+C00920,60,51.02,One year,No,1,3.0,East,Yes
+C00921,14,70.31,Two year,Yes,0,1.0,South,No
+C00922,36,74.75,Month-to-month,No,1,3.0,South,Yes
+C00923,35,99.49,Month-to-month,No,4,1.0,West,Yes
+C00924,18,48.6,Month-to-month,No,4,3.0,South,Yes
+C00925,39,116.34,Month-to-month,No,3,2.0,East,No
+C00926,55,32.32,Two year,No,4,2.0,West,No
+C00927,25,37.48,Month-to-month,Yes,2,1.0,North,No
+C00928,71,72.94,Month-to-month,No,3,5.0,North,Yes
+C00929,7,53.58,Month-to-month,Yes,2,1.0,North,Yes
+C00930,32,73.3,Month-to-month,No,0,1.0,North,No
+C00931,25,58.67,Two year,No,2,1.0,East,No
+C00932,72,70.48,Month-to-month,No,3,5.0,East,Yes
+C00933,17,58.84,Month-to-month,Yes,4,2.0,South,No
+C00934,14,81.79,Month-to-month,Yes,1,3.0,North,Yes
+C00935,56,54.29,Two year,No,0,4.0,East,No
+C00936,19,79.87,Two year,Yes,2,1.0,North,No
+C00937,26,70.75,Month-to-month,No,2,1.0,East,Yes
+C00938,11,46.64,One year,Yes,2,1.0,West,Yes
+C00939,36,43.62,Month-to-month,No,3,4.0,South,Yes
+C00940,50,60.9,One year,No,1,5.0,South,No
+C00941,20,51.15,Month-to-month,Yes,2,4.0,East,No
+C00942,33,35.7,Two year,No,3,5.0,North,Yes
+C00943,29,69.49,Two year,No,2,5.0,East,No
+C00944,40,42.0,Month-to-month,No,1,2.0,South,Yes
+C00945,39,99.42,Month-to-month,No,0,1.0,South,No
+C00946,72,76.87,Month-to-month,No,3,1.0,North,No
+C00947,1,73.21,Month-to-month,Yes,2,4.0,West,Yes
+C00948,11,55.37,Month-to-month,Yes,2,4.0,South,Yes
+C00949,21,87.76,Month-to-month,No,2,,North,No
+C00950,54,59.95,Two year,No,2,3.0,West,No
+C00951,39,61.65,Month-to-month,No,3,5.0,West,Yes
+C00952,72,63.6,Two year,No,4,5.0,East,Yes
+C00953,72,43.71,Month-to-month,No,3,5.0,North,Yes
+C00954,18,44.56,Month-to-month,Yes,4,5.0,West,Yes
+C00955,22,53.84,Month-to-month,Yes,2,1.0,North,No
+C00956,23,66.29,Two year,Yes,2,4.0,North,No
+C00957,54,73.94,Month-to-month,No,4,5.0,East,Yes
+C00958,72,92.88,Month-to-month,No,2,2.0,South,No
+C00959,42,47.44,One year,No,2,5.0,North,No
+C00960,32,74.34,One year,No,1,2.0,East,Yes
+C00961,47,61.95,One year,No,2,2.0,South,Yes
+C00962,59,57.03,Month-to-month,No,4,4.0,West,No
+C00963,59,80.94,Month-to-month,No,1,1.0,North,No
+C00964,17,58.81,Two year,Yes,2,3.0,West,No
+C00965,28,52.68,One year,No,0,5.0,East,No
+C00966,8,64.76,One year,Yes,2,1.0,North,Yes
+C00967,33,71.67,Month-to-month,No,2,1.0,East,Yes
+C00968,67,71.23,Month-to-month,No,1,5.0,West,Yes
+C00969,33,52.57,Two year,No,2,4.0,North,No
+C00970,40,40.51,One year,No,3,3.0,West,No
+C00971,46,75.35,Month-to-month,No,3,3.0,South,No
+C00972,18,45.55,Two year,No,4,,West,No
+C00973,15,45.63,One year,Yes,1,4.0,North,Yes
+C00974,72,69.67,Month-to-month,No,6,5.0,East,No
+C00975,58,87.21,Month-to-month,No,4,1.0,West,No
+C00976,32,67.34,One year,No,0,3.0,South,No
+C00977,54,64.44,Month-to-month,No,2,,North,No
+C00978,66,53.72,One year,No,7,1.0,South,Yes
+C00979,35,75.44,One year,No,2,3.0,East,Yes
+C00980,12,30.86,Month-to-month,Yes,3,1.0,East,No
+C00981,17,74.35,Two year,Yes,2,5.0,South,No
+C00982,7,40.27,Month-to-month,Yes,2,4.0,West,No
+C00983,35,48.52,Month-to-month,No,0,1.0,East,Yes
+C00984,72,54.74,One year,No,1,3.0,East,No
+C00985,0,103.06,One year,Yes,5,1.0,West,Yes
+C00986,58,104.19,Month-to-month,No,0,5.0,West,No
+C00987,29,76.72,One year,No,2,1.0,South,Yes
+C00988,11,66.42,Two year,No,2,4.0,South,No
+C00989,18,26.48,Two year,Yes,1,1.0,East,No
+C00990,20,62.82,Two year,No,2,1.0,East,Yes
+C00991,15,64.11,Month-to-month,Yes,1,5.0,South,No
+C00992,19,59.3,Month-to-month,Yes,0,2.0,East,No
+C00993,22,66.79,One year,No,0,1.0,East,Yes
+C00994,4,65.52,Month-to-month,Yes,3,4.0,West,Yes
+C00995,39,79.65,One year,No,7,2.0,South,Yes
+C00996,72,39.15,Month-to-month,No,1,3.0,West,No
+C00997,51,75.35,Month-to-month,No,1,5.0,North,Yes
+C00998,18,58.18,Month-to-month,Yes,1,4.0,West,No
+C00999,68,66.63,Month-to-month,No,3,,North,No
+C01000,32,79.48,Month-to-month,No,2,2.0,West,No
+C01001,72,43.89,One year,No,1,2.0,North,Yes
+C01002,25,66.96,One year,No,1,4.0,West,No
+C01003,7,70.18,Month-to-month,No,4,4.0,West,Yes
+C01004,38,62.11,Month-to-month,No,3,3.0,West,Yes
+C01005,12,51.53,Two year,No,1,2.0,West,Yes
+C01006,7,71.22,Month-to-month,Yes,2,1.0,South,No
+C01007,42,60.18,Month-to-month,No,6,5.0,North,Yes
+C01008,72,74.13,Month-to-month,No,0,4.0,West,Yes
+C01009,34,58.99,One year,No,2,4.0,East,No
+C01010,18,49.0,Two year,No,2,1.0,West,No
+C01011,48,92.62,One year,No,3,2.0,East,No
+C01012,30,67.47,Two year,No,1,2.0,East,Yes
+C01013,3,53.11,Two year,Yes,1,3.0,South,Yes
+C01014,25,76.63,Month-to-month,No,2,4.0,South,No
+C01015,72,55.52,Month-to-month,No,2,5.0,South,Yes
+C01016,40,66.14,Month-to-month,No,3,,East,No
+C01017,16,68.24,Month-to-month,Yes,4,2.0,East,Yes
+C01018,70,41.56,One year,No,3,3.0,North,No
+C01019,60,80.97,Month-to-month,No,3,4.0,North,No
+C01020,31,64.9,Month-to-month,Yes,4,2.0,North,No
+C01021,20,67.6,Month-to-month,Yes,2,3.0,East,Yes
+C01022,49,53.76,One year,Yes,1,4.0,East,No
+C01023,37,117.26,One year,No,3,3.0,North,Yes
+C01024,57,48.07,Two year,No,3,3.0,East,No
+C01025,72,36.76,Month-to-month,No,3,4.0,North,No
+C01026,12,45.2,Month-to-month,Yes,2,2.0,West,No
+C01027,38,73.67,Two year,No,3,,East,Yes
+C01028,16,88.06,One year,Yes,2,4.0,East,Yes
+C01029,27,51.73,One year,No,1,3.0,East,No
+C01030,38,97.02,Month-to-month,No,2,2.0,South,Yes
+C01031,36,87.35,Month-to-month,No,3,1.0,West,Yes
+C01032,35,56.59,Two year,No,1,5.0,East,Yes
+C01033,51,59.31,One year,Yes,5,4.0,North,Yes
+C01034,21,67.26,One year,No,1,2.0,West,Yes
+C01035,62,89.79,Month-to-month,No,1,4.0,East,No
+C01036,29,81.15,Month-to-month,No,2,3.0,South,No
+C01037,72,61.82,Month-to-month,No,3,2.0,West,Yes
+C01038,24,60.86,One year,No,3,2.0,North,Yes
+C01039,72,109.66,Month-to-month,No,2,1.0,East,Yes
+C01040,33,78.52,Month-to-month,No,4,5.0,East,No
+C01041,59,89.65,Month-to-month,No,1,5.0,West,No
+C01042,42,69.72,Two year,No,2,5.0,East,No
+C01043,20,78.92,Month-to-month,No,3,2.0,West,Yes
+C01044,21,75.96,Month-to-month,No,2,5.0,South,No
+C01045,28,80.15,One year,No,1,,West,No
+C01046,32,72.94,Two year,No,4,5.0,North,No
+C01047,10,68.75,One year,Yes,1,1.0,West,Yes
+C01048,29,47.51,Two year,Yes,1,2.0,West,Yes
+C01049,36,80.94,Month-to-month,No,1,3.0,East,No
+C01050,45,58.79,Two year,No,2,5.0,North,No
+C01051,48,54.45,Two year,No,3,2.0,South,No
+C01052,35,122.22,Month-to-month,No,4,3.0,North,No
+C01053,53,36.3,One year,No,2,5.0,West,Yes
+C01054,58,91.25,Month-to-month,No,1,3.0,South,No
+C01055,49,58.47,Month-to-month,No,3,4.0,West,No
+C01056,12,76.36,Month-to-month,Yes,2,3.0,West,Yes
+C01057,43,120.23,Month-to-month,No,3,1.0,North,No
+C01058,65,42.68,Two year,No,3,2.0,West,Yes
+C01059,39,60.97,Month-to-month,No,0,3.0,South,Yes
+C01060,13,63.68,One year,Yes,4,1.0,North,Yes
+C01061,39,58.75,Month-to-month,No,1,2.0,South,Yes
+C01062,20,89.91,Month-to-month,No,2,5.0,East,No
+C01063,19,64.38,Month-to-month,No,7,1.0,West,No
+C01064,59,85.77,Month-to-month,No,2,2.0,East,No
+C01065,21,40.07,One year,Yes,5,4.0,North,No
+C01066,33,27.48,Two year,No,1,3.0,South,Yes
+C01067,59,69.88,Month-to-month,No,2,2.0,South,No
+C01068,15,31.77,Two year,No,4,1.0,East,No
+C01069,14,91.33,One year,No,2,5.0,East,No
+C01070,20,36.46,One year,Yes,2,3.0,North,No
+C01071,49,55.32,Month-to-month,No,1,3.0,North,No
+C01072,39,81.45,Month-to-month,No,4,1.0,North,No
+C01073,36,49.45,Two year,Yes,3,2.0,West,No
+C01074,21,36.67,One year,Yes,0,1.0,East,No
+C01075,23,110.72,Month-to-month,No,1,5.0,South,No
+C01076,18,41.97,Two year,No,5,4.0,West,Yes
+C01077,39,70.47,Month-to-month,No,4,3.0,North,No
+C01078,43,60.23,One year,No,3,4.0,North,No
+C01079,35,86.79,Month-to-month,No,2,1.0,South,No
+C01080,59,68.32,Two year,No,2,5.0,North,No
+C01081,8,59.12,Month-to-month,Yes,2,3.0,West,Yes
+C01082,8,68.14,Month-to-month,Yes,1,3.0,West,No
+C01083,31,59.92,One year,Yes,3,5.0,East,No
+C01084,29,87.48,Month-to-month,Yes,3,1.0,West,No
+C01085,13,38.97,Two year,Yes,2,3.0,South,Yes
+C01086,23,100.33,One year,Yes,3,1.0,North,Yes
+C01087,25,60.33,Month-to-month,Yes,5,3.0,South,No
+C01088,22,73.84,Month-to-month,No,6,2.0,North,No
+C01089,44,39.12,Two year,No,3,3.0,West,No
+C01090,51,40.63,One year,No,2,4.0,East,Yes
+C01091,45,44.26,Two year,No,1,2.0,West,No
+C01092,72,56.53,Month-to-month,No,0,,South,No
+C01093,72,52.54,Two year,No,2,1.0,East,Yes
+C01094,54,56.38,Month-to-month,No,2,4.0,South,No
+C01095,63,76.52,One year,No,1,3.0,South,No
+C01096,44,59.91,Month-to-month,No,1,5.0,East,Yes
+C01097,54,57.91,Month-to-month,Yes,1,5.0,West,Yes
+C01098,14,52.93,Two year,Yes,1,1.0,East,No
+C01099,22,77.87,Two year,No,1,4.0,East,No
+C01100,72,77.87,Month-to-month,No,0,1.0,East,Yes
+C01101,72,58.21,Two year,No,2,1.0,South,No
+C01102,37,48.21,Month-to-month,Yes,1,4.0,West,Yes
+C01103,21,53.43,Month-to-month,Yes,1,3.0,West,Yes
+C01104,52,50.99,Month-to-month,No,2,5.0,South,No
+C01105,9,97.52,Month-to-month,Yes,3,1.0,West,Yes
+C01106,23,83.55,Month-to-month,No,2,3.0,South,Yes
+C01107,20,58.49,Month-to-month,No,2,2.0,East,No
+C01108,26,63.84,Month-to-month,Yes,2,5.0,East,No
+C01109,16,49.14,One year,No,5,4.0,West,Yes
+C01110,46,44.05,Two year,No,4,4.0,West,No
+C01111,17,72.29,One year,No,5,2.0,South,No
+C01112,37,68.82,Month-to-month,No,4,5.0,East,No
+C01113,17,101.46,One year,Yes,3,5.0,East,No
+C01114,27,96.51,Month-to-month,Yes,4,4.0,West,Yes
+C01115,52,87.57,One year,No,4,3.0,North,No
+C01116,23,76.08,One year,No,3,5.0,East,Yes
+C01117,9,66.39,Month-to-month,Yes,3,4.0,East,Yes
+C01118,55,84.76,Month-to-month,No,2,1.0,South,No
+C01119,53,53.72,Two year,Yes,5,5.0,South,Yes
+C01120,27,89.34,Two year,No,2,1.0,East,No
+C01121,57,71.28,One year,No,4,4.0,South,No
+C01122,34,64.72,Two year,Yes,3,2.0,North,Yes
+C01123,15,62.29,Two year,No,2,5.0,West,No
+C01124,68,105.32,Month-to-month,No,3,4.0,South,Yes
+C01125,72,38.19,One year,No,1,5.0,North,Yes
+C01126,37,107.09,Month-to-month,No,1,4.0,North,No
+C01127,7,70.65,Month-to-month,No,3,,West,No
+C01128,37,48.69,Month-to-month,No,2,5.0,South,No
+C01129,4,46.46,Two year,Yes,0,2.0,South,Yes
+C01130,11,34.29,One year,Yes,3,3.0,South,No
+C01131,23,85.77,Month-to-month,No,5,2.0,North,Yes
+C01132,34,55.31,Month-to-month,No,5,1.0,East,No
+C01133,44,77.04,Month-to-month,No,1,5.0,North,No
+C01134,19,84.42,One year,Yes,3,3.0,West,No
+C01135,54,47.9,Two year,No,0,1.0,South,No
+C01136,50,69.17,Month-to-month,No,1,5.0,North,Yes
+C01137,65,50.54,Month-to-month,No,5,5.0,South,No
+C01138,38,57.01,One year,No,2,4.0,North,No
+C01139,72,120.33,Month-to-month,No,4,2.0,South,Yes
+C01140,30,88.0,Month-to-month,No,3,5.0,North,Yes
+C01141,17,69.23,Month-to-month,Yes,2,4.0,East,Yes
+C01142,22,62.99,Month-to-month,Yes,1,,West,Yes
+C01143,2,73.23,Month-to-month,Yes,3,2.0,South,No
+C01144,40,62.34,Two year,No,4,5.0,North,Yes
+C01145,31,66.46,Month-to-month,No,1,5.0,North,No
+C01146,16,83.54,Month-to-month,Yes,2,4.0,West,No
+C01147,23,46.84,One year,Yes,5,1.0,South,Yes
+C01148,39,42.75,Two year,No,1,2.0,South,No
+C01149,18,80.66,Month-to-month,Yes,2,2.0,North,No
+C01150,72,52.96,Month-to-month,No,2,3.0,East,No
+C01151,37,77.12,One year,Yes,4,5.0,North,Yes
+C01152,41,73.74,Month-to-month,No,3,5.0,West,Yes
+C01153,14,31.1,One year,No,2,2.0,North,No
+C01154,37,75.97,Month-to-month,No,3,1.0,North,Yes
+C01155,28,43.67,Month-to-month,No,3,2.0,East,No
+C01156,34,86.48,Month-to-month,No,1,2.0,South,No
+C01157,32,59.52,One year,No,3,5.0,East,Yes
+C01158,51,107.32,Month-to-month,No,2,1.0,North,Yes
+C01159,12,93.28,Month-to-month,Yes,1,5.0,West,Yes
+C01160,25,54.91,Month-to-month,No,2,4.0,South,No
+C01161,59,27.63,One year,No,4,1.0,West,No
+C01162,24,60.41,Month-to-month,Yes,4,4.0,West,Yes
+C01163,40,42.02,One year,No,4,3.0,East,No
+C01164,37,96.86,One year,No,3,1.0,South,Yes
+C01165,21,73.81,Month-to-month,Yes,5,2.0,South,Yes
+C01166,19,76.8,Two year,Yes,2,2.0,East,Yes
+C01167,72,54.87,Two year,No,2,,North,Yes
+C01168,28,70.77,Month-to-month,Yes,8,3.0,North,No
+C01169,28,73.41,Month-to-month,No,2,4.0,East,No
+C01170,27,93.92,Month-to-month,No,3,1.0,North,Yes
+C01171,18,79.61,Month-to-month,Yes,4,1.0,South,Yes
+C01172,46,54.97,Month-to-month,No,3,4.0,East,Yes
+C01173,11,89.21,Two year,Yes,1,3.0,South,No
+C01174,20,54.73,Two year,No,6,2.0,West,No
+C01175,41,65.8,Month-to-month,Yes,4,2.0,West,No
+C01176,61,23.07,Month-to-month,No,4,1.0,North,Yes
+C01177,61,85.42,Month-to-month,No,2,5.0,North,Yes
+C01178,41,75.82,Month-to-month,No,1,5.0,West,No
+C01179,57,75.8,Month-to-month,No,2,3.0,North,No
+C01180,28,52.75,Two year,Yes,3,2.0,South,No
+C01181,32,49.65,Two year,No,0,2.0,West,No
+C01182,63,67.35,Month-to-month,No,10,2.0,East,No
+C01183,17,72.34,One year,No,2,5.0,South,No
+C01184,20,75.5,One year,No,4,1.0,North,No
+C01185,13,55.84,Two year,Yes,3,5.0,South,No
+C01186,16,91.08,Month-to-month,No,4,2.0,East,Yes
+C01187,10,72.58,Month-to-month,Yes,4,2.0,North,Yes
+C01188,30,54.92,One year,No,4,5.0,East,Yes
+C01189,37,77.57,Month-to-month,No,5,5.0,South,Yes
+C01190,38,39.53,One year,No,0,5.0,South,Yes
+C01191,33,78.19,Month-to-month,No,4,2.0,West,Yes
+C01192,10,36.24,One year,Yes,0,3.0,West,No
+C01193,20,41.5,Two year,Yes,2,2.0,East,Yes
+C01194,32,37.66,Month-to-month,Yes,1,1.0,East,No
+C01195,37,70.85,Month-to-month,No,2,2.0,South,Yes
+C01196,47,92.97,One year,No,6,1.0,North,No
+C01197,66,71.89,Month-to-month,No,3,1.0,South,Yes
+C01198,63,75.58,One year,No,2,3.0,North,No
+C01199,11,106.34,One year,Yes,3,4.0,South,No
+C01200,26,81.27,Month-to-month,No,2,2.0,South,No
+C01201,72,46.23,Two year,No,1,3.0,East,Yes
+C01202,11,62.7,Month-to-month,Yes,0,4.0,South,No
+C01203,49,64.01,One year,No,2,5.0,South,No
+C01204,15,62.61,Month-to-month,No,3,,East,Yes
+C01205,12,63.95,Month-to-month,No,2,2.0,North,No
+C01206,41,91.73,Month-to-month,No,2,4.0,North,No
+C01207,35,78.47,Two year,No,4,1.0,East,Yes
+C01208,55,30.36,Two year,No,2,1.0,East,No
+C01209,27,45.27,Two year,No,4,2.0,West,No
+C01210,20,65.65,Month-to-month,Yes,1,2.0,East,Yes
+C01211,12,84.78,Month-to-month,Yes,1,1.0,West,Yes
+C01212,27,84.58,One year,No,2,1.0,East,No
+C01213,33,112.64,One year,No,2,5.0,West,No
+C01214,22,65.62,Month-to-month,No,5,4.0,North,Yes
+C01215,56,52.52,Two year,No,6,4.0,East,No
+C01216,51,84.59,Month-to-month,No,4,1.0,West,No
+C01217,52,61.72,Month-to-month,No,4,4.0,West,No
+C01218,35,57.46,Two year,No,4,2.0,South,Yes
+C01219,50,66.53,Month-to-month,No,1,4.0,West,No
+C01220,8,26.81,Month-to-month,No,6,3.0,South,Yes
+C01221,36,66.22,One year,No,3,2.0,North,No
+C01222,13,56.72,Two year,Yes,3,2.0,West,No
+C01223,39,96.88,Month-to-month,No,4,1.0,South,No
+C01224,62,64.1,One year,No,2,5.0,North,Yes
+C01225,12,51.41,Month-to-month,Yes,2,,North,No
+C01226,70,69.35,Month-to-month,No,3,4.0,North,Yes
+C01227,26,36.36,Month-to-month,No,2,5.0,West,Yes
+C01228,16,52.2,Month-to-month,Yes,3,1.0,West,No
+C01229,29,85.44,Month-to-month,No,5,2.0,West,No
+C01230,44,69.55,Month-to-month,No,4,1.0,North,Yes
+C01231,30,80.61,One year,No,3,,West,No
+C01232,39,28.6,One year,No,2,5.0,East,No
+C01233,32,59.64,One year,No,3,4.0,South,Yes
+C01234,53,51.44,Two year,No,1,3.0,East,No
+C01235,49,91.21,Month-to-month,No,4,2.0,West,No
+C01236,28,86.11,Month-to-month,No,4,3.0,South,No
+C01237,28,85.56,Month-to-month,No,1,3.0,North,No
+C01238,25,91.75,One year,No,3,2.0,West,Yes
+C01239,22,67.37,Month-to-month,No,2,1.0,North,No
+C01240,15,98.03,Month-to-month,Yes,1,3.0,North,No
+C01241,24,55.2,Month-to-month,No,3,3.0,East,Yes
+C01242,46,54.54,Month-to-month,No,0,4.0,West,Yes
+C01243,31,73.55,Two year,No,0,2.0,West,No
+C01244,61,36.91,One year,No,2,1.0,West,No
+C01245,72,84.31,Month-to-month,No,3,5.0,West,No
+C01246,7,65.82,One year,No,2,3.0,North,No
+C01247,26,83.29,One year,No,1,4.0,South,Yes
+C01248,16,72.93,Month-to-month,Yes,2,,East,Yes
+C01249,11,75.01,Month-to-month,Yes,3,1.0,South,No
+C01250,34,73.17,One year,No,2,1.0,East,No
+C01251,20,62.07,Month-to-month,No,7,4.0,South,No
+C01252,72,61.29,Month-to-month,No,5,2.0,South,Yes
+C01253,35,82.54,Month-to-month,No,3,4.0,North,Yes
+C01254,48,63.47,One year,No,3,5.0,East,Yes
+C01255,12,52.67,Two year,Yes,1,4.0,West,No
+C01256,65,62.51,One year,Yes,3,5.0,West,No
+C01257,6,102.7,Month-to-month,Yes,4,5.0,South,Yes
+C01258,55,66.03,Month-to-month,No,1,4.0,East,Yes
+C01259,64,55.5,One year,Yes,4,5.0,North,No
+C01260,33,29.27,Two year,No,4,4.0,East,No
+C01261,19,59.24,Two year,No,1,2.0,South,No
+C01262,29,71.82,Two year,No,2,1.0,West,No
+C01263,20,89.05,Month-to-month,Yes,1,2.0,East,Yes
+C01264,32,65.95,One year,No,4,3.0,North,No
+C01265,24,77.21,Two year,Yes,4,2.0,West,No
+C01266,18,77.16,One year,No,1,1.0,East,Yes
+C01267,4,84.03,One year,Yes,2,3.0,North,Yes
+C01268,29,91.72,Month-to-month,No,1,3.0,South,No
+C01269,54,92.26,One year,No,0,5.0,North,Yes
+C01270,32,70.95,Month-to-month,Yes,0,5.0,South,Yes
+C01271,41,50.11,Month-to-month,No,1,4.0,West,No
+C01272,22,71.95,Two year,No,3,,West,Yes
+C01273,30,74.05,Two year,No,2,2.0,East,Yes
+C01274,12,88.26,Two year,No,2,5.0,South,Yes
+C01275,72,97.06,Month-to-month,No,3,5.0,South,Yes
+C01276,28,109.02,Month-to-month,No,2,1.0,West,No
+C01277,47,85.16,Month-to-month,No,4,4.0,North,Yes
+C01278,14,64.12,Two year,Yes,1,3.0,West,Yes
+C01279,72,39.07,One year,No,2,2.0,West,No
+C01280,57,65.55,Two year,No,6,3.0,West,No
+C01281,32,64.05,Month-to-month,No,2,5.0,East,No
+C01282,50,67.81,One year,No,1,5.0,West,Yes
+C01283,72,64.98,One year,No,3,2.0,North,Yes
+C01284,36,82.49,Month-to-month,Yes,3,3.0,West,No
+C01285,22,58.25,Two year,Yes,0,3.0,North,Yes
+C01286,25,80.83,One year,No,3,4.0,North,Yes
+C01287,48,24.98,Month-to-month,No,0,3.0,North,Yes
+C01288,32,77.42,Month-to-month,No,4,2.0,East,No
+C01289,37,81.64,Two year,No,2,5.0,North,Yes
+C01290,52,97.66,One year,No,2,2.0,East,Yes
+C01291,25,77.18,One year,No,5,2.0,North,Yes
+C01292,36,94.33,One year,No,3,2.0,East,Yes
+C01293,30,77.04,Month-to-month,No,0,2.0,North,No
+C01294,72,64.05,One year,No,1,3.0,East,No
+C01295,56,69.53,Two year,No,0,4.0,North,No
+C01296,32,73.94,Month-to-month,No,4,1.0,West,Yes
+C01297,31,49.92,One year,No,4,5.0,South,Yes
+C01298,72,64.73,Month-to-month,No,1,2.0,East,Yes
+C01299,72,53.98,Month-to-month,No,1,,South,No
+C01300,48,83.51,Month-to-month,No,5,4.0,East,No
+C01301,38,60.21,Two year,No,2,2.0,South,No
+C01302,30,67.51,Month-to-month,Yes,2,4.0,North,No
+C01303,25,63.8,Month-to-month,No,1,5.0,West,Yes
+C01304,18,73.09,One year,Yes,2,4.0,East,Yes
+C01305,18,88.05,Month-to-month,Yes,6,4.0,South,Yes
+C01306,20,43.65,One year,No,3,,North,No
+C01307,31,36.82,Two year,No,2,2.0,West,No
+C01308,14,91.18,Month-to-month,No,3,4.0,South,No
+C01309,20,49.25,Month-to-month,Yes,2,2.0,West,Yes
+C01310,53,69.85,Two year,No,1,5.0,West,No
+C01311,17,103.1,Month-to-month,Yes,2,3.0,West,No
+C01312,39,103.15,Month-to-month,No,1,3.0,East,Yes
+C01313,31,73.28,Two year,No,4,4.0,North,No
+C01314,15,72.76,Two year,No,4,1.0,North,No
+C01315,29,104.53,One year,No,2,3.0,North,No
+C01316,35,21.98,One year,No,2,4.0,South,No
+C01317,51,51.64,Two year,No,5,4.0,East,Yes
+C01318,13,79.27,One year,Yes,4,2.0,West,No
+C01319,5,57.93,One year,Yes,6,1.0,North,Yes
+C01320,44,82.32,Two year,No,7,1.0,East,Yes
+C01321,38,63.29,One year,No,1,5.0,North,No
+C01322,42,76.37,Month-to-month,No,0,2.0,South,No
+C01323,8,69.06,Month-to-month,Yes,2,1.0,North,Yes
+C01324,40,64.59,Month-to-month,No,4,3.0,South,Yes
+C01325,15,64.15,Month-to-month,Yes,2,5.0,East,Yes
+C01326,72,78.88,Month-to-month,No,1,2.0,East,Yes
+C01327,43,60.06,Month-to-month,No,4,1.0,West,No
+C01328,12,77.16,Two year,No,7,1.0,East,Yes
+C01329,31,85.76,Month-to-month,No,2,1.0,South,Yes
+C01330,20,93.79,Month-to-month,Yes,0,2.0,West,No
+C01331,57,53.68,Month-to-month,No,0,1.0,West,No
+C01332,45,43.41,Month-to-month,No,1,4.0,West,No
+C01333,23,63.92,One year,Yes,4,2.0,West,No
+C01334,18,126.18,Month-to-month,Yes,2,,West,No
+C01335,9,96.79,Month-to-month,Yes,7,3.0,North,No
+C01336,53,50.02,Two year,No,3,4.0,East,Yes
+C01337,32,81.64,Month-to-month,No,1,,South,Yes
+C01338,14,87.1,Month-to-month,Yes,2,3.0,South,Yes
+C01339,5,35.37,Two year,No,0,5.0,North,No
+C01340,65,88.65,One year,No,1,1.0,North,Yes
+C01341,5,60.99,One year,Yes,3,3.0,West,No
+C01342,37,58.37,Two year,No,3,2.0,West,No
+C01343,30,60.43,Two year,No,6,3.0,East,Yes
+C01344,32,94.6,Month-to-month,Yes,2,1.0,North,No
+C01345,72,50.41,One year,No,8,2.0,East,No
+C01346,37,33.27,One year,No,3,5.0,North,Yes
+C01347,72,79.81,Month-to-month,No,2,5.0,East,Yes
+C01348,32,23.21,Two year,No,1,3.0,North,No
+C01349,28,68.58,Month-to-month,No,3,1.0,South,Yes
+C01350,8,81.36,Two year,Yes,5,4.0,North,Yes
+C01351,22,74.42,One year,Yes,4,2.0,West,No
+C01352,63,92.76,Month-to-month,No,0,2.0,East,Yes
+C01353,35,85.17,Month-to-month,No,3,,West,Yes
+C01354,23,103.39,Two year,Yes,4,2.0,North,No
+C01355,29,53.41,One year,No,3,2.0,East,Yes
+C01356,40,81.17,Month-to-month,No,5,1.0,South,No
+C01357,33,66.11,Month-to-month,No,1,3.0,South,No
+C01358,31,81.22,One year,No,1,5.0,West,Yes
+C01359,41,72.89,Month-to-month,No,2,1.0,North,Yes
+C01360,22,94.94,One year,No,1,1.0,West,Yes
+C01361,59,54.45,One year,No,4,1.0,North,No
+C01362,31,99.33,Month-to-month,No,1,3.0,South,No
+C01363,58,74.68,One year,No,2,5.0,North,Yes
+C01364,24,73.42,Month-to-month,No,1,2.0,East,No
+C01365,31,69.76,Two year,No,3,1.0,East,No
+C01366,22,64.7,Two year,No,2,1.0,East,Yes
+C01367,21,80.41,Month-to-month,No,7,4.0,West,No
+C01368,26,70.28,Month-to-month,No,4,2.0,West,No
+C01369,24,61.37,Month-to-month,No,3,2.0,West,Yes
+C01370,22,53.97,Two year,No,2,,South,Yes
+C01371,6,43.7,Month-to-month,Yes,4,5.0,North,No
+C01372,50,79.16,One year,No,1,,North,No
+C01373,6,37.77,Two year,Yes,2,4.0,South,Yes
+C01374,13,70.08,Month-to-month,Yes,2,4.0,East,No
+C01375,33,75.66,One year,No,3,1.0,North,Yes
+C01376,32,89.11,Month-to-month,No,2,,West,Yes
+C01377,2,32.06,One year,Yes,2,5.0,West,Yes
+C01378,34,72.35,Month-to-month,No,2,5.0,North,No
+C01379,37,68.28,Two year,No,2,3.0,West,Yes
+C01380,18,74.94,Month-to-month,No,3,1.0,East,No
+C01381,25,98.19,Month-to-month,No,2,2.0,South,Yes
+C01382,17,45.21,Two year,No,3,5.0,East,Yes
+C01383,37,23.12,Two year,Yes,6,4.0,East,No
+C01384,21,78.59,One year,Yes,4,1.0,South,Yes
+C01385,26,54.33,One year,No,2,4.0,East,No
+C01386,34,42.35,Month-to-month,No,4,1.0,North,No
+C01387,24,61.15,One year,No,2,2.0,South,No
+C01388,6,96.15,Month-to-month,Yes,2,3.0,West,Yes
+C01389,40,51.26,Month-to-month,No,1,2.0,North,No
+C01390,23,102.05,Two year,Yes,2,4.0,East,No
+C01391,8,48.92,One year,Yes,2,1.0,South,Yes
+C01392,72,75.57,Month-to-month,No,2,5.0,South,Yes
+C01393,58,52.06,Month-to-month,No,3,3.0,North,Yes
+C01394,8,60.75,Two year,Yes,4,2.0,East,No
+C01395,32,71.59,Month-to-month,No,4,5.0,East,Yes
+C01396,26,47.19,Month-to-month,No,6,3.0,East,Yes
+C01397,20,124.86,Month-to-month,Yes,2,3.0,South,No
+C01398,34,65.08,Month-to-month,No,0,1.0,East,No
+C01399,71,65.1,Month-to-month,No,2,5.0,East,No

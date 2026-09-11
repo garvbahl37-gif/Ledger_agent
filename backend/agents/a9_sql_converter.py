@@ -78,6 +78,7 @@ def run(ledger: Ledger, natural_language_query: str) -> Ledger:
             user_prompt=user_prompt,
             temperature=0.2,
             json_mode=True,
+            task="code",   # pandas/SQL generation gets the code-tuned model
         )
         ledger.total_tokens_used += tokens
         ledger.llm_call_count += 1

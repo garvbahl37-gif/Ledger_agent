@@ -172,6 +172,10 @@ class Ledger(BaseModel):
 
     # The Registrar's immutable hash — computed after A3
     registry_hash: Optional[str] = None
+    # When the freeze happened. Set by freeze(); part of the provenance record,
+    # and declaring it here is what lets freeze() assign it at all — pydantic
+    # rejects attributes that are not declared fields.
+    registered_at: Optional[datetime] = None
 
     # Final outputs
     report_html: Optional[str] = None

@@ -146,6 +146,73 @@ def _run_chi_square_test(
     ]
 
 
+def _eta_squared(groups: List[np.ndarray]) -> float:
+    """
+    Eta-squared for a k-group comparison: the share of total variance explained
+    by group membership. The k-group analogue of Cohen's d, and the reason a
+    3-level factor does not have to be collapsed to 2 to get an effect size.
+    """
+    allv = np.concatenate(groups)
+    grand = allv.mean()
+    ss_between = sum(len(g) * (g.mean() - grand) ** 2 for g in groups)
+    ss_total = ((allv - grand) ** 2).sum()
+    return float(ss_between / ss_total) if ss_total > 0 else 0.0
+
+
+def _run_k_group_test(
+    groups: List[np.ndarray],
+) -> Tuple[str, float, float, List[AssumptionCheck]]:
+    """
+    Compare k > 2 groups on a numeric outcome.
+
+    Selection follows the checks, as everywhere else in this agent: if every
+    group passes Shapiro-Wilk and Levene reports equal variances, one-way ANOVA
+    is appropriate; otherwise Kruskal-Wallis, which assumes neither.
+
+    This exists because the previous fallback truncated categories to the first
+    two with `unique()[:2]`, which silently answered a different question than
+    the one registered — comparing two of three contract types and reporting the
+    result as though it covered all three.
+    """
+    assumptions: List[AssumptionCheck] = []
+
+    normal = True
+    for i, g in enumerate(groups):
+        if 3 <= len(g) <= 5000:
+            try:
+                stat, p = stats.shapiro(g)
+                passed = p > 0.05
+                normal = normal and passed
+                assumptions.append(AssumptionCheck(
+                    name=f"Shapiro-Wilk normality (group {i + 1})",
+                    passed=bool(passed), statistic=float(stat), p_value=float(p),
+                    note="Normal enough for ANOVA" if passed else "Not normal — favours Kruskal-Wallis",
+                ))
+            except Exception:
+                normal = False
+        else:
+            normal = False
+
+    equal_var = True
+    try:
+        lev_stat, lev_p = stats.levene(*groups)
+        equal_var = lev_p > 0.05
+        assumptions.append(AssumptionCheck(
+            name="Levene equal variance", passed=bool(equal_var),
+            statistic=float(lev_stat), p_value=float(lev_p),
+            note="Variances comparable" if equal_var else "Unequal variances — favours Kruskal-Wallis",
+        ))
+    except Exception:
+        equal_var = False
+
+    if normal and equal_var:
+        stat, p = stats.f_oneway(*groups)
+        return "One-way ANOVA", float(stat), float(p), assumptions
+
+    stat, p = stats.kruskal(*groups)
+    return "Kruskal-Wallis H", float(stat), float(p), assumptions
+
+
 def _select_and_run_test(
     hypothesis: HypothesisEntry,
     df: pd.DataFrame,
@@ -176,37 +243,76 @@ def _select_and_run_test(
             test_name, r, p, assumptions = _run_correlation_test(x, y)
             return test_name, r, p, r, _effect_label(r), assumptions
 
-    # ── Pattern 3: Fallback — try from original df columns ───────────────
+    # ── Pattern 3: Fallback — derive the test from the registered columns ────
+    #
+    # Three things this has to get right, each of which was previously wrong and
+    # each of which produced a silent error rather than a wrong number — which
+    # in a tool that reports "tested and not supported" is worse, because an
+    # untested hypothesis was being presented as a tested one:
+    #
+    #   1. Column ORDER must not matter. The proposer writes columns in whatever
+    #      order the sentence reads, so ["monthly_charges", "churned"] and
+    #      ["churned", "monthly_charges"] are the same hypothesis.
+    #   2. Rows must be dropped PAIRWISE. Dropping NaNs from each column
+    #      independently and then masking one with the other's index silently
+    #      misaligns the two series.
+    #   3. k > 2 categories must not be truncated to the first two. Comparing
+    #      two of three contract types answers a different question than the one
+    #      in the registry.
     if len(cols) == 2:
         c1, c2 = cols[0], cols[1]
         if c1 in df.columns and c2 in df.columns:
-            s1, s2 = df[c1].dropna(), df[c2].dropna()
+            paired = df[[c1, c2]].dropna()
+            if len(paired) < 3:
+                raise ValueError(
+                    f"[A5] {hypothesis.id}: only {len(paired)} rows have both "
+                    f"{c1} and {c2} present — too few to test."
+                )
 
-            # Both numeric → correlation
-            if pd.api.types.is_numeric_dtype(s1) and pd.api.types.is_numeric_dtype(s2):
-                common_idx = s1.index.intersection(s2.index)
-                x = s1.loc[common_idx].values
-                y = s2.loc[common_idx].values
-                test_name, r, p, assumptions = _run_correlation_test(x, y)
+            a, b = paired[c1], paired[c2]
+            a_num = pd.api.types.is_numeric_dtype(a)
+            b_num = pd.api.types.is_numeric_dtype(b)
+
+            # Both numeric → correlation.
+            if a_num and b_num:
+                test_name, r, p, assumptions = _run_correlation_test(a.values, b.values)
                 return test_name, r, p, r, _effect_label(r), assumptions
 
-            # One categorical + one numeric → two-group comparison
-            if not pd.api.types.is_numeric_dtype(s1) and pd.api.types.is_numeric_dtype(s2):
-                groups = [s2[df[c1] == cat].dropna().values for cat in s1.unique()[:2]]
-                if len(groups) == 2 and all(len(g) >= 3 for g in groups):
-                    test_name, stat, p, assumptions = _run_two_group_test(groups[0], groups[1])
-                    d = _cohen_d(groups[0], groups[1])
-                    return test_name, stat, p, d, _effect_label(d), assumptions
+            # One numeric, one categorical → group comparison, either order.
+            if a_num != b_num:
+                num_s, cat_s = (a, b) if a_num else (b, a)
+                levels = [lv for lv in cat_s.unique()
+                          if len(num_s[cat_s == lv]) >= 3]
 
-            # Both categorical → chi-square
-            if not pd.api.types.is_numeric_dtype(s1) and not pd.api.types.is_numeric_dtype(s2):
-                test_name, chi2, p, assumptions = _run_chi_square_test(s1, s2)
-                n = len(df)
-                min_dim = min(s1.nunique(), s2.nunique())
-                v = _cramers_v(chi2, n, min_dim)
-                return test_name, chi2, p, v, _effect_label(v), assumptions
+                if len(levels) >= 2:
+                    groups = [num_s[cat_s == lv].values for lv in levels]
 
-    raise ValueError(f"[A5] Cannot determine appropriate test for {hypothesis.id}: columns={cols}, raw_keys={list(raw.keys())}")
+                    if len(groups) == 2:
+                        test_name, stat, p, assumptions = _run_two_group_test(groups[0], groups[1])
+                        d = _cohen_d(groups[0], groups[1])
+                        return test_name, stat, p, d, _effect_label(d), assumptions
+
+                    test_name, stat, p, assumptions = _run_k_group_test(groups)
+                    eta2 = _eta_squared(groups)
+                    return (
+                        f"{test_name} ({len(groups)} groups)",
+                        stat, p, eta2, _effect_label(math.sqrt(eta2)), assumptions,
+                    )
+
+                raise ValueError(
+                    f"[A5] {hypothesis.id}: {cat_s.name} has no two levels with at "
+                    f"least 3 observations of {num_s.name}."
+                )
+
+            # Both categorical → chi-square on the paired rows.
+            test_name, chi2, p, assumptions = _run_chi_square_test(a, b)
+            v = _cramers_v(chi2, len(paired), min(a.nunique(), b.nunique()))
+            return test_name, chi2, p, v, _effect_label(v), assumptions
+
+    raise ValueError(
+        f"[A5] Cannot determine an appropriate test for {hypothesis.id}: "
+        f"columns={cols}, raw_keys={list(raw.keys())}"
+    )
 
 
 def _build_licensed_text(

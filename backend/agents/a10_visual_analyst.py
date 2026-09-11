@@ -36,16 +36,52 @@ SLATE        = "#64748B"
 PEARL        = "#FCFCFD"
 SILVER       = "#E2E8F0"
 
+# `gridcolor` is an axis property, not a Layout one — putting it at the layout
+# level makes every update_layout() call raise, which silently disabled this
+# whole dashboard. Axis styling is applied separately in _style().
 PLOTLY_TEMPLATE = {
     "layout": {
         "paper_bgcolor": PEARL,
         "plot_bgcolor":  PEARL,
         "font": {"family": "Inter, sans-serif", "color": "#0F172A", "size": 12},
         "colorway": [ROYAL_BLUE, EMERALD, AMBER, CRIMSON, SLATE, "#7C3AED", "#DB2777"],
-        "gridcolor": SILVER,
         "title": {"font": {"size": 16, "color": "#0F172A"}},
     }
 }
+
+AXIS_STYLE = {
+    "gridcolor": SILVER,
+    "zerolinecolor": SILVER,
+    "linecolor": SILVER,
+}
+
+
+def _style(fig, **layout_overrides):
+    """
+    Apply the house template to a figure, axes included.
+
+    Overrides are merged rather than splatted alongside the template: both carry
+    a `title` key, and passing them as two keyword sets raises a duplicate-argument
+    TypeError. A plain title string is folded into the template's title font so
+    callers can pass `title="..."` without losing the styling.
+    """
+    layout = {**PLOTLY_TEMPLATE["layout"]}
+
+    override_title = layout_overrides.pop("title", None)
+    if override_title is not None:
+        base_title = dict(layout.get("title") or {})
+        if isinstance(override_title, str):
+            base_title["text"] = override_title
+        else:
+            base_title.update(override_title)
+        layout["title"] = base_title
+
+    layout.update(layout_overrides)
+
+    fig.update_layout(**layout)
+    fig.update_xaxes(**AXIS_STYLE)
+    fig.update_yaxes(**AXIS_STYLE)
+    return fig
 
 
 def _to_json(fig) -> dict:
@@ -75,8 +111,8 @@ def _data_quality_chart(df: pd.DataFrame) -> dict:
         title="Data Quality Overview — Missing Values by Column",
         hover_data=["Data Type", "Unique Values"],
     )
-    fig.update_layout(**PLOTLY_TEMPLATE["layout"])
-    fig.update_xaxes(tickangle=45)
+    _style(fig)
+    fig.update_xaxes(tickangle=45, **AXIS_STYLE)
     return _to_json(fig)
 
 
@@ -101,11 +137,7 @@ def _distribution_charts(df: pd.DataFrame) -> List[dict]:
             go.Box(y=clean, name=col, marker_color=ROYAL_BLUE, boxmean="sd"),
             row=1, col=2
         )
-        fig.update_layout(
-            title=f"Distribution: {col}",
-            showlegend=False,
-            **PLOTLY_TEMPLATE["layout"],
-        )
+        _style(fig, title=f"Distribution: {col}", showlegend=False)
         charts.append({"type": "numeric", "column": col, "spec": _to_json(fig)})
 
     # Categorical distributions — bar charts
@@ -118,7 +150,7 @@ def _distribution_charts(df: pd.DataFrame) -> List[dict]:
             color=vc.values,
             color_continuous_scale=[[0, PEARL], [1, ROYAL_BLUE]],
         )
-        fig.update_layout(**PLOTLY_TEMPLATE["layout"])
+        _style(fig)
         fig.update_traces(showlegend=False)
         charts.append({"type": "categorical", "column": col, "spec": _to_json(fig)})
 
@@ -144,10 +176,7 @@ def _correlation_heatmap(df: pd.DataFrame) -> Optional[dict]:
         textfont={"size": 10},
         hoverongaps=False,
     ))
-    fig.update_layout(
-        title="Pearson Correlation Heatmap",
-        **PLOTLY_TEMPLATE["layout"],
-    )
+    _style(fig, title="Pearson Correlation Heatmap")
     return _to_json(fig)
 
 
@@ -167,7 +196,7 @@ def _time_series_charts(df: pd.DataFrame) -> List[dict]:
                 title=f"Time Series: {num_col} over {dt_col}",
                 color_discrete_sequence=[ROYAL_BLUE],
             )
-            fig.update_layout(**PLOTLY_TEMPLATE["layout"])
+            _style(fig)
             charts.append({"dt_col": dt_col, "num_col": num_col, "spec": _to_json(fig)})
 
     return charts

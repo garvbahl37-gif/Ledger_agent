@@ -14,6 +14,11 @@ Endpoints:
   POST /api/sessions/{id}/chat       - Multi-turn conversational follow-up
   GET  /api/admin/sessions           - List all active sessions
   POST /api/admin/meta-agent/run     - Trigger A8 self-improvement cycle manually
+  GET  /api/sessions/{id}/telemetry  - Per-session agent/hypothesis/adversary events
+  GET  /api/sessions/{id}/notebook   - Download the session as a Jupyter notebook
+  GET  /api/sessions/{id}/export/report.html - Download a standalone HTML report
+  GET  /api/admin/telemetry/overview - Cross-session telemetry + failure patterns
+  GET  /api/admin/prompt-versions    - A8's prompt evolution history
   GET  /api/health                   - Health check
 """
 import asyncio
@@ -26,7 +31,7 @@ from typing import List, Optional
 from dotenv import load_dotenv
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import StreamingResponse
+from fastapi.responses import HTMLResponse, JSONResponse, StreamingResponse
 from pydantic import BaseModel
 
 from core.ledger import PipelineStage
@@ -36,7 +41,12 @@ from agents.a9_sql_converter import run as run_sql
 from agents.a8_meta_agent import run as run_meta_agent
 from rag.document_ingestor import parse_document, build_rag_context
 from connectors.google_sheets import fetch_from_url
-from observability.models import create_tables
+from observability.models import (
+    create_tables, SessionLocal, AgentEvent, HypothesisEvent,
+    AdversaryEvent, PromptVersion,
+)
+from exports.notebook import build_notebook
+from exports.html_report import build_html
 
 load_dotenv()
 
@@ -395,6 +405,208 @@ def chat_followup(session_id: str, request: ChatRequest):
     ledger.conversation_history.append({"role": "assistant", "content": reply})
     session_store.update(ledger)
     return {"reply": reply}
+
+
+# ─── Exports ──────────────────────────────────────────────────────────────────
+
+@app.get("/api/sessions/{session_id}/notebook")
+def export_notebook(session_id: str):
+    """
+    Download the session as a runnable Jupyter notebook.
+
+    Includes every registered hypothesis, not just the supported ones — the BH
+    correction was computed across the whole family, so a notebook containing
+    only the survivors would not reproduce the adjusted p-values.
+    """
+    ledger = session_store.get(session_id)
+    if ledger is None:
+        raise HTTPException(status_code=404, detail=f"Session {session_id} not found")
+    if not ledger.hypotheses:
+        raise HTTPException(status_code=400, detail="Nothing to export yet — run an analysis first.")
+
+    notebook = build_notebook(ledger)
+    ledger.notebook_json = notebook
+    session_store.update(ledger)
+
+    stem = (ledger.dataset.filename.rsplit(".", 1)[0] if ledger.dataset else "analysis")
+    return JSONResponse(
+        content=notebook,
+        headers={"Content-Disposition": f'attachment; filename="ledger_{stem}.ipynb"'},
+    )
+
+
+@app.get("/api/sessions/{session_id}/export/report.html", response_class=HTMLResponse)
+def export_report_html(session_id: str):
+    """Download a standalone HTML report with the ledger travelling alongside the prose."""
+    ledger = session_store.get(session_id)
+    if ledger is None:
+        raise HTTPException(status_code=404, detail=f"Session {session_id} not found")
+    if not ledger.hypotheses:
+        raise HTTPException(status_code=400, detail="Nothing to export yet — run an analysis first.")
+
+    return HTMLResponse(content=build_html(ledger))
+
+
+# ─── Telemetry ────────────────────────────────────────────────────────────────
+
+@app.get("/api/sessions/{session_id}/telemetry")
+def get_session_telemetry(session_id: str):
+    """
+    Every logged event for one session.
+
+    Reads straight from the telemetry database rather than the in-memory ledger,
+    so failed agent invocations — which never made it into the ledger — are
+    visible too. Those are the rows A8 learns from.
+    """
+    db = SessionLocal()
+    try:
+        agent_events = (
+            db.query(AgentEvent)
+            .filter(AgentEvent.session_id == session_id)
+            .order_by(AgentEvent.timestamp.asc())
+            .all()
+        )
+        # Telemetry rows outlive the in-memory session, so a live session is not
+        # required — but an id with neither is a typo, not an empty session.
+        if not agent_events and session_store.get(session_id) is None:
+            raise HTTPException(status_code=404, detail=f"Session {session_id} not found")
+        hypothesis_events = (
+            db.query(HypothesisEvent)
+            .filter(HypothesisEvent.session_id == session_id)
+            .order_by(HypothesisEvent.timestamp.asc())
+            .all()
+        )
+        adversary_events = (
+            db.query(AdversaryEvent)
+            .filter(AdversaryEvent.session_id == session_id)
+            .order_by(AdversaryEvent.timestamp.asc())
+            .all()
+        )
+
+        ledger = session_store.get(session_id)
+
+        return {
+            "session_id": session_id,
+            "total_tokens": sum(e.tokens_used or 0 for e in agent_events),
+            "total_duration_ms": sum(e.duration_ms or 0.0 for e in agent_events),
+            "self_repairs": ledger.self_repair_count if ledger else 0,
+            "agent_events": [
+                {
+                    "agent_name": e.agent_name,
+                    "timestamp": e.timestamp.isoformat() if e.timestamp else None,
+                    "success": e.success,
+                    "duration_ms": e.duration_ms,
+                    "tokens_used": e.tokens_used,
+                    "output_summary": e.output_summary,
+                    "error_message": e.error_message,
+                }
+                for e in agent_events
+            ],
+            "hypothesis_events": [
+                {
+                    "hypothesis_id": e.hypothesis_id,
+                    "statement": e.statement,
+                    "test_selected": e.test_selected,
+                    "raw_p_value": e.raw_p_value,
+                    "fdr_p_value": e.fdr_p_value,
+                    "decision": e.decision,
+                    "repair_count": e.repair_count,
+                }
+                for e in hypothesis_events
+            ],
+            "adversary_events": [
+                {
+                    "violation_type": e.violation_type,
+                    "sentence": e.sentence,
+                    "severity": e.severity,
+                }
+                for e in adversary_events
+            ],
+        }
+    finally:
+        db.close()
+
+
+@app.get("/api/admin/telemetry/overview")
+def telemetry_overview():
+    """
+    Cross-session telemetry, plus the recurring failure patterns A8 acts on.
+
+    Failures are grouped by agent and by the first line of the error, because
+    the same root cause tends to surface with slightly different tracebacks —
+    grouping on the whole message would scatter one pattern across many rows.
+    """
+    db = SessionLocal()
+    try:
+        agent_events = db.query(AgentEvent).all()
+        hypothesis_events = db.query(HypothesisEvent).all()
+
+        failures = {}
+        for e in agent_events:
+            if e.success or not e.error_message:
+                continue
+            head = e.error_message.strip().splitlines()[0][:160]
+            key = (e.agent_name, head)
+            failures.setdefault(key, {"agent_name": e.agent_name, "sample_error": head, "count": 0})
+            failures[key]["count"] += 1
+
+        patterns = sorted(failures.values(), key=lambda f: f["count"], reverse=True)[:8]
+
+        by_agent = {}
+        for e in agent_events:
+            slot = by_agent.setdefault(
+                e.agent_name, {"agent_name": e.agent_name, "calls": 0, "failures": 0, "total_ms": 0.0, "tokens": 0}
+            )
+            slot["calls"] += 1
+            slot["failures"] += 0 if e.success else 1
+            slot["total_ms"] += e.duration_ms or 0.0
+            slot["tokens"] += e.tokens_used or 0
+        for slot in by_agent.values():
+            slot["avg_ms"] = round(slot["total_ms"] / slot["calls"], 1) if slot["calls"] else 0.0
+
+        return {
+            "total_sessions": len({e.session_id for e in agent_events}),
+            "active_sessions": len(session_store.list_sessions()),
+            "total_agent_events": len(agent_events),
+            "failed_agent_events": sum(1 for e in agent_events if not e.success),
+            "total_tokens": sum(e.tokens_used or 0 for e in agent_events),
+            "total_hypotheses": len(hypothesis_events),
+            "supported_hypotheses": sum(1 for e in hypothesis_events if e.decision == "SUPPORTED"),
+            "total_self_repairs": sum(e.repair_count or 0 for e in hypothesis_events),
+            "failure_patterns": patterns,
+            "by_agent": sorted(by_agent.values(), key=lambda a: a["agent_name"]),
+        }
+    finally:
+        db.close()
+
+
+@app.get("/api/admin/prompt-versions")
+def list_prompt_versions():
+    """A8's prompt evolution history — what changed, and the reason recorded for it."""
+    db = SessionLocal()
+    try:
+        versions = (
+            db.query(PromptVersion)
+            .order_by(PromptVersion.created_at.desc())
+            .limit(50)
+            .all()
+        )
+        return {
+            "versions": [
+                {
+                    "id": v.id,
+                    "agent_name": v.agent_name,
+                    "version": v.version,
+                    "template": v.template,
+                    "rationale": v.rationale,
+                    "created_at": v.created_at.isoformat() if v.created_at else None,
+                    "is_active": v.is_active,
+                }
+                for v in versions
+            ]
+        }
+    finally:
+        db.close()
 
 
 # ─── Admin ────────────────────────────────────────────────────────────────────

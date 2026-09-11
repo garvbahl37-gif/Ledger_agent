@@ -82,3 +82,7 @@ task.txt
 # ─── Logs ─────────────────────────────────────────────────────────────────────
 *.log
 logs/
+
+# Playwright MCP screenshot artifacts
+.playwright-mcp/
+**/.playwright-mcp/

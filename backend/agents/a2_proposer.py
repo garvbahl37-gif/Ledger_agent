@@ -8,6 +8,7 @@ ROLE: Reads the A1 profile and proposes testable, falsifiable hypotheses.
 """
 import json
 import logging
+import re
 import time
 
 from core.ledger import Ledger, HypothesisEntry, PipelineStage
@@ -26,6 +27,75 @@ def _truncate_profile(profile_json: str) -> str:
         return profile_json
     logger.warning("[A2] Profile truncated for token budget")
     return profile_json[:MAX_PROFILE_CHARS] + "\n... [truncated for token budget]"
+
+
+def _infer_columns(statement: str, df_columns: list) -> list:
+    """
+    Work out which columns a plain-English hypothesis is about.
+
+    User-submitted hypotheses arrive as a sentence with no column list, and the
+    registry needs one before the freeze. This is deliberately deterministic and
+    deliberately not a model call: a model asked to name columns after reading
+    the hypothesis would be making a data-dependent choice at exactly the moment
+    the architecture forbids one.
+
+    Matching is on stems rather than whole words, so "pay more per month" finds
+    `monthly_charges`. Identifier-ish columns are penalised, because "Customers
+    on month-to-month contracts" otherwise matches `customer_id` on the word
+    "customers" and beats the column the sentence is actually about.
+    """
+    ID_LIKE = ("id", "uuid", "key", "index", "idx", "code", "guid")
+    STOP = {"the", "and", "for", "with", "are", "was", "per", "than", "then",
+            "more", "less", "have", "has", "who", "that", "this", "from"}
+
+    text = re.sub(r"[^a-z0-9]+", " ", statement.lower())
+    words = [w for w in text.split() if len(w) > 2 and w not in STOP]
+
+    def stem_hit(part: str) -> bool:
+        """A word matches a column part if either is a prefix of the other."""
+        for w in words:
+            if w == part:
+                return True
+            short, long = (w, part) if len(w) < len(part) else (part, w)
+            if len(short) >= 4 and long.startswith(short):
+                return True
+        return False
+
+    scored = []
+    for col in df_columns:
+        col_l = str(col).lower()
+        col_spaced = re.sub(r"[^a-z0-9]+", " ", col_l).strip()
+        tokens = col_spaced.split()
+        parts = [p for p in tokens if len(p) > 2]
+
+        if col_spaced and col_spaced in text:
+            score = 100 + len(col_spaced)              # the full name, as written
+        elif parts:
+            hits = sum(1 for part in parts if stem_hit(part))
+            if hits == len(parts):
+                score = 60 + len(col_spaced)           # every part present
+            elif hits:
+                score = 15 * hits                      # partial — weak evidence
+            else:
+                score = 0
+        else:
+            score = 0
+
+        # An id column is almost never the subject of a hypothesis; it matches
+        # on incidental words like "customers" far more often than it is meant.
+        # An identifier is never the subject of a statistical hypothesis unless
+        # it is named outright — and it matches on incidental words like
+        # "customers" constantly. So a partial match against an id column is
+        # dropped rather than merely down-weighted. (Check the raw tokens, not
+        # `parts`: "id" is two characters and is filtered out above.)
+        if score < 100 and any(tok in ID_LIKE for tok in tokens):
+            score = 0
+
+        if score > 0:
+            scored.append((score, str(col)))
+
+    scored.sort(key=lambda t: (-t[0], t[1]))
+    return [c for _, c in scored[:2]]
 
 
 def run(
@@ -89,15 +159,30 @@ def run(
 
         # ── Add user-defined hypotheses ────────────────────────────────────
         if user_hypotheses:
+            available = list(ledger._cleaned_df.columns) if getattr(ledger, "_cleaned_df", None) is not None else []
             for i, user_h in enumerate(user_hypotheses):
+                inferred = _infer_columns(user_h, available)
+                if len(inferred) < 2:
+                    # Registering a hypothesis whose columns cannot be resolved
+                    # would put an entry in the family that can never be tested,
+                    # inflating m and making the correction more permissive for
+                    # everything else. Better to refuse it and say so.
+                    logger.warning(
+                        "[A2] User hypothesis %r matched %d columns (need 2) — not registered. "
+                        "Name the columns explicitly to have it tested.",
+                        user_h, len(inferred),
+                    )
+                    continue
+
                 entry = HypothesisEntry(
                     id=f"UH{i+1:02d}",
                     statement=user_h,
-                    columns_involved=[],      # A5 will infer columns
+                    columns_involved=inferred,
                     user_defined=True,
                 )
                 try:
                     ledger.add_hypothesis(entry)
+                    logger.info("[A2] User hypothesis %s → columns %s", entry.id, inferred)
                 except ValueError as e:
                     logger.warning(f"[A2] User hypothesis blocked: {e}")
 

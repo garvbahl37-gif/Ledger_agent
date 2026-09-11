@@ -1,54 +1,213 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════════
+   LEDGER DESIGN SYSTEM — "Academic Precision"
+   A premium light theme. The data is the hero; the chrome recedes.
+   Every value here is a token. Components never hardcode hex.
+   ═══════════════════════════════════════════════════════════════════ */
+
+@theme {
+  /* ── Surfaces ─────────────────────────────────────────────── */
+  --color-pearl:      #fcfcfd;   /* app background */
+  --color-paper:      #ffffff;   /* cards, the report page */
+  --color-mist:       #f8fafc;   /* inset wells, code backgrounds */
+  --color-fog:        #f1f5f9;   /* secondary inset */
+
+  /* ── Ink ──────────────────────────────────────────────────── */
+  --color-ink:        #0f172a;   /* primary text — 17.85:1 */
+  --color-graphite:   #334155;   /* strong secondary — 10.4:1 */
+  --color-slate:      #64748b;   /* metadata, muted — 4.76:1 AA */
+  --color-silver:     #e2e8f0;   /* 1px borders */
+  --color-silver-sub: #eef2f6;   /* subtler dividers */
+
+  /* ── Brand (teal) ─────────────────────────────────────────── */
+  --color-brand:      #0d9488;   /* marks, fills, icons — 3.74:1 (UI only) */
+  --color-brand-text: #0f766e;   /* small text on white — 5.47:1 AA */
+  --color-brand-deep: #115e59;
+  --color-brand-tint: #f0fdfa;
+  --color-brand-edge: #99f6e4;
+
+  /* ── Status ───────────────────────────────────────────────────
+     NEVER used color-alone. #059669 vs #e11d48 is ΔE 5.8 under
+     deuteranopia — indistinguishable for ~8% of men. Every status
+     ships an icon + text label. Enforced in <StatusPill>.        */
+  --color-supported:      #059669;   /* mark — 3.77:1 */
+  --color-supported-text: #047857;   /* text — 4.87:1 AA */
+  --color-supported-tint: #ecfdf5;
+  --color-supported-edge: #a7f3d0;
+
+  --color-rejected:      #64748b;   /* honest grey, not alarming red */
+  --color-rejected-text: #475569;
+  --color-rejected-tint: #f8fafc;
+  --color-rejected-edge: #e2e8f0;
+
+  --color-error:      #e11d48;
+  --color-error-text: #be123c;
+  --color-error-tint: #fff1f2;
+  --color-error-edge: #fecdd3;
+
+  --color-warn:      #d97706;   /* mark — 3.19:1 */
+  --color-warn-text: #b45309;   /* text — 4.52:1 AA */
+  --color-warn-tint: #fffbeb;
+  --color-warn-edge: #fde68a;
+
+  /* ── Categorical series (validated) ───────────────────────────
+     node validate_palette.js — worst adjacent CVD ΔE 10.7 (protan),
+     normal-vision ΔE 19.6. PASSES all hard gates.
+     series-4 (#eda100, 2.17:1) and series-5 (#e87ba4, 2.69:1) sit
+     below 3:1 → the relief rule applies: direct labels mandatory.  */
+  --color-series-1: #0d9488;
+  --color-series-2: #eb6834;
+  --color-series-3: #4a3aa7;
+  --color-series-4: #eda100;
+  --color-series-5: #e87ba4;
+  --color-series-6: #2a78d6;
+
+  /* De-emphasis grey for emphasis-encoded charts */
+  --color-muted-mark: #cbd5e1;
+
+  /* ── Agent accents (from the pipeline spec) ───────────────── */
+  --color-a0: #6366f1;
+  --color-a1: #0d9488;
+  --color-a2: #8b5cf6;
+  --color-a3: #ef4444;
+  --color-a4: #f59e0b;
+  --color-a5: #10b981;
+  --color-a6: #0ea5e9;
+  --color-a7: #e11d48;
+
+  /* ── Type ─────────────────────────────────────────────────── */
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', ui-monospace, monospace;
+
+  /* ── Elevation — one soft grey family, used sparingly ────── */
+  --shadow-hair:  0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-card:  0 1px 3px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.03);
+  --shadow-lift:  0 12px 32px rgba(15, 23, 42, 0.08), 0 2px 8px rgba(15, 23, 42, 0.04);
+  --shadow-float: 0 24px 64px rgba(15, 23, 42, 0.12), 0 4px 12px rgba(15, 23, 42, 0.06);
+
+  /* ── Motion — fast, minimal, never bouncy ─────────────────── */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
 
 @layer base {
-  :root {
-    --color-bg: #f0fdfa;
-    --color-surface: #ffffff;
-    --color-border: #ccfbf1;
-    --color-accent: #0d9488;
-    --color-accent-light: #99f6e4;
-    --color-navy: #0f172a;
-    --color-muted: #64748b;
-    --font-sans: 'Inter', system-ui, sans-serif;
-  }
-
   * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-weight: 700 !important;
-    letter-spacing: -0.03em !important;
-  }
+  html { scroll-behavior: smooth; }
 
   body {
-    background-color: var(--color-bg);
-    color: var(--color-navy);
+    background-color: var(--color-pearl);
+    color: var(--color-ink);
     font-family: var(--font-sans);
     font-weight: 400;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.011em;
     line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    cursor: none;
   }
 
-  /* Custom Scrollbar */
-  ::-webkit-scrollbar {
-    width: 6px;
-    background: transparent;
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
   }
+
+  /* Every number in a statistics product must align in a column. */
+  .tnum, table, code, kbd, samp, pre, .font-mono {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum' 1;
+  }
+
+  ::selection {
+    background: var(--color-brand-edge);
+    color: var(--color-brand-deep);
+  }
+
+  /* Visible keyboard focus, invisible mouse focus. */
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb {
-    background: var(--color-accent);
-    border-radius: 10px;
+    background: color-mix(in srgb, var(--color-slate) 28%, transparent);
+    border-radius: 99px;
+    border: 3px solid var(--color-pearl);
   }
-  
-  /* Ensure cursor none overrides defaults on interactive elements unless specifically overridden */
-  a, button, input, select, textarea {
-    cursor: none;
+  ::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in srgb, var(--color-slate) 45%, transparent);
+  }
+}
+
+@layer utilities {
+  .scrollbar-none { scrollbar-width: none; }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+
+  /* The provenance link: a report sentence bound to a ledger entry.
+     This is the core interaction of the product. */
+  .claim {
+    border-bottom: 1px dotted color-mix(in srgb, var(--color-brand) 55%, transparent);
+    cursor: pointer;
+    transition: background-color 150ms var(--ease-out);
+    border-radius: 2px;
+    padding: 0 1px;
+  }
+  .claim:hover, .claim:focus-visible {
+    background: var(--color-brand-tint);
+    border-bottom-style: solid;
+  }
+  .claim[data-active='true'] {
+    background: var(--color-brand-tint);
+    box-shadow: inset 0 0 0 1px var(--color-brand-edge);
+  }
+
+  .measure { max-width: 65ch; }
+
+  .grid-paper {
+    background-image:
+      linear-gradient(to right, var(--color-silver-sub) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--color-silver-sub) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+}
+
+/* ── Motion: a single orchestrated reveal, not scattered effects ── */
+@keyframes ledger-rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes ledger-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes ledger-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.45; }
+}
+@keyframes ledger-sweep {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(200%); }
+}
+@keyframes ledger-draw {
+  from { stroke-dashoffset: var(--dash, 1000); }
+  to   { stroke-dashoffset: 0; }
+}
+
+.animate-rise  { animation: ledger-rise 420ms var(--ease-out) both; }
+.animate-fade  { animation: ledger-fade 260ms var(--ease-out) both; }
+.animate-pulse-soft { animation: ledger-pulse 1.8s ease-in-out infinite; }
+.animate-draw  { animation: ledger-draw 900ms var(--ease-out) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

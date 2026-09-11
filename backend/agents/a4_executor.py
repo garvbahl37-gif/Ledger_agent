@@ -71,6 +71,7 @@ def _execute_with_repair(
             user_prompt=user_prompt,
             temperature=0.1,
             max_tokens=2048,
+            task="code",   # pandas/SQL generation gets the code-tuned model
         )
         ledger.total_tokens_used += tokens
         ledger.llm_call_count += 1

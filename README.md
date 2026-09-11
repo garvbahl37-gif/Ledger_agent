@@ -1,4 +1,4 @@
-# Ledger Agent 🔬
+# Ledger
 
 > **A production-grade, multi-agent AI data analyst that turns a CSV into statistically rigorous, peer-review-ready insights — and structurally refuses to report findings that statistics cannot support.**
 
@@ -10,7 +10,7 @@
 [![Ollama](https://img.shields.io/badge/Ollama-local--first-000000?style=for-the-badge&logo=ollama&logoColor=white)](https://ollama.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 
-**[📐 Full Agentic Architecture →](./AGENTIC_ARCHITECTURE.md)** &nbsp;|&nbsp; **[🎨 Design System →](./DESIGN_SYSTEM.md)** &nbsp;|&nbsp; **[🏗️ System Architecture →](./ARCHITECTURE.md)**
+**[Full Agentic Architecture →](./AGENTIC_ARCHITECTURE.md)** &nbsp;|&nbsp; **[Design System →](./DESIGN_SYSTEM.md)** &nbsp;|&nbsp; **[System Architecture →](./ARCHITECTURE.md)**
 
 </div>
 
@@ -34,64 +34,64 @@ This is enforced at the **data model level** — not as a rule the LLM is asked 
 ## Architecture in One Diagram
 
 ```
-  CSV Upload
-      │
-      ▼
-┌─────────────┐    ┌─────────────┐
-│  A0 Janitor │───▶│ A1 Profiler │  ◀── Fully Deterministic (No LLM)
-└─────────────┘    └──────┬──────┘
-                          │ Profile JSON (schema only, no raw data)
-                          ▼
-                   ┌─────────────┐    ┌──────────────┐
-                   │ A2 Proposer │◀───│  RAG: Data   │  ◀── LLM + RAG
-                   │    (LLM)    │    │  Dictionary  │
-                   └──────┬──────┘
-                          │ Hypotheses
-                          ▼
-                   ┌─────────────┐
-                   │ A3 Registrar│  ◀── FREEZE POINT 🔒
-                   │ [IMMUTABLE] │       No new hypotheses after this
-                   └──────┬──────┘
-                          │ Registered H01...H12
-                          ▼
-              ┌───────────────────────┐
-              │   A4 Executor (LLM)   │  ReAct Loop: Think→Code→Run→Fix
-              │   + Secure Sandbox    │  (up to 3 self-repair attempts)
-              └───────────┬───────────┘
-                          │ Raw data (group_a, group_b, x_values...)
-                          ▼
-              ┌───────────────────────┐
-              │  A5 Statistician      │  ◀── Fully Deterministic
-              │  - Assumption checks  │       Welch / Mann-Whitney / Chi²
-              │  - Test selection     │       Cohen's d / Cramér's V
-              │  - BH FDR correction  │       licensed_text generated here
-              └───────────┬───────────┘
-                          │ licensed_text (ONLY text A6 can use)
-                          ▼
-              ┌───────────────────────┐
-              │   A6 Reporter (LLM)   │  Grounded — cannot cite unverified facts
-              └───────────┬───────────┘
-                          │ Draft report
-                          ▼
-              ┌───────────────────────┐
-              │  A7 Adversary (LLM)   │  Red-team: finds causal language,
-              │  [Red Team Agent]     │  phantom findings, effect overstatement
-              └───────────┬───────────┘
-                   Pass ◀─┤─▶ Fail → A6 rewrites (max 2 rounds)
-                          │
-                          ▼
-                    ✅ FINAL REPORT
-                    (HTML + Jupyter Notebook)
+ CSV Upload
+ │
+ ▼
+┌─────────────┐ ┌─────────────┐
+│ A0 Janitor │───▶│ A1 Profiler │ ◀── Fully Deterministic (No LLM)
+└─────────────┘ └──────┬──────┘
+ │ Profile JSON (schema only, no raw data)
+ ▼
+ ┌─────────────┐ ┌──────────────┐
+ │ A2 Proposer │◀───│ RAG: Data │ ◀── LLM + RAG
+ │ (LLM) │ │ Dictionary │
+ └──────┬──────┘
+ │ Hypotheses
+ ▼
+ ┌─────────────┐
+ │ A3 Registrar│ ◀── FREEZE POINT
+ │ [IMMUTABLE] │ No new hypotheses after this
+ └──────┬──────┘
+ │ Registered H01...H12
+ ▼
+ ┌───────────────────────┐
+ │ A4 Executor (LLM) │ ReAct Loop: Think→Code→Run→Fix
+ │ + Secure Sandbox │ (up to 3 self-repair attempts)
+ └───────────┬───────────┘
+ │ Raw data (group_a, group_b, x_values...)
+ ▼
+ ┌───────────────────────┐
+ │ A5 Statistician │ ◀── Fully Deterministic
+ │ - Assumption checks │ Welch / Mann-Whitney / Chi²
+ │ - Test selection │ Cohen's d / Cramér's V
+ │ - BH FDR correction │ licensed_text generated here
+ └───────────┬───────────┘
+ │ licensed_text (ONLY text A6 can use)
+ ▼
+ ┌───────────────────────┐
+ │ A6 Reporter (LLM) │ Grounded — cannot cite unverified facts
+ └───────────┬───────────┘
+ │ Draft report
+ ▼
+ ┌───────────────────────┐
+ │ A7 Adversary (LLM) │ Red-team: finds causal language,
+ │ [Red Team Agent] │ phantom findings, effect overstatement
+ └───────────┬───────────┘
+ Pass ◀─┤─▶ Fail → A6 rewrites (max 2 rounds)
+ │
+ ▼
+ FINAL REPORT
+ (HTML + Jupyter Notebook)
 
  ─── Parallel Agents ─────────────────────────────────────
-  A10 Visual Analyst  →  Plotly dashboard (runs after A0)
-  A9  SQL Converter   →  NL→SQL + Mermaid flowchart (on-demand)
-  A8  Meta-Agent      →  Self-improving loop (background, scheduled)
+ A10 Visual Analyst → Plotly dashboard (runs after A0)
+ A9 SQL Converter → NL→SQL + Mermaid flowchart (on-demand)
+ A8 Meta-Agent → Self-improving loop (background, scheduled)
 ```
 
 ---
 
-## 📐 [Full Agentic Architecture Document →](./AGENTIC_ARCHITECTURE.md)
+## [Full Agentic Architecture Document →](./AGENTIC_ARCHITECTURE.md)
 
 The architecture document covers everything a senior engineer or professor needs to understand or replicate this system:
 
@@ -110,7 +110,7 @@ The architecture document covers everything a senior engineer or professor needs
 
 ---
 
-## ✨ Feature Highlights
+## Feature Highlights
 
 | Feature | How It Works |
 |---------|-------------|
@@ -126,16 +126,16 @@ The architecture document covers everything a senior engineer or professor needs
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Python 3.12+
 - Node.js 20+
 - A model host — one of:
-  - **[Ollama](https://ollama.com) running locally** (recommended). Nothing leaves
-    the machine, which is the configuration the project's privacy claim depends on.
-  - An **Ollama Cloud** key, for when the data is not sensitive.
-  - A **Groq** or **Gemini** key as a fallback.
+ - **[Ollama](https://ollama.com) running locally** (recommended). Nothing leaves
+ the machine, which is the configuration the project's privacy claim depends on.
+ - An **Ollama Cloud** key, for when the data is not sensitive.
+ - A **Groq** or **Gemini** key as a fallback.
 
 ### Backend
 
@@ -170,7 +170,7 @@ curl http://localhost:8000/api/health
 
 ---
 
-## 📡 API Reference
+## API Reference
 
 ### Core Flow
 
@@ -180,8 +180,8 @@ curl -X POST http://localhost:8000/api/sessions/create
 
 # 2. Upload CSV and stream the pipeline
 curl -X POST http://localhost:8000/api/sessions/{id}/upload \
-  -F "file=@your_data.csv" \
-  --no-buffer   # SSE stream
+ -F "file=@your_data.csv" \
+ --no-buffer # SSE stream
 
 # 3. Get the complete report
 curl http://localhost:8000/api/sessions/{id}/report
@@ -209,7 +209,7 @@ curl http://localhost:8000/api/sessions/{id}/report
 
 ---
 
-## 🖥️ The Interface
+## The Interface
 
 Eight screens, built around one interaction: **every sentence in the report links
 to the ledger entry that licensed it.** Click a claim and the receipt opens — the
@@ -245,82 +245,82 @@ contrast rather than chosen by eye.
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 Ledger_agent/
 │
-├── 📄 README.md                      ← You are here
-├── 📐 AGENTIC_ARCHITECTURE.md        ← Full architecture deep-dive
-├── 🎨 DESIGN_SYSTEM.md               ← UI/UX specifications
-├── 🏗️  ARCHITECTURE.md               ← System overview
+├── README.md ← You are here
+├── AGENTIC_ARCHITECTURE.md ← Full architecture deep-dive
+├── DESIGN_SYSTEM.md ← UI/UX specifications
+├── ARCHITECTURE.md ← System overview
 │
 ├── backend/
-│   ├── main.py                       ← FastAPI app + all routes
-│   ├── requirements.txt
-│   ├── .env.example                  ← Environment variable template
-│   │
-│   ├── core/
-│   │   ├── ledger.py                 ← Central Pydantic data model
-│   │   ├── state_machine.py          ← Async SSE pipeline orchestrator
-│   │   ├── sandbox.py                ← Secure Python executor
-│   │   ├── llm_client.py             ← Groq → Gemini fallback client
-│   │   └── session_store.py          ← In-memory session registry
-│   │
-│   ├── agents/
-│   │   ├── a0_janitor.py             ← Data cleaning + domain detection
-│   │   ├── a1_profiler.py            ← Deterministic statistical profiler
-│   │   ├── a2_proposer.py            ← LLM hypothesis proposer + RAG
-│   │   ├── a3_registrar.py           ← Registry freeze + hash
-│   │   ├── a4_executor.py            ← ReAct code executor + self-repair
-│   │   ├── a5_statistician.py        ← Test selection + FDR correction
-│   │   ├── a6_reporter.py            ← Grounded prose reporter
-│   │   ├── a7_adversary.py           ← Red-team auditor
-│   │   ├── a8_meta_agent.py          ← Self-improving loop
-│   │   ├── a9_sql_converter.py       ← NL → SQL + Mermaid
-│   │   └── a10_visual_analyst.py     ← Full Plotly dashboard
-│   │
-│   ├── rag/
-│   │   └── document_ingestor.py      ← Document parsing + retrieval
-│   │
-│   ├── observability/
-│   │   ├── models.py                 ← SQLAlchemy ORM models
-│   │   └── telemetry.py              ← Context-manager event logger
-│   │
-│   └── prompts/
-│       └── templates.py              ← Versioned, A8-evolvable prompts
+│ ├── main.py ← FastAPI app + all routes
+│ ├── requirements.txt
+│ ├── .env.example ← Environment variable template
+│ │
+│ ├── core/
+│ │ ├── ledger.py ← Central Pydantic data model
+│ │ ├── state_machine.py ← Async SSE pipeline orchestrator
+│ │ ├── sandbox.py ← Secure Python executor
+│ │ ├── llm_client.py ← Groq → Gemini fallback client
+│ │ └── session_store.py ← In-memory session registry
+│ │
+│ ├── agents/
+│ │ ├── a0_janitor.py ← Data cleaning + domain detection
+│ │ ├── a1_profiler.py ← Deterministic statistical profiler
+│ │ ├── a2_proposer.py ← LLM hypothesis proposer + RAG
+│ │ ├── a3_registrar.py ← Registry freeze + hash
+│ │ ├── a4_executor.py ← ReAct code executor + self-repair
+│ │ ├── a5_statistician.py ← Test selection + FDR correction
+│ │ ├── a6_reporter.py ← Grounded prose reporter
+│ │ ├── a7_adversary.py ← Red-team auditor
+│ │ ├── a8_meta_agent.py ← Self-improving loop
+│ │ ├── a9_sql_converter.py ← NL → SQL + Mermaid
+│ │ └── a10_visual_analyst.py ← Full Plotly dashboard
+│ │
+│ ├── rag/
+│ │ └── document_ingestor.py ← Document parsing + retrieval
+│ │
+│ ├── observability/
+│ │ ├── models.py ← SQLAlchemy ORM models
+│ │ └── telemetry.py ← Context-manager event logger
+│ │
+│ └── prompts/
+│ └── templates.py ← Versioned, A8-evolvable prompts
 │
 └── frontend/
-    ├── src/
-    │   ├── App.jsx                   ← Hash router + boot sequence
-    │   ├── index.css                 ← Tailwind v4 @theme — every design token
-    │   │
-    │   ├── lib/
-    │   │   ├── api.js                ← REST + SSE-over-POST reader
-    │   │   ├── store.js              ← Zustand session state
-    │   │   ├── report.js             ← HTML sanitiser + claim→entry binding
-    │   │   ├── agents.js             ← The agent roster, one source of truth
-    │   │   ├── highlight.js          ← Small Python/SQL tokeniser
-    │   │   └── format.js             ← p-values, effect sizes, durations
-    │   │
-    │   ├── components/
-    │   │   ├── views/                ← Setup, Pipeline, Report, Explore,
-    │   │   │                             Adversary, SqlLab, Ask, Telemetry
-    │   │   ├── charts/               ← BHStaircase, EffectForest,
-    │   │   │                             PValueHistogram, AgentTimings, …
-    │   │   ├── ui/                   ← Button, StatusPill, CodeBlock,
-    │   │   │                             chart.jsx (shadcn/Recharts primitives)
-    │   │   ├── LedgerCard.jsx        ← The receipt behind a claim
-    │   │   ├── BootSequence.jsx      ← Cinematic load
-    │   │   └── CommandPalette.jsx    ← ⌘K
-    │   └── ...
-    ├── package.json
-    └── vite.config.js
+ ├── src/
+ │ ├── App.jsx ← Hash router + boot sequence
+ │ ├── index.css ← Tailwind v4 @theme — every design token
+ │ │
+ │ ├── lib/
+ │ │ ├── api.js ← REST + SSE-over-POST reader
+ │ │ ├── store.js ← Zustand session state
+ │ │ ├── report.js ← HTML sanitiser + claim→entry binding
+ │ │ ├── agents.js ← The agent roster, one source of truth
+ │ │ ├── highlight.js ← Small Python/SQL tokeniser
+ │ │ └── format.js ← p-values, effect sizes, durations
+ │ │
+ │ ├── components/
+ │ │ ├── views/ ← Setup, Pipeline, Report, Explore,
+ │ │ │ Adversary, SqlLab, Ask, Telemetry
+ │ │ ├── charts/ ← BHStaircase, EffectForest,
+ │ │ │ PValueHistogram, AgentTimings, …
+ │ │ ├── ui/ ← Button, StatusPill, CodeBlock,
+ │ │ │ chart.jsx (shadcn/Recharts primitives)
+ │ │ ├── LedgerCard.jsx ← The receipt behind a claim
+ │ │ ├── BootSequence.jsx ← Cinematic load
+ │ │ └── CommandPalette.jsx ← ⌘K
+ │ └── ...
+ ├── package.json
+ └── vite.config.js
 ```
 
 ---
 
-## 🔑 Environment Variables
+## Environment Variables
 
 One model host is required. Everything else has a working default.
 
@@ -337,7 +337,7 @@ One model host is required. Everything else has a working default.
 
 ---
 
-## 🧪 Evaluation Framework
+## Evaluation Framework
 
 Ledger is evaluated against 4 benchmark suites (see [Architecture Doc](./AGENTIC_ARCHITECTURE.md#evaluation-framework)):
 
@@ -350,7 +350,7 @@ Ledger is evaluated against 4 benchmark suites (see [Architecture Doc](./AGENTIC
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feat/your-feature`
@@ -361,7 +361,7 @@ Please read [AGENTIC_ARCHITECTURE.md](./AGENTIC_ARCHITECTURE.md) before contribu
 
 ---
 
-## 📄 License
+## License
 
 MIT © 2026 [kumardhruv88](https://github.com/kumardhruv88)
 
@@ -369,7 +369,7 @@ MIT © 2026 [kumardhruv88](https://github.com/kumardhruv88)
 
 <div align="center">
 
-**[📐 Read the Full Architecture →](./AGENTIC_ARCHITECTURE.md)**
+**[Read the Full Architecture →](./AGENTIC_ARCHITECTURE.md)**
 
 *Built as a B.Tech Project (BTP) — solving the multiple comparisons problem in LLM-based data analysis.*
 

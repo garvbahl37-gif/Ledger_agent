@@ -8,6 +8,7 @@ import { useSession } from '../../lib/store'
 import { formatBytes } from '../../lib/format'
 import Button from '../ui/Button'
 import { Card } from '../ui/Card'
+import BackendStatus from '../BackendStatus'
 
 const ACCEPT = '.csv,.tsv,.xlsx,.xls,text/csv,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
 
@@ -78,6 +79,8 @@ export default function SetupView({ onStarted }) {
           after the lock, which is what stops the analysis from being steered by its own results.
         </p>
       </header>
+
+      <BackendStatus className="mt-5" />
 
       <div className="mt-8 grid gap-5 lg:grid-cols-[1.35fr_1fr]">
         {/* ── Source ──────────────────────────────────────── */}

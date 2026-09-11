@@ -29,6 +29,9 @@ async function request(path, options = {}) {
       ...options,
     })
   } catch (cause) {
+    if (cause?.name === 'AbortError') {
+      throw new ApiError(`${API_BASE} did not respond in time.`, 0, 'timeout')
+    }
     throw new ApiError(
       `Can't reach the Ledger API at ${API_BASE}. Start the backend with: uvicorn main:app --port 8000`,
       0,
@@ -53,7 +56,41 @@ async function request(path, options = {}) {
 
 /* ─── Health & sessions ──────────────────────────────────────────── */
 
-export const health        = () => request('/api/health')
+/**
+ * True when this page is served over HTTPS but the engine is configured on
+ * plain HTTP. Browsers block that combination outright as mixed content, so the
+ * request can never succeed and the UI should say why rather than time out.
+ */
+export function isMixedContentBlocked() {
+  return (
+    typeof window !== 'undefined' &&
+    window.location.protocol === 'https:' &&
+    API_BASE.startsWith('http://')
+  )
+}
+
+/**
+ * Health check with a hard timeout. Without one, a request to an unreachable
+ * host can hang until the browser's own (very long) network timeout, leaving
+ * the interface reporting "checking" indefinitely.
+ */
+export function health(timeoutMs = 6000) {
+  if (isMixedContentBlocked()) {
+    return Promise.reject(
+      new ApiError(
+        `This page is served over HTTPS, so the browser blocks requests to ${API_BASE}. ` +
+        'Point VITE_API_BASE at an HTTPS engine, or run the interface locally.',
+        0,
+        'mixed-content',
+      ),
+    )
+  }
+
+  const controller = new AbortController()
+  const timer = setTimeout(() => controller.abort(), timeoutMs)
+  return request('/api/health', { signal: controller.signal })
+    .finally(() => clearTimeout(timer))
+}
 export const createSession = () => request('/api/sessions/create', { method: 'POST' })
 export const getStatus     = (id) => request(`/api/sessions/${id}/status`)
 export const getReport     = (id) => request(`/api/sessions/${id}/report`)

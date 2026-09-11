@@ -18,7 +18,11 @@ export default function BackendStatus({ className }) {
     let alive = true
     api.health()
       .then((h) => alive && setState({ status: 'up', health: h }))
-      .catch((err) => alive && setState({ status: 'down', message: err.message }))
+      .catch((err) => alive && setState({
+        status: 'down',
+        message: err.message,
+        mixed: err.detail === 'mixed-content',
+      }))
     return () => { alive = false }
   }, [])
 
@@ -50,17 +54,26 @@ export default function BackendStatus({ className }) {
         <AlertTriangle size={15} className="mt-0.5 shrink-0 text-warn-text" aria-hidden="true" />
         <div className="min-w-0">
           <p className="text-[13.5px] font-semibold text-warn-text">
-            The analysis engine isn't reachable
+            {state.mixed
+              ? 'This hosted page cannot reach a local engine'
+              : "The analysis engine isn't reachable"}
           </p>
           <p className="mt-1 text-[12.5px] leading-relaxed text-graphite">
-            This page is the interface. The agents, the sandbox and the statistics run in a
-            Python service, and nothing can be analysed until one is running.
+            {state.mixed
+              ? `This page is served over HTTPS, so the browser blocks requests to ${api.API_BASE} as mixed content. The request never leaves the page — running the engine locally will not change that.`
+              : 'This page is the interface. The agents, the sandbox and the statistics run in a Python service, and nothing can be analysed until one is running.'}
           </p>
           <p className="mt-2 text-[12px] leading-relaxed text-graphite">
-            Run it locally:
+            {state.mixed ? 'Run the whole thing locally instead:' : 'Run it locally:'}
           </p>
           <pre className="mt-1 overflow-x-auto rounded-lg bg-paper px-2.5 py-2 font-mono text-[11.5px] leading-relaxed text-graphite ring-1 ring-silver">
-{`cd backend
+{state.mixed
+  ? `git clone https://github.com/garvbahl37-gif/Ledger_agent
+cd Ledger_agent/backend && pip install -r requirements.txt
+cp .env.example .env      # set OLLAMA_HOST or a provider key
+uvicorn main:app --port 8000
+cd ../frontend && npm install && npm run dev`
+  : `cd backend
 pip install -r requirements.txt
 cp .env.example .env      # set OLLAMA_HOST or a provider key
 uvicorn main:app --port 8000`}

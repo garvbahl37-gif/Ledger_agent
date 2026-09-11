@@ -6,8 +6,8 @@
 
 [![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
-[![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
-[![Groq](https://img.shields.io/badge/Groq-LLM-F55036?style=for-the-badge)](https://groq.com)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
+[![Ollama](https://img.shields.io/badge/Ollama-local--first-000000?style=for-the-badge&logo=ollama&logoColor=white)](https://ollama.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 
 **[📐 Full Agentic Architecture →](./AGENTIC_ARCHITECTURE.md)** &nbsp;|&nbsp; **[🎨 Design System →](./DESIGN_SYSTEM.md)** &nbsp;|&nbsp; **[🏗️ System Architecture →](./ARCHITECTURE.md)**
@@ -131,7 +131,11 @@ The architecture document covers everything a senior engineer or professor needs
 ### Prerequisites
 - Python 3.12+
 - Node.js 20+
-- A [Groq API Key](https://console.groq.com) (free tier is sufficient)
+- A model host — one of:
+  - **[Ollama](https://ollama.com) running locally** (recommended). Nothing leaves
+    the machine, which is the configuration the project's privacy claim depends on.
+  - An **Ollama Cloud** key, for when the data is not sensitive.
+  - A **Groq** or **Gemini** key as a fallback.
 
 ### Backend
 
@@ -139,9 +143,14 @@ The architecture document covers everything a senior engineer or professor needs
 cd backend
 pip install -r requirements.txt
 cp .env.example .env
-# Edit .env and add your GROQ_API_KEY
+# Set ONE of: OLLAMA_HOST (local), OLLAMA_API_KEY, GROQ_API_KEY, GEMINI_API_KEY
 uvicorn main:app --reload --port 8000
 ```
+
+Providers are tried in order: **Ollama → Groq → Gemini**. A local Ollama daemon
+takes priority over the hosted service. If a model is unavailable to your key
+(Ollama Cloud answers `402` for models outside your tier), the client falls back
+to `OLLAMA_MODEL` rather than failing the run.
 
 ### Frontend
 
@@ -156,7 +165,7 @@ npm run dev
 
 ```bash
 curl http://localhost:8000/api/health
-# {"status":"healthy","groq_configured":true,"active_sessions":0}
+# {"status":"healthy","groq_configured":false,"active_sessions":0}
 ```
 
 ---
@@ -190,8 +199,49 @@ curl http://localhost:8000/api/sessions/{id}/report
 | `POST` | `/api/sessions/{id}/sql` | NL → SQL + Mermaid flowchart |
 | `POST` | `/api/sessions/{id}/hypotheses` | Add user hypotheses (pre-freeze) |
 | `POST` | `/api/sessions/{id}/chat` | Grounded multi-turn Q&A |
+| `GET` | `/api/sessions/{id}/telemetry` | Agent, hypothesis and adversary events for one session |
+| `GET` | `/api/sessions/{id}/notebook` | Download the session as a runnable Jupyter notebook |
+| `GET` | `/api/sessions/{id}/export/report.html` | Download a standalone HTML report |
 | `GET` | `/api/admin/sessions` | List all active sessions |
+| `GET` | `/api/admin/telemetry/overview` | Cross-session telemetry + recurring failure patterns |
+| `GET` | `/api/admin/prompt-versions` | A8's prompt evolution history |
 | `POST` | `/api/admin/meta-agent/run` | Trigger A8 self-improvement |
+
+---
+
+## 🖥️ The Interface
+
+Eight screens, built around one interaction: **every sentence in the report links
+to the ledger entry that licensed it.** Click a claim and the receipt opens — the
+code that ran, the assumptions that were checked, the test those assumptions
+selected, the effect size, and the FDR-adjusted p-value.
+
+| Screen | What it does |
+|--------|--------------|
+| **Data** | Upload a CSV/Excel file or link a Google Sheet. Attach a data dictionary for RAG. Add your own hypotheses — before the freeze, which is the only time the registry will accept them. |
+| **Pipeline** | The agents running live over SSE, with the registry filling up and the freeze landing in real time. |
+| **Report** | The prose, the ledger, and three charts: the Benjamini–Hochberg staircase, effect sizes ordered by magnitude, and the p-value distribution. |
+| **Explore** | A10's exploratory dashboard — clearly marked as *not findings*, because nothing there is corrected for multiple comparisons. |
+| **Red team** | What A7 flagged, whether or not the rewrite resolved it. |
+| **Query** | Ask in English, get SQL, a Mermaid query plan, and the rows. |
+| **Ask** | Follow-up questions answered from the ledger only. |
+| **Telemetry** | Timings, tokens, failures, and the A8 self-improvement loop. |
+
+### The Benjamini–Hochberg staircase
+
+The chart that shows the architecture. Every registered hypothesis is plotted
+against the critical line `i·q/m` — including the ones that failed. `m` is fixed
+at the freeze, before any result is seen, so it sets how permissive the threshold
+is. Dropping the failures would shrink `m` and raise the line, which is precisely
+what plotting all of them makes impossible to hide.
+
+### Accessibility
+
+Status is never communicated by colour alone. `#059669` (supported) and
+`#e11d48` (error) sit at ΔE 5.8 under deuteranopia — indistinguishable for
+roughly 8% of men — so every verdict ships with an icon and a word. The
+categorical chart palette is validated for CVD separation, lightness band and
+contrast rather than chosen by eye.
 
 ---
 
@@ -242,22 +292,48 @@ Ledger_agent/
 │
 └── frontend/
     ├── src/
-    │   ├── App.jsx                   ← Root component
-    │   └── index.css                 ← TailwindCSS v4 + Design System
+    │   ├── App.jsx                   ← Hash router + boot sequence
+    │   ├── index.css                 ← Tailwind v4 @theme — every design token
+    │   │
+    │   ├── lib/
+    │   │   ├── api.js                ← REST + SSE-over-POST reader
+    │   │   ├── store.js              ← Zustand session state
+    │   │   ├── report.js             ← HTML sanitiser + claim→entry binding
+    │   │   ├── agents.js             ← The agent roster, one source of truth
+    │   │   ├── highlight.js          ← Small Python/SQL tokeniser
+    │   │   └── format.js             ← p-values, effect sizes, durations
+    │   │
+    │   ├── components/
+    │   │   ├── views/                ← Setup, Pipeline, Report, Explore,
+    │   │   │                             Adversary, SqlLab, Ask, Telemetry
+    │   │   ├── charts/               ← BHStaircase, EffectForest,
+    │   │   │                             PValueHistogram, AgentTimings, …
+    │   │   ├── ui/                   ← Button, StatusPill, CodeBlock,
+    │   │   │                             chart.jsx (shadcn/Recharts primitives)
+    │   │   ├── LedgerCard.jsx        ← The receipt behind a claim
+    │   │   ├── BootSequence.jsx      ← Cinematic load
+    │   │   └── CommandPalette.jsx    ← ⌘K
+    │   └── ...
     ├── package.json
-    ├── vite.config.js
-    └── tailwind.config.js
+    └── vite.config.js
 ```
 
 ---
 
 ## 🔑 Environment Variables
 
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `GROQ_API_KEY` | **Yes** | — | Groq API key (LLM inference for A2, A4, A6, A7, A8, A9) |
-| `GEMINI_API_KEY` | No | — | Gemini fallback if Groq is unavailable |
-| `DATABASE_URL` | No | `sqlite:///./ledger_telemetry.db` | Telemetry database |
+One model host is required. Everything else has a working default.
+
+| Variable | Description |
+|----------|-------------|
+| `OLLAMA_HOST` | Local Ollama daemon, e.g. `http://localhost:11434`. Preferred — no data egress. |
+| `OLLAMA_API_KEY` | Ollama Cloud key. Used only when `OLLAMA_HOST` is unset. |
+| `OLLAMA_MODEL` | General reasoning — A2, A6, A7, A8. Default `gpt-oss:120b`. |
+| `OLLAMA_CODE_MODEL` | Code generation — A4, A9. Falls back to `OLLAMA_MODEL` if out of tier. |
+| `OLLAMA_TIMEOUT_S` | Request timeout in seconds. Default `180`. |
+| `GROQ_API_KEY` | Fallback provider. |
+| `GEMINI_API_KEY` | Second fallback. |
+| `DATABASE_URL` | Telemetry database. Default `sqlite:///./ledger_telemetry.db`. |
 
 ---
 

@@ -82,13 +82,24 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+# Browsers refuse "*" together with credentials, and a deployed engine is
+# talking to exactly one known interface, so the allowed origins are read from
+# the environment. ALLOWED_ORIGINS is a comma-separated list; unset means allow
+# anything, which is the right default for local development only.
+_origins_env = os.getenv("ALLOWED_ORIGINS", "").strip()
+ALLOWED_ORIGINS = (
+    [o.strip().rstrip("/") for o in _origins_env.split(",") if o.strip()]
+    if _origins_env else ["*"]
+)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],   # Restrict in production to your Vercel domain
-    allow_credentials=True,
+    allow_origins=ALLOWED_ORIGINS,
+    allow_credentials=_origins_env != "",
     allow_methods=["*"],
     allow_headers=["*"],
 )
+logger.info("CORS allowed origins: %s", ALLOWED_ORIGINS)
 
 
 # ─── Request/Response Models ───────────────────────────────────────────────────
@@ -128,11 +139,33 @@ def root():
 
 @app.get("/api/health")
 def health():
+    """
+    Liveness plus enough configuration detail for the interface to explain
+    itself. `model_provider` is what the client needs most: a reachable engine
+    with no provider configured looks healthy and fails at A2.
+    """
+    ollama_local = bool(os.getenv("OLLAMA_HOST"))
+    ollama_cloud = bool(os.getenv("OLLAMA_API_KEY"))
+    groq = bool(os.getenv("GROQ_API_KEY"))
+    gemini = bool(os.getenv("GEMINI_API_KEY"))
+
+    provider = (
+        "ollama-local" if ollama_local
+        else "ollama-cloud" if ollama_cloud
+        else "groq" if groq
+        else "gemini" if gemini
+        else None
+    )
+
     return {
         "status": "healthy",
-        "groq_configured": bool(os.getenv("GROQ_API_KEY")),
-        "gemini_configured": bool(os.getenv("GEMINI_API_KEY")),
+        "model_provider": provider,
+        "model_configured": provider is not None,
+        "ollama_configured": ollama_local or ollama_cloud,
+        "groq_configured": groq,
+        "gemini_configured": gemini,
         "active_sessions": len(session_store.list_sessions()),
+        "version": app.version,
     }
 
 

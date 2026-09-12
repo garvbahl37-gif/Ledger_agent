@@ -1,22 +1,29 @@
+# Runtime dependencies for the Ledger engine.
+#
+# Deliberately minimal so the service builds and boots in a 512MB container.
+# Anything imported lazily inside a try/except lives in requirements-optional.txt
+# instead — see the note there before adding something here.
+
+# ── API ───────────────────────────────────────────────────────────────────────
 fastapi==0.110.0
 uvicorn[standard]==0.27.1
+python-multipart==0.0.9
+python-dotenv==1.0.1
+
+# ── Data + statistics (the deterministic core — A1, A5) ───────────────────────
 pandas==2.2.1
 numpy==1.26.4
 scipy==1.12.0
 statsmodels==0.14.1
-pingouin==0.5.4
-groq==0.4.2
-google-generativeai==0.4.1
-python-dotenv==1.0.1
-sqlalchemy==2.0.28
-aiofiles==23.2.1
-python-multipart==0.0.9
 openpyxl==3.1.2
+
+# ── Visualisation (A10) ───────────────────────────────────────────────────────
 plotly==5.20.0
-kaleido==0.2.1
-sentence-transformers==2.7.0
-faiss-cpu==1.8.0
-networkx==3.3
-Pillow==10.3.0
-pydantic-settings==2.2.1
+
+# ── Model providers ───────────────────────────────────────────────────────────
+# Ollama is reached over plain HTTP, so it needs nothing beyond requests.
 requests==2.32.3
+groq==0.4.2
+
+# ── Telemetry ─────────────────────────────────────────────────────────────────
+sqlalchemy==2.0.28

@@ -1,0 +1,16 @@
+# Optional extras. The engine runs without any of these.
+#
+# Every one is imported lazily inside a try/except, so a missing package
+# degrades a feature rather than breaking the service. They are separated out
+# because sentence-transformers alone pulls in torch (~2.5GB), which does not
+# fit a small container and made deploys take tens of minutes.
+
+# Semantic retrieval over an uploaded data dictionary (A2's RAG context).
+# Without it, rag/document_ingestor.py falls back to keyword retrieval.
+sentence-transformers==2.7.0
+
+# Gemini, used only as a third-choice fallback after Ollama and Groq.
+google-generativeai==0.4.1
+
+# Agent tracing to smith.langchain.com. Needs LANGSMITH_API_KEY to do anything.
+langsmith==0.1.147

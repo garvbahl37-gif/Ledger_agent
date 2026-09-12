@@ -1,0 +1,34 @@
+# Render blueprint for the Ledger engine.
+#
+# The interface deploys separately to Vercel from frontend/; this is only the
+# Python service that runs the agents, the sandbox and the statistics.
+services:
+  - type: web
+    name: ledger-engine
+    runtime: python
+    plan: free
+    region: oregon
+    rootDir: backend
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    # A pipeline run streams for minutes, so keep a single worker and let the
+    # SSE generator hold the connection rather than timing it out.
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT --timeout-keep-alive 300
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.3"
+      # Set these in the Render dashboard, not here — they are secrets.
+      - key: OLLAMA_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: OLLAMA_MODEL
+        value: gpt-oss:120b
+      - key: OLLAMA_CODE_MODEL
+        value: gpt-oss:120b
+      - key: OLLAMA_TIMEOUT_S
+        value: "180"
+      # Comma-separated. Restricts the browser origins that may call the engine.
+      - key: ALLOWED_ORIGINS
+        value: https://ledger-analyst.vercel.app

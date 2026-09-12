@@ -1,17 +1,21 @@
 \documentclass[10pt,twocolumn]{article}
 
 \usepackage[margin=0.75in]{geometry}
-\usepackage{times}
+\usepackage{newtxtext,newtxmath}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{amsmath}
-\usepackage{amssymb}
 \usepackage{url}
+\usepackage{xurl}   % break long URLs anywhere rather than overflowing
 \usepackage[hidelinks]{hyperref}
 \usepackage{caption}
 \usepackage{multirow}
 \usepackage{listings}
 \usepackage{xcolor}
+
+% Run-in headings, defined directly: \titleformat did not take with this class
+% and the headings rendered at body weight.
+\newcommand{\phead}[1]{\smallskip\noindent\textbf{#1.}\hspace{0.6em}\ignorespaces}
 
 \captionsetup{font=small,labelfont=bf,skip=4pt}
 \setlength{\columnsep}{0.28in}
@@ -62,15 +66,15 @@ discretion; Benjamini--Hochberg correction is applied once across the entire
 registered family; and the natural-language report can only emit sentences the
 statistical layer has licensed.
 
-We evaluate on 510 synthetic tables with ground truth known by construction,
-and report two results---one confirming the design, one undermining it.
+We evaluate on 510 synthetic tables with ground truth known by construction.
+One result confirms the design and one undermines it.
 
 First, session-level correction works. On 200 null tables an exhaustive
-uncorrected analyst---the behaviour of current agent pipelines---claims a false
-finding on \textbf{81.0\%} of tables; the same test machinery under one
-session-level correction claims one on \textbf{2.5\%}. The cost is six points of
-power and is concentrated entirely at small effects: above $d = 0.5$ it is under
-one percentage point.
+uncorrected analyst, which is how current agent pipelines behave, claims a false
+finding on \textbf{81.0\%} of tables. The same test machinery under one
+session-level correction claims one on \textbf{2.5\%}. That costs six points of
+power, and the cost falls almost entirely on small effects: above $d = 0.5$ it
+is under one percentage point.
 
 Second, and less comfortably, pre-registration by a language model carries a
 severe hidden cost. When the registry is supplied by the proposer rather than by
@@ -78,12 +82,11 @@ exhaustive enumeration, false discovery control becomes near-perfect (zero false
 findings across 25 null tables) but power collapses to \textbf{0.13}. We localise
 the failure precisely: power \emph{conditional} on a relationship having been
 registered is \textbf{0.92}, while the proposer registers only \textbf{14\%} of
-the relationships that exist. The bottleneck is not the statistics but the
-blindness that makes the statistics valid---the proposer is restricted to
-marginal summaries precisely so that it cannot peek, and that restriction is
-what prevents it from finding anything. We quantify this tension, which we
-believe is intrinsic to pre-registration in autonomous agents, and release the
-generators, the harness and the system.
+the relationships that exist. The statistics are working; the coverage is not.
+The proposer is restricted to marginal summaries so that it cannot peek at the
+data, and that same restriction leaves it with no way to tell which pairs are
+worth registering. We quantify this tension and release the generators, the
+harness and the system.
 \end{abstract}
 
 \section{Introduction}
@@ -110,12 +113,12 @@ reproduce the dispersion in effect sizes and conclusions observed in human
 many-analyst studies, and that the dispersion is steerable by changing the
 model or the assigned persona.
 
-\paragraph{The premise of this work.} Statistical discipline is not a feature to
+\phead{The premise of this work} Statistical discipline is not a feature to
 be added to an automated analyst afterwards. It has to be the thing that decides
 what the analyst is allowed to say. A system that can be talked out of its
 conclusions by a fluent narrative is not an analyst.
 
-\paragraph{Contributions.}
+\phead{Contributions}
 \begin{enumerate}\itemsep1pt
 \item \textbf{An architecture in which post-hoc selection is a runtime error,
 not a discouraged practice.} Hypotheses are registered and hashed before any
@@ -133,10 +136,9 @@ ground truth known by construction rather than by adjudication
 (\S\ref{sec:protocol}).
 
 \item \textbf{A measured decomposition of where the control comes from}, a power
-curve stating what correction costs in sensitivity, and---the result we did not
-expect---a quantification of the coverage--validity tension that makes
-LLM pre-registration far more expensive than correction alone
-(\S\ref{sec:results}).
+curve stating what correction costs in sensitivity, and a quantification of the
+coverage--validity tension that makes LLM pre-registration far more expensive
+than correction alone. We did not expect the third result (\S\ref{sec:results}).
 \end{enumerate}
 
 We are explicit about what is \emph{not} new here. Benjamini--Hochberg is from
@@ -147,7 +149,7 @@ it works.
 
 \section{Related Work}
 
-\paragraph{Automated analysis and insight discovery.}
+\phead{Automated analysis and insight discovery}
 AutoML systems such as Auto-sklearn~\cite{feurer2015} automate model selection
 but address prediction rather than explanation. Profiling tools of the
 ydata-profiling lineage generate exhaustive descriptive statistics with no
@@ -155,10 +157,10 @@ notion of which findings matter; because they make no significance claims, they
 have no false-discovery exposure and no way to direct attention.
 QuickInsights~\cite{ding2019} introduced automatic discovery of salient patterns
 and explicitly acknowledged the significance-testing problem, applying
-corrections within insight types---the closest pre-LLM work to our concern,
+corrections within insight types. It is the closest pre-LLM work to our concern,
 though it cannot generate or execute novel analysis code.
 
-\paragraph{Language-model data agents.}
+\phead{Language-model data agents}
 InsightPilot~\cite{ma2023} couples a model to an insight engine to steer
 exploration; Data Interpreter~\cite{hong2024} demonstrates end-to-end agentic
 data-science pipelines with code execution. Both substantially advance what such
@@ -166,23 +168,23 @@ systems can attempt. Neither controls false discovery across the exploration
 session, and neither prevents post-hoc selection of hypotheses.
 BLADE~\cite{gu2024blade} benchmarks agents against expert-validated analytic
 decisions and documents that multiple justifiable approaches typically exist for
-a single question---a finding we return to in \S\ref{sec:threats}, because it
-bounds what any deterministic adjudicator can claim.
+a single question. We return to that in \S\ref{sec:threats}, because it bounds
+what any deterministic adjudicator can claim.
 
-\paragraph{Per-test rigour versus session-level validity.}
+\phead{Per-test rigour versus session-level validity}
 The closest contemporary work is Fisher-R1~\cite{miao2026fisher}, which trains
 an agent by reinforcement learning for reliable hypothesis testing and
 introduces P-Bench, 425 tasks in which an agent must select a method, compute a
 $p$-value and draw a conclusion. Fisher-R1 targets a failure mode adjacent to
-ours---inferential errors despite correctly executed analyses---and improves
-substantially on strong baselines. It is, however, scoped to a single
+ours, namely inferential errors despite correctly executed analyses, and
+improves substantially on strong baselines. It is, however, scoped to a single
 hypothesis test per task, and neither its method nor its benchmark addresses
 multiple comparisons across a session. The distinction matters: per-test rigour
 is necessary but not sufficient. An agent that is individually correct on each
 of forty tests, with no accounting for the fact that it ran forty, still
 accumulates false discoveries at the rate our null experiments measure.
 
-\paragraph{Detecting noise-fitting by other means.}
+\phead{Detecting noise-fitting by other means}
 Rewolinski et al.~\cite{rewolinski2026sanity} propose perturbation-based sanity
 checks grounded in the Predictability--Computability--Stability framework, which
 screen whether an agent can distinguish signal from noise and can expose
@@ -191,19 +193,19 @@ a stability argument applied after an analysis is produced, ours is a
 multiplicity argument enforced before any test runs. The two compose, and we
 regard combining them as the natural next step.
 
-\paragraph{Statistical discipline and adaptivity.}
+\phead{Statistical discipline and adaptivity}
 Benjamini--Hochberg~\cite{benjamini1995} supplies the correction we apply.
 False-Positive Psychology~\cite{simmons2011} demonstrated how ordinary analytic
 flexibility produces significant results from nothing; the garden-of-forking-paths
 argument~\cite{gelman2014} showed this occurs even absent intent to game the
-analysis---precisely the situation of an autonomous agent. Theoretical work on
+analysis, which is precisely the situation of an autonomous agent. Work on
 adaptive data analysis~\cite{dwork2015} bounds generalisation error under
 adaptively chosen queries using differential privacy and holdout reuse. Our
 approach differs in kind: rather than tolerating adaptivity and paying for it
 with noise, we eliminate adaptivity by construction over the registered family.
 The resulting guarantee is narrower but legible and cheap to enforce.
 
-\paragraph{Execution-grounded generation.}
+\phead{Execution-grounded generation}
 Self-Debug~\cite{chen2024selfdebug} established that feeding execution results
 back to a model improves generated-code correctness. Ledger extends the
 principle from code correctness to claim correctness: execution decides not
@@ -244,7 +246,7 @@ model proposes and phrases; it never adjudicates.}
 
 A3 runs to completion before A4 starts. Once the registry is frozen no
 hypothesis may be added, and every registered hypothesis must be tested and
-reported on---including those that fail. This is what makes selective reporting
+reported on, including those that fail. This is what makes selective reporting
 impossible: the denominator of the correction is fixed before any result is
 seen. An agent that could append hypotheses mid-session, or quietly drop the
 disappointing ones, would invalidate the correction entirely.
@@ -274,8 +276,9 @@ the test from checked properties rather than from a model's suggestion:
 Shapiro--Wilk and Levene decide between Welch's $t$ and Mann--Whitney $U$;
 expected cell counts decide between $\chi^2$ and Fisher's exact test; for $k>2$
 groups, normality and homogeneity decide between one-way ANOVA and
-Kruskal--Wallis. Every result carries an effect size---Cohen's $d$, Cram\'er's
-$V$, $\eta^2$---because significance without magnitude is not a finding.
+Kruskal--Wallis. Every result carries an effect size (Cohen's $d$, Cram\'er's
+$V$, or $\eta^2$), because significance without magnitude says nothing about
+whether a difference matters.
 
 After all registered tests complete, Benjamini--Hochberg is applied once across
 the entire family at $q = 0.05$. Survivors become claims; everything else is
@@ -298,23 +301,23 @@ The clearest way to evaluate an automated analyst is to give it a dataset with
 nothing in it and count what it claims to find. The correct number is zero, and
 it is zero by construction rather than by judgement.
 
-\paragraph{NULLSET.} 200 tables, 300--2500 rows and 6--14 columns, drawn
+\phead{NULLSET} 200 tables, 300--2500 rows and 6--14 columns, drawn
 independently. Columns carry plausible names, mixed dtypes, skewed and
 heavy-tailed numerics (log-normal, gamma, bimodal, count), unbalanced
 categoricals and missingness up to 12\%, so that the tables are not
 distinguishable from real ones by inspection. A separate 40-table variant adds
-one deterministic nuisance coupling---a derived column---which is genuinely real
-but analytically uninteresting; it is recorded as ground truth so a system is
-not penalised for finding it.
+one deterministic nuisance coupling in the form of a derived column. That
+relationship is genuinely real but analytically uninteresting, and it is
+recorded as ground truth so a system is not penalised for finding it.
 
-\paragraph{PLANTED.} 240 tables containing 2--4 genuine relationships at
+\phead{PLANTED} 240 tables containing 2--4 genuine relationships at
 controlled effect sizes $d \in \{0.2, 0.35, 0.5, 0.8\}$, buried among noise
 columns. Effects are planted in three forms so that test selection is exercised
 rather than a single code path: a mean shift on a binary split, a linear
 association between two numerics (with $r = d/\sqrt{d^2+4}$), and a spread of
 group means across a $k>2$ factor.
 
-\paragraph{Arms.} All arms execute the \emph{same} test-selection code---A5's
+\phead{Arms} All arms execute the \emph{same} test-selection code, A5's
 own selector. This is deliberate and is what makes the comparison meaningful:
 the arms differ only in which hypotheses enter the family and whether the family
 is corrected, never in how a test is chosen or computed.
@@ -337,14 +340,14 @@ removing them would shrink $m$ and make the threshold more permissive for
 everything else, which is the exact accounting error the architecture exists to
 prevent.
 
-\paragraph{Suite accounting.} The deterministic arms run on all 480 tables
+\phead{Suite accounting} The deterministic arms run on all 480 tables
 (200 NULLSET, 240 PLANTED, 40 nuisance). The registry arms re-evaluate a
-50-table subset of those same tables---the same data, a different family---so
-they add no new tables. The coverage diagnostic of \S\ref{sec:coverage} uses 30
+50-table subset of those same tables, using the same data under a different
+family, so they add no new tables. The coverage diagnostic of \S\ref{sec:coverage} uses 30
 further PLANTED tables drawn from a disjoint seed range. The unique total is
 therefore 510 tables, not the sum of the per-experiment counts.
 
-\paragraph{Measures.} We report mean findings claimed per table; the fraction of
+\phead{Measures} We report mean findings claimed per table; the fraction of
 tables on which at least one false finding is claimed (the quantity a
 practitioner cares about); the false discovery proportion
 $\mathrm{FDP} = \mathrm{FP}/\max(\mathrm{claims},1)$, whose expectation BH
@@ -372,15 +375,15 @@ where the correct number of findings is zero, the uncorrected exhaustive analyst
 claims $2.20 \pm 0.25$ findings per table and contaminates \textbf{81.0\%} of
 tables with at least one false discovery. Applying Benjamini--Hochberg once
 across the same candidate set, using the same tests on the same data, reduces
-this to $0.025 \pm 0.022$ claims per table and \textbf{2.5\%} of tables---a
-$32\times$ reduction in claims and a $98\%$ reduction in the fraction of
+this to $0.025 \pm 0.022$ claims per table and \textbf{2.5\%} of tables. That is
+a $32\times$ reduction in claims and a $98\%$ reduction in the fraction of
 contaminated analyses.
 
 We draw attention to the nuisance variant. When a single trivially-real
 relationship is present, the corrected system recovers it on every table
 (power $1.00$) while claiming $1.08$ things in total; the uncorrected system
-recovers it too but buries it among $3.03$ false findings. Correction does not
-merely suppress output---it suppresses the \emph{wrong} output.
+recovers it too, but buries it among $3.03$ false findings. What correction
+removes here is the false output, not the true one.
 
 \begin{table}[t]
 \centering\small
@@ -423,8 +426,8 @@ uncorrected arm sits near $0.41$ throughout.}
 A system that reports nothing is trivially safe and useless, so the interesting
 question is what the discipline costs in sensitivity. Figure~\ref{fig:power}
 answers it. Aggregated over PLANTED, correction reduces power from $0.960$ to
-$0.899$---six percentage points---while reducing the false discovery proportion
-from $0.410$ to $0.056$.
+$0.899$, a loss of six percentage points, while reducing the false discovery
+proportion from $0.410$ to $0.056$.
 
 The aggregate understates how favourable the trade is, because the cost is
 concentrated entirely at small effects:
@@ -492,9 +495,9 @@ smaller family is a genuinely powerful error-control mechanism, and combining it
 with correction is better than either alone.
 
 But power falls from $0.899$ to $0.123$. A system that finds one planted
-relationship in eight is not an analyst. The obvious reading---that discipline
-has made the system too conservative---turns out to be wrong, and the
-instrumentation says why. Over 30 further PLANTED tables containing 92 planted
+relationship in eight is of little use to anyone. The natural reading is that
+discipline has made the system too conservative. The instrumentation shows that
+this reading is wrong. Over 30 further PLANTED tables containing 92 planted
 relationships in total:
 
 \begin{center}\small
@@ -517,11 +520,11 @@ The entire loss is upstream: the proposer registers about nine of roughly
 fifty-two available pairs, and those nine are mostly not the ones that carry
 signal.
 
-\paragraph{Why this is not a prompt-engineering bug.} It would be natural to
+\phead{Why this is not a prompt-engineering bug} It would be natural to
 conclude that the proposer simply needs a better prompt. We think the problem is
-structural. The proposer is shown marginal summaries \emph{only}---types,
-cardinality, missingness, per-column distributions---and that restriction is not
-incidental. It is what makes the correction sound: if hypothesis selection were
+structural. The proposer is shown marginal summaries \emph{only}, meaning column
+types, cardinality, missingness and per-column distributions. That restriction
+is what makes the correction sound. If hypothesis selection were
 informed by the relationships in the data, the registry would be a
 data-dependent choice and the family would no longer be fixed independently of
 the results, exactly the leakage that FDR control assumes away. So the proposer
@@ -529,59 +532,58 @@ is blind by construction, and a blind proposer choosing nine pairs out of
 fifty-two will cover about seventeen percent of the space regardless of how
 well it is prompted.
 
-This is the coverage--validity tension, and we state it plainly because it
-constrains the whole design: \emph{the restriction that makes pre-registration
-statistically meaningful is the same restriction that prevents the proposer from
-knowing where to look.} Any system that pre-registers hypotheses through a model
-that has not seen the relationships will face some version of it.
+We call this the coverage--validity tension. Withholding the relationships from
+the proposer is what lets us treat the registry as fixed independently of the
+results, and it is also why the proposer cannot tell a promising pair from an
+unpromising one. Any system that pre-registers hypotheses through a model that
+has not seen the relationships will face some version of the same problem.
 
-\paragraph{What this implies.} The tension is a budgeting problem, not a
-refutation. Three directions follow, in increasing order of interest. The
-registration budget can simply be raised---registering thirty pairs instead of
-nine trades a more conservative threshold for much better coverage, and because
-BH scales gracefully in $m$ this trade is cheap. Domain knowledge, supplied
+\phead{What this implies} We read the tension as a budgeting problem, and
+three directions follow from it. The registration budget can be raised:
+registering thirty pairs instead of nine buys much better coverage at the price
+of a more conservative threshold, and because BH scales gracefully in $m$ that
+price is low. Domain knowledge, supplied
 through the data dictionary rather than through the data, raises coverage
 without creating leakage, which is an argument for the RAG path the system
-already has. Most interestingly, sample splitting would permit a proposer to see
-relationships in one partition and register hypotheses tested on another,
+already has. Sample splitting is the most promising of the three: a proposer could see
+relationships in one partition and register hypotheses to be tested on another,
 recovering coverage while keeping the family independent of the data it is
-evaluated on; this is the adaptive-data-analysis
-setting~\cite{dwork2015} and connecting the two properly is the clearest next
-step for this work.
+evaluated on. That is the adaptive data analysis setting~\cite{dwork2015}, and
+connecting the two properly is the clearest next step for this work.
 
 \section{Threats to Validity}
 \label{sec:threats}
 
-\paragraph{Synthetic nulls may be easier than real ones.} Real data contains
-genuine but uninteresting structure---encoding artefacts, collection
-effects---that independently drawn columns lack. Our nuisance variant is a
+\phead{Synthetic nulls may be easier than real ones} Real data contains
+genuine but uninteresting structure, such as encoding artefacts and collection
+effects, that independently drawn columns lack. Our nuisance variant is a
 partial mitigation and shows the corrected system handles one such coupling
 correctly, but a stronger test is permuted real datasets, which preserve
 marginal distributions while destroying relationships. We have not yet run that
 and do not claim its result.
 
-\paragraph{FDR control assumes the registry is the full family.} If the
+\phead{FDR control assumes the registry is the full family} If the
 proposer's choice of hypotheses is itself informed by peeking at the data, the
 correction is optimistic. The profiler's output is deliberately restricted to
 marginal summaries for this reason, and the restriction is enforced in code
 rather than requested in a prompt. We have not measured the residual leakage,
 and we flag it as the most important open question about the guarantee.
 
-\paragraph{The main experiment isolates correction, not the full architecture.}
+\phead{The main experiment isolates correction, not the full architecture}
 The two arms reported here share a candidate set and differ only in correction.
 This cleanly establishes what correction contributes but does not, on its own,
 establish what \emph{pre-registration} contributes over and above it. A
 proposer-driven arm is required for that, and is discussed in
 \S\ref{sec:limits}.
 
-\paragraph{Deterministic does not mean uniquely correct.}
+\phead{Deterministic does not mean uniquely correct}
 BLADE~\cite{gu2024blade} documents that experts frequently disagree about the
 right analysis for a given question. Our claim for A5 is therefore that test
 choice is \emph{reproducible and inspectable}, not that it is the only
 defensible choice. Where assumptions do not resolve cleanly, the selected test
 and the checks that selected it are both recorded.
 
-\paragraph{Results are implementation-dependent.} All arms share one test
+\phead{Results are implementation-dependent} All arms share one test
 implementation. This is a strength for internal validity and a limit on external
 validity: a different statistics stack might shift absolute numbers, though the
 direction of the comparison does not depend on it.
@@ -593,8 +595,8 @@ The registry arms are run at $n=25$ null and $n=55$ planted tables against
 $n=480$ for the deterministic arms, because each costs a model call. The
 coverage figure of \S\ref{sec:coverage} is therefore the least precisely
 estimated number in the paper, and the one most worth re-running at scale. Its
-direction is not in doubt---a proposer that registers nine of fifty-two pairs
-cannot have high coverage---but the point estimate should be read with that
+direction is not in doubt, since a proposer that registers nine of fifty-two
+pairs cannot have high coverage, but the point estimate should be read with that
 sample size in mind.
 
 We evaluate one proposer model. Coverage is plausibly model-dependent in a way
@@ -620,14 +622,14 @@ architectural rather than advisory, and that doing so takes the fraction of null
 tables yielding a false finding from 81.0\% to 2.5\% at a cost in power that is
 negligible above $d = 0.5$.
 
-We have also shown that the two mechanisms are not equally cheap. Correction is
-close to free; pre-registration through a blind proposer is not, and costs
-roughly seven-eighths of the system's power in our configuration---not because
-the statistics are too strict but because the proposer covers $14\%$ of the
-search space. We would rather report that than not. It is the more useful
-finding of the two: it says where the next improvement has to come from, and a
-version of this paper that omitted it would have described a system that
-controls false discovery beautifully and finds almost nothing.
+The two mechanisms are not equally cheap. Correction is close to free.
+Pre-registration through a blind proposer costs roughly seven-eighths of the
+system's power in our configuration, and it does so because the proposer covers
+$14\%$ of the search space rather than because the statistics are too strict.
+That is the more useful of the two findings, since it says where the next
+improvement has to come from. A version of this paper without it would have
+described a system that controls false discovery well and finds almost
+nothing.
 
 The system, the generators and the harness are available at
 \url{https://github.com/garvbahl37-gif/Ledger_agent}.

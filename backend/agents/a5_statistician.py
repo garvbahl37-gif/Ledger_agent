@@ -349,7 +349,19 @@ def run(ledger: Ledger) -> Ledger:
         if df is None:
             raise ValueError("[A5] No cleaned DataFrame. Run A0 first.")
 
-        eligible = [h for h in ledger.hypotheses if h.status != HypothesisStatus.ERROR]
+        # EVERY registered hypothesis stays in the family, including ones A4
+        # failed to write working code for.
+        #
+        # Excluding them shrinks m and makes the BH threshold more permissive for
+        # everything else, which is precisely the accounting error the freeze
+        # exists to prevent: the denominator would then depend on which code
+        # happened to run, i.e. on results seen after registration.
+        #
+        # It also cost real findings. A4's output is not required to adjudicate a
+        # hypothesis whose columns are known: _select_and_run_test falls back to
+        # computing the test directly from the dataframe. A hypothesis dropped
+        # here for an A4 failure was never given that chance.
+        eligible = list(ledger.hypotheses)
         raw_p_values = []
         per_hypothesis_results = []
 
@@ -383,6 +395,9 @@ def run(ledger: Ledger) -> Ledger:
         for i, item in enumerate(per_hypothesis_results):
             hypothesis = item["h"]
             if item.get("error"):
+                # Recorded as ERROR and reported as tested-and-not-supported.
+                # Its p = 1.0 slot above already counted toward m, so the family
+                # size matches the registry even when a test could not run.
                 hypothesis.status = HypothesisStatus.ERROR
                 continue
 
@@ -418,7 +433,11 @@ def run(ledger: Ledger) -> Ledger:
             )
 
         supported = sum(1 for h in ledger.hypotheses if h.status == HypothesisStatus.SUPPORTED)
-        ctx["output"] = f"FDR corrected. Supported: {supported}/{len(eligible)}"
+        errored = sum(1 for h in ledger.hypotheses if h.status == HypothesisStatus.ERROR)
+        ctx["output"] = (
+            f"FDR corrected over m={len(eligible)} registered. "
+            f"Supported: {supported}, could not run: {errored}"
+        )
         logger.info(f"[A5] {supported}/{len(eligible)} hypotheses supported after FDR correction")
 
     return ledger

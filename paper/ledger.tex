@@ -1,0 +1,579 @@
+\documentclass[10pt,twocolumn]{article}
+
+\usepackage[margin=0.75in]{geometry}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{caption}
+\usepackage{multirow}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\captionsetup{font=small,labelfont=bf,skip=4pt}
+\setlength{\columnsep}{0.28in}
+\setlength{\parskip}{0pt}
+\setlength{\abovecaptionskip}{4pt}
+
+\lstset{
+  basicstyle=\ttfamily\scriptsize,
+  breaklines=true,
+  frame=single,
+  rulecolor=\color{gray!50},
+  backgroundcolor=\color{gray!5},
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false,
+  xleftmargin=2pt,
+  framexleftmargin=2pt,
+}
+
+\title{\vspace{-6mm}\textbf{Ledger: Making False Discovery Structurally Difficult\\ in Autonomous Data Analysis}\vspace{-2mm}}
+
+\author{
+Garv Bahl \quad Dhruv Kumar \quad Rahul\\
+\small Department of Computer Science and Engineering\\
+\small Netaji Subhas University of Technology, New Delhi, India\\
+\small \texttt{\{garvbahl37\}@gmail.com}
+\vspace{-4mm}
+}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+Language-model agents that analyse tabular data inherit a defect that predates
+them: they search a large space of relationships and report the ones that look
+interesting, without accounting for the size of the search. Given a table of
+pure noise, where the correct number of findings is exactly zero, such a system
+will confidently report several.
+
+We present \emph{Ledger}, a multi-agent analyst built around one architectural
+commitment: the language model proposes, and deterministic statistics decides.
+Candidate hypotheses are registered and hashed \emph{before} any test executes,
+so the family over which error is controlled is fixed before any result is seen;
+test selection follows from checked assumptions rather than from model
+discretion; Benjamini--Hochberg correction is applied once across the entire
+registered family; and the natural-language report can only emit sentences the
+statistical layer has licensed.
+
+We evaluate on 480 synthetic tables with ground truth known by construction. On
+200 null tables, an exhaustive uncorrected analyst---the behaviour of current
+agent pipelines---claims a false finding on \textbf{81.0\%} of tables
+(2.20 claims/table). The same test machinery under session-level correction
+claims one on \textbf{2.5\%} (0.03 claims/table). On 240 tables with planted
+effects, correction reduces the false discovery proportion from 0.410 to 0.056
+while retaining 0.899 of the power, and the cost is concentrated entirely at
+small effect sizes: at $d \geq 0.5$ the corrected system loses under one
+percentage point of power. We release the generators, the harness and the
+system.
+\end{abstract}
+
+\section{Introduction}
+
+Exploratory data analysis is repetitive, skilled and slow, which makes it an
+obvious target for automation. Language models that write and execute code
+appear to make that automation trivial: point the system at a spreadsheet and
+let it report what it finds.
+
+The appearance is misleading, for a reason older than language models. If a
+relationship is declared significant at $p < 0.05$, then by construction one in
+twenty tests on structureless data will pass. A table with 30 columns admits
+435 pairwise relationships; roughly 22 of them will clear that threshold on pure
+noise. An agent that reports what it finds will therefore always find something,
+and will describe it fluently.
+
+Human analysts are taught to guard against this with correction procedures,
+pre-registration and effect-size reporting. Automated systems have inherited the
+search behaviour without the discipline, and they operate at a scale that makes
+the problem worse: a tireless agent can test thousands of hypotheses in the time
+a human tests ten. Recent work confirms the concern is not hypothetical.
+Bertran et al.~\cite{bertran2026many} show that autonomous LLM analysts
+reproduce the dispersion in effect sizes and conclusions observed in human
+many-analyst studies, and that the dispersion is steerable by changing the
+model or the assigned persona.
+
+\paragraph{The premise of this work.} Statistical discipline is not a feature to
+be added to an automated analyst afterwards. It has to be the thing that decides
+what the analyst is allowed to say. A system that can be talked out of its
+conclusions by a fluent narrative is not an analyst.
+
+\paragraph{Contributions.}
+\begin{enumerate}\itemsep1pt
+\item \textbf{An architecture in which post-hoc selection is a runtime error,
+not a discouraged practice.} Hypotheses are registered and hashed before any
+test executes; the registry is immutable thereafter. The family over which
+error is controlled is therefore fixed before any result is visible
+(\S\ref{sec:arch}).
+
+\item \textbf{Session-level false discovery control inside the agent.}
+Benjamini--Hochberg is applied once across every hypothesis registered in the
+session, not per test and not per insight type.
+
+\item \textbf{An evaluation protocol that measures whether an automated analyst
+correctly reports nothing.} NULLSET and PLANTED are generated suites with
+ground truth known by construction rather than by adjudication
+(\S\ref{sec:protocol}).
+
+\item \textbf{A measured decomposition of where the control comes from}, and a
+power curve stating what the discipline costs in sensitivity
+(\S\ref{sec:results}).
+\end{enumerate}
+
+We are explicit about what is \emph{not} new here. Benjamini--Hochberg is from
+1995~\cite{benjamini1995}; pre-registration as a methodological norm is older
+still. The contribution is the systems engineering that makes those ideas
+binding on an autonomous agent, together with the evaluation regime that shows
+it works.
+
+\section{Related Work}
+
+\paragraph{Automated analysis and insight discovery.}
+AutoML systems such as Auto-sklearn~\cite{feurer2015} automate model selection
+but address prediction rather than explanation. Profiling tools of the
+ydata-profiling lineage generate exhaustive descriptive statistics with no
+notion of which findings matter; because they make no significance claims, they
+have no false-discovery exposure and no way to direct attention.
+QuickInsights~\cite{ding2019} introduced automatic discovery of salient patterns
+and explicitly acknowledged the significance-testing problem, applying
+corrections within insight types---the closest pre-LLM work to our concern,
+though it cannot generate or execute novel analysis code.
+
+\paragraph{Language-model data agents.}
+InsightPilot~\cite{ma2023} couples a model to an insight engine to steer
+exploration; Data Interpreter~\cite{hong2024} demonstrates end-to-end agentic
+data-science pipelines with code execution. Both substantially advance what such
+systems can attempt. Neither controls false discovery across the exploration
+session, and neither prevents post-hoc selection of hypotheses.
+BLADE~\cite{gu2024blade} benchmarks agents against expert-validated analytic
+decisions and documents that multiple justifiable approaches typically exist for
+a single question---a finding we return to in \S\ref{sec:threats}, because it
+bounds what any deterministic adjudicator can claim.
+
+\paragraph{Per-test rigour versus session-level validity.}
+The closest contemporary work is Fisher-R1~\cite{miao2026fisher}, which trains
+an agent by reinforcement learning for reliable hypothesis testing and
+introduces P-Bench, 425 tasks in which an agent must select a method, compute a
+$p$-value and draw a conclusion. Fisher-R1 targets a failure mode adjacent to
+ours---inferential errors despite correctly executed analyses---and improves
+substantially on strong baselines. It is, however, scoped to a single
+hypothesis test per task, and neither its method nor its benchmark addresses
+multiple comparisons across a session. The distinction matters: per-test rigour
+is necessary but not sufficient. An agent that is individually correct on each
+of forty tests, with no accounting for the fact that it ran forty, still
+accumulates false discoveries at the rate our null experiments measure.
+
+\paragraph{Detecting noise-fitting by other means.}
+Rewolinski et al.~\cite{rewolinski2026sanity} propose perturbation-based sanity
+checks grounded in the Predictability--Computability--Stability framework, which
+screen whether an agent can distinguish signal from noise and can expose
+affirmative conclusions as unsupported. This is a complementary axis: theirs is
+a stability argument applied after an analysis is produced, ours is a
+multiplicity argument enforced before any test runs. The two compose, and we
+regard combining them as the natural next step.
+
+\paragraph{Statistical discipline and adaptivity.}
+Benjamini--Hochberg~\cite{benjamini1995} supplies the correction we apply.
+False-Positive Psychology~\cite{simmons2011} demonstrated how ordinary analytic
+flexibility produces significant results from nothing; the garden-of-forking-paths
+argument~\cite{gelman2014} showed this occurs even absent intent to game the
+analysis---precisely the situation of an autonomous agent. Theoretical work on
+adaptive data analysis~\cite{dwork2015} bounds generalisation error under
+adaptively chosen queries using differential privacy and holdout reuse. Our
+approach differs in kind: rather than tolerating adaptivity and paying for it
+with noise, we eliminate adaptivity by construction over the registered family.
+The resulting guarantee is narrower but legible and cheap to enforce.
+
+\paragraph{Execution-grounded generation.}
+Self-Debug~\cite{chen2024selfdebug} established that feeding execution results
+back to a model improves generated-code correctness. Ledger extends the
+principle from code correctness to claim correctness: execution decides not
+merely whether the code ran, but whether the sentence may be written.
+
+\section{The Ledger Architecture}
+\label{sec:arch}
+
+Ledger is a fixed, hand-written state machine over eight agents. The
+orchestration is deliberately not a general-purpose agent framework: the
+ordering constraint between registration and testing is a correctness property,
+not a convenience, and must be inspectable. Table~\ref{tab:agents} lists the
+stages and, critically, which of them involve a language model at all.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{@{}llp{3.1cm}@{}}
+\toprule
+\textbf{Stage} & \textbf{Model?} & \textbf{Role} \\
+\midrule
+A0 Janitor      & no  & Type coercion, deduplication \\
+A1 Profiler     & no  & Marginal summaries only \\
+A2 Proposer     & yes & Proposes testable hypotheses \\
+\textbf{A3 Registrar} & \textbf{no} & \textbf{Freezes and hashes the registry} \\
+A4 Executor     & yes & Writes and repairs pandas code \\
+A5 Statistician & no  & Assumptions, test choice, FDR \\
+A6 Reporter     & yes & Writes prose from licensed text \\
+A7 Adversary    & yes & Red-teams the draft report \\
+\bottomrule
+\end{tabular}
+\caption{The stages that decide what is true contain no language model. The
+model proposes and phrases; it never adjudicates.}
+\label{tab:agents}
+\vspace{-4mm}
+\end{table}
+
+\subsection{The ordering constraint}
+
+A3 runs to completion before A4 starts. Once the registry is frozen no
+hypothesis may be added, and every registered hypothesis must be tested and
+reported on---including those that fail. This is what makes selective reporting
+impossible: the denominator of the correction is fixed before any result is
+seen. An agent that could append hypotheses mid-session, or quietly drop the
+disappointing ones, would invalidate the correction entirely.
+
+The constraint is enforced at the data-model level rather than by prompt. The
+registry is a field on an immutable-after-freeze object, and insertion after
+freeze raises:
+
+\begin{lstlisting}[language=Python]
+def add_hypothesis(self, entry):
+    if self.is_frozen:
+        raise ValueError(
+            "Ledger is frozen. No hypotheses can be "
+            "added after A3 completes.")
+    self.hypotheses.append(entry)
+\end{lstlisting}
+
+\noindent
+A SHA-256 hash over the registered statements is computed at the freeze and
+reported with the analysis, so a reader can verify that the family which was
+corrected is the family that was registered.
+
+\subsection{Deterministic adjudication}
+
+A5 contains no language model. Given a hypothesis and a data slice it selects
+the test from checked properties rather than from a model's suggestion:
+Shapiro--Wilk and Levene decide between Welch's $t$ and Mann--Whitney $U$;
+expected cell counts decide between $\chi^2$ and Fisher's exact test; for $k>2$
+groups, normality and homogeneity decide between one-way ANOVA and
+Kruskal--Wallis. Every result carries an effect size---Cohen's $d$, Cram\'er's
+$V$, $\eta^2$---because significance without magnitude is not a finding.
+
+After all registered tests complete, Benjamini--Hochberg is applied once across
+the entire family at $q = 0.05$. Survivors become claims; everything else is
+recorded as tested-and-not-supported and appears in an appendix rather than
+vanishing.
+
+\subsection{Claim-level provenance}
+
+Each adjudicated hypothesis yields a \texttt{licensed\_text} field, the only
+text A6 may use for that hypothesis. It cannot strengthen the wording, add a
+causal reading, or mention a hypothesis with no entry. In the interface, every
+sentence of the report links back to the ledger entry that licensed it, so a
+reader can move from any claim to the code that produced it, the assumptions
+that were checked, and the test those assumptions selected.
+
+\section{Evaluation Protocol}
+\label{sec:protocol}
+
+The clearest way to evaluate an automated analyst is to give it a dataset with
+nothing in it and count what it claims to find. The correct number is zero, and
+it is zero by construction rather than by judgement.
+
+\paragraph{NULLSET.} 200 tables, 300--2500 rows and 6--14 columns, drawn
+independently. Columns carry plausible names, mixed dtypes, skewed and
+heavy-tailed numerics (log-normal, gamma, bimodal, count), unbalanced
+categoricals and missingness up to 12\%, so that the tables are not
+distinguishable from real ones by inspection. A separate 40-table variant adds
+one deterministic nuisance coupling---a derived column---which is genuinely real
+but analytically uninteresting; it is recorded as ground truth so a system is
+not penalised for finding it.
+
+\paragraph{PLANTED.} 240 tables containing 2--4 genuine relationships at
+controlled effect sizes $d \in \{0.2, 0.35, 0.5, 0.8\}$, buried among noise
+columns. Effects are planted in three forms so that test selection is exercised
+rather than a single code path: a mean shift on a binary split, a linear
+association between two numerics (with $r = d/\sqrt{d^2+4}$), and a spread of
+group means across a $k>2$ factor.
+
+\paragraph{Arms.} All arms execute the \emph{same} test-selection code---A5's
+own selector. This is deliberate and is what makes the comparison meaningful:
+the arms differ only in which hypotheses enter the family and whether the family
+is corrected, never in how a test is chosen or computed.
+
+\begin{itemize}\itemsep1pt
+\item \textbf{Exhaustive, uncorrected.} Test every column pair; claim every
+$p<0.05$. This is what an agent with code execution and no discipline does.
+\item \textbf{Exhaustive, BH-corrected.} Every column pair, corrected once
+across all of them. Isolates the contribution of correction alone, holding the
+candidate set fixed.
+\end{itemize}
+
+Failed tests remain in the family at $p = 1.0$ rather than being dropped;
+removing them would shrink $m$ and make the threshold more permissive for
+everything else, which is the exact accounting error the architecture exists to
+prevent.
+
+\paragraph{Measures.} We report mean findings claimed per table; the fraction of
+tables on which at least one false finding is claimed (the quantity a
+practitioner cares about); the false discovery proportion
+$\mathrm{FDP} = \mathrm{FP}/\max(\mathrm{claims},1)$, whose expectation BH
+controls; and, on PLANTED, power as recall of planted effects.
+
+\section{Results}
+\label{sec:results}
+
+Across the suites, 23{,}901 statistical tests were executed over 23{,}909
+candidate hypotheses.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig1_nullset.pdf}
+\caption{Findings claimed on 200 tables containing no real relationships.
+Ground truth is zero. Error bars are standard errors over tables.}
+\label{fig:null}
+\vspace{-3mm}
+\end{figure}
+
+\subsection{The null-dataset result}
+
+Figure~\ref{fig:null} and Table~\ref{tab:main} give the headline. On tables
+where the correct number of findings is zero, the uncorrected exhaustive analyst
+claims $2.20 \pm 0.25$ findings per table and contaminates \textbf{81.0\%} of
+tables with at least one false discovery. Applying Benjamini--Hochberg once
+across the same candidate set, using the same tests on the same data, reduces
+this to $0.025 \pm 0.022$ claims per table and \textbf{2.5\%} of tables---a
+$32\times$ reduction in claims and a $98\%$ reduction in the fraction of
+contaminated analyses.
+
+We draw attention to the nuisance variant. When a single trivially-real
+relationship is present, the corrected system recovers it on every table
+(power $1.00$) while claiming $1.08$ things in total; the uncorrected system
+recovers it too but buries it among $3.03$ false findings. Correction does not
+merely suppress output---it suppresses the \emph{wrong} output.
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}llrrr@{}}
+\toprule
+\textbf{Suite} & \textbf{Arm} & \textbf{Claims} & \textbf{Any FD} & \textbf{FDP} \\
+\midrule
+\multirow{2}{*}{NULLSET}
+  & uncorrected & 2.200 & 81.0\% & 0.810 \\
+  & BH          & \textbf{0.025} & \textbf{2.5\%} & \textbf{0.025} \\
+\midrule
+\multirow{2}{*}{\shortstack[l]{NULLSET\\+nuisance}}
+  & uncorrected & 4.025 & 95.0\% & 0.668 \\
+  & BH          & \textbf{1.075} & \textbf{5.0\%} & \textbf{0.029} \\
+\midrule
+\multirow{2}{*}{PLANTED}
+  & uncorrected & 5.287 & 85.8\% & 0.410 \\
+  & BH          & \textbf{2.850} & \textbf{19.6\%} & \textbf{0.056} \\
+\bottomrule
+\end{tabular}
+\caption{Mean claims per table, fraction of tables with at least one false
+discovery, and mean false discovery proportion. $n=200/40/240$ tables.}
+\label{tab:main}
+\vspace{-4mm}
+\end{table}
+
+\subsection{What discipline costs}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig2_power.pdf}
+\caption{Power and false discovery proportion against planted effect size on
+240 PLANTED tables. The corrected arm tracks the nominal $q=0.05$ line; the
+uncorrected arm sits near $0.41$ throughout.}
+\label{fig:power}
+\vspace{-3mm}
+\end{figure}
+
+A system that reports nothing is trivially safe and useless, so the interesting
+question is what the discipline costs in sensitivity. Figure~\ref{fig:power}
+answers it. Aggregated over PLANTED, correction reduces power from $0.960$ to
+$0.899$---six percentage points---while reducing the false discovery proportion
+from $0.410$ to $0.056$.
+
+The aggregate understates how favourable the trade is, because the cost is
+concentrated entirely at small effects:
+
+\begin{center}\small
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+$d$ & Power (BH) & Power (unc.) & $\Delta$ \\
+\midrule
+0.20 & 0.700 & 0.886 & $-0.186$ \\
+0.35 & 0.910 & 0.961 & $-0.051$ \\
+0.50 & 0.986 & 0.992 & $-0.006$ \\
+0.80 & 1.000 & 1.000 & $\phantom{-}0.000$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+At $d \geq 0.5$ correction is effectively free: it costs under one percentage
+point of power and takes the false discovery proportion from $\sim$0.40 to
+$\sim$0.07. The system pays for its discipline only where the signal is
+genuinely faint, which is where a finding is least trustworthy anyway. We regard
+this as the central practical result: the objection that statistical discipline
+makes an automated analyst too conservative to be useful is, at moderate and
+large effect sizes, simply not borne out.
+
+\subsection{Empirical calibration}
+
+The corrected arm's false discovery proportion is $0.043$, $0.032$, $0.071$ and
+$0.077$ at $d = 0.2, 0.35, 0.5, 0.8$ against a nominal $q = 0.05$. That the
+achieved rate sits near the nominal rate, rather than far below it, indicates
+the procedure is neither broken nor gratuitously conservative on these suites.
+
+\section{Threats to Validity}
+\label{sec:threats}
+
+\paragraph{Synthetic nulls may be easier than real ones.} Real data contains
+genuine but uninteresting structure---encoding artefacts, collection
+effects---that independently drawn columns lack. Our nuisance variant is a
+partial mitigation and shows the corrected system handles one such coupling
+correctly, but a stronger test is permuted real datasets, which preserve
+marginal distributions while destroying relationships. We have not yet run that
+and do not claim its result.
+
+\paragraph{FDR control assumes the registry is the full family.} If the
+proposer's choice of hypotheses is itself informed by peeking at the data, the
+correction is optimistic. The profiler's output is deliberately restricted to
+marginal summaries for this reason, and the restriction is enforced in code
+rather than requested in a prompt. We have not measured the residual leakage,
+and we flag it as the most important open question about the guarantee.
+
+\paragraph{The main experiment isolates correction, not the full architecture.}
+The two arms reported here share a candidate set and differ only in correction.
+This cleanly establishes what correction contributes but does not, on its own,
+establish what \emph{pre-registration} contributes over and above it. A
+proposer-driven arm is required for that, and is discussed in
+\S\ref{sec:limits}.
+
+\paragraph{Deterministic does not mean uniquely correct.}
+BLADE~\cite{gu2024blade} documents that experts frequently disagree about the
+right analysis for a given question. Our claim for A5 is therefore that test
+choice is \emph{reproducible and inspectable}, not that it is the only
+defensible choice. Where assumptions do not resolve cleanly, the selected test
+and the checks that selected it are both recorded.
+
+\paragraph{Results are implementation-dependent.} All arms share one test
+implementation. This is a strength for internal validity and a limit on external
+validity: a different statistics stack might shift absolute numbers, though the
+direction of the comparison does not depend on it.
+
+\section{Limitations and Future Work}
+\label{sec:limits}
+
+The evaluation reported here covers the two deterministic arms at $n=480$
+tables. A model-driven arm---in which the LLM proposer supplies the registry
+and correction is applied across exactly what it registered---is implemented and
+running, and is required to separate the contribution of a smaller,
+better-chosen family from the contribution of correcting across it. We report
+only what has completed.
+
+Three further extensions follow directly. First, the proposer-leakage
+measurement described in \S\ref{sec:threats}. Second, evaluation on an external
+benchmark: P-Bench~\cite{miao2026fisher} is the natural target, extended so that
+multiple tasks are bundled into a single session, which would test session-level
+validity on data we did not generate. Third, composing our multiplicity
+argument with the stability argument of Rewolinski et
+al.~\cite{rewolinski2026sanity}; the two screen for different failures and
+neither subsumes the other.
+
+\section{Conclusion}
+
+Automated analysts have inherited the search behaviour of human exploratory
+analysis without its discipline. We have shown that the discipline can be made
+architectural rather than advisory---that pre-registration and session-level
+correction can be enforced by the structure of a system rather than requested of
+a model---and that doing so takes the fraction of null tables yielding a false
+finding from 81.0\% to 2.5\%, at a cost in power that is negligible above
+$d = 0.5$.
+
+The system, the generators and the harness are available at
+\url{https://github.com/garvbahl37-gif/Ledger_agent}.
+
+\begin{thebibliography}{99}\small
+\setlength{\itemsep}{0pt}
+
+\bibitem{benjamini1995}
+Y.~Benjamini and Y.~Hochberg.
+\newblock Controlling the false discovery rate: a practical and powerful
+approach to multiple testing.
+\newblock {\em J. Royal Statistical Society B}, 57(1):289--300, 1995.
+
+\bibitem{bertran2026many}
+M.~Bertran, R.~Fogliato, and Z.~S. Wu.
+\newblock Many {AI} analysts, one dataset: navigating the agentic data science
+multiverse.
+\newblock {\em arXiv:2602.18710}, 2026.
+
+\bibitem{chen2024selfdebug}
+X.~Chen, M.~Lin, N.~Sch\"arli, and D.~Zhou.
+\newblock Teaching large language models to self-debug.
+\newblock In {\em ICLR}, 2024.
+
+\bibitem{ding2019}
+R.~Ding, S.~Han, Y.~Xu, H.~Zhang, and D.~Zhang.
+\newblock {QuickInsights}: quick and automatic discovery of insights from
+multi-dimensional data.
+\newblock In {\em ACM SIGMOD}, 2019.
+
+\bibitem{dwork2015}
+C.~Dwork, V.~Feldman, M.~Hardt, T.~Pitassi, O.~Reingold, and A.~Roth.
+\newblock Preserving statistical validity in adaptive data analysis.
+\newblock In {\em ACM STOC}, 2015.
+
+\bibitem{feurer2015}
+M.~Feurer, A.~Klein, K.~Eggensperger, J.~Springenberg, M.~Blum, and F.~Hutter.
+\newblock Efficient and robust automated machine learning.
+\newblock In {\em NeurIPS}, 2015.
+
+\bibitem{gelman2014}
+A.~Gelman and E.~Loken.
+\newblock The statistical crisis in science.
+\newblock {\em American Scientist}, 102(6):460--465, 2014.
+
+\bibitem{gu2024blade}
+K.~Gu, R.~Shang, R.~Jiang, K.~Kuang, R.-J. Lin, D.~Lyu, Y.~Mao, Y.~Pan, T.~Wu,
+J.~Yu, Y.~Zhang, T.~M. Zhang, L.~Zhu, M.~A. Merrill, J.~Heer, and T.~Althoff.
+\newblock {BLADE}: benchmarking language model agents for data-driven science.
+\newblock In {\em EMNLP}, 2024. arXiv:2408.09667.
+
+\bibitem{hong2024}
+S.~Hong et~al.
+\newblock Data interpreter: an {LLM} agent for data science.
+\newblock {\em arXiv:2402.18679}, 2024.
+
+\bibitem{ma2023}
+P.~Ma, R.~Ding, S.~Han, and D.~Zhang.
+\newblock {InsightPilot}: an {LLM}-empowered automated data exploration system.
+\newblock In {\em EMNLP (System Demonstrations)}, 2023.
+
+\bibitem{miao2026fisher}
+J.~Miao, J.~Mu, G.~Chen, and J.~Zou.
+\newblock {Fisher-R1}: training {LLM} agents for reliable hypothesis testing.
+\newblock {\em arXiv:2608.07437}, 2026.
+
+\bibitem{rewolinski2026sanity}
+Z.~T. Rewolinski, A.~V. Zane, H.~Huang, C.~Singh, C.~Wang, J.~Gao, and B.~Yu.
+\newblock Sanity checks for agentic data science.
+\newblock {\em arXiv:2604.11003}, 2026.
+
+\bibitem{simmons2011}
+J.~Simmons, L.~Nelson, and U.~Simonsohn.
+\newblock False-positive psychology: undisclosed flexibility in data collection
+and analysis allows presenting anything as significant.
+\newblock {\em Psychological Science}, 22(11):1359--1366, 2011.
+
+\end{thebibliography}
+
+\end{document}

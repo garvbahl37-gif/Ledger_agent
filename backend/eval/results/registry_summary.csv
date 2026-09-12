@@ -1,0 +1,5 @@
+arm,suite,tables,mean_claims,median_claims,mean_false_positives,total_false_positives,any_false_discovery_rate,mean_fdp,mean_power,mean_candidates,mean_effect_abs_error
+registry_bh,NULLSET,25,0.0,0.0,0.0,0,0.0,0.0,,8.68,
+registry_bh,PLANTED,25,0.4,0.0,0.08,2,0.08,0.08,0.12333333333333334,8.68,0.1440233448058878
+registry_uncorrected,NULLSET,25,0.28,0.0,0.28,7,0.24,0.24,,8.68,
+registry_uncorrected,PLANTED,25,0.92,1.0,0.56,14,0.4,0.34,0.13666666666666666,8.68,0.13864780204765745

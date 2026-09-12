@@ -1,0 +1,2577 @@
+{
+ "results": [
+  {
+   "arm": "registry_uncorrected",
+   "table": "null_0000",
+   "suite": "NULLSET",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4293,
+    "registry_size": 9,
+    "seed": 0,
+    "n_rows": 2171,
+    "n_cols": 11,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "null_0000",
+   "suite": "NULLSET",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4293,
+    "registry_size": 9,
+    "seed": 0,
+    "n_rows": 2171,
+    "n_cols": 11,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "null_0001",
+   "suite": "NULLSET",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4440,
+    "registry_size": 10,
+    "seed": 1,
+    "n_rows": 1341,
+    "n_cols": 10,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "null_0001",
+   "suite": "NULLSET",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4440,
+    "registry_size": 10,
+    "seed": 1,
+    "n_rows": 1341,
+    "n_cols": 10,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "null_0002",
+   "suite": "NULLSET",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 3495,
+    "registry_size": 8,
+    "seed": 2,
+    "n_rows": 2142,
+    "n_cols": 8,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "null_0002",
+   "suite": "NULLSET",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 3495,
+    "registry_size": 8,
+    "seed": 2,
+    "n_rows": 2142,
+    "n_cols": 8,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "null_0003",
+   "suite": "NULLSET",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 1,
+   "true_positives": 0,
+   "false_positives": 1,
+   "n_true": 0,
+   "claimed_pairs": [
+    [
+     "segment",
+     "region"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 3268,
+    "registry_size": 8,
+    "seed": 3,
+    "n_rows": 2085,
+    "n_cols": 6,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "null_0003",
+   "suite": "NULLSET",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 3268,
+    "registry_size": 8,
+    "seed": 3,
+    "n_rows": 2085,
+    "n_cols": 6,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "null_0004",
+   "suite": "NULLSET",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 1,
+   "true_positives": 0,
+   "false_positives": 1,
+   "n_true": 0,
+   "claimed_pairs": [
+    [
+     "visit_count",
+     "latency_ms"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4765,
+    "registry_size": 9,
+    "seed": 4,
+    "n_rows": 1898,
+    "n_cols": 13,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "null_0004",
+   "suite": "NULLSET",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4765,
+    "registry_size": 9,
+    "seed": 4,
+    "n_rows": 1898,
+    "n_cols": 13,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "null_0005",
+   "suite": "NULLSET",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4675,
+    "registry_size": 9,
+    "seed": 5,
+    "n_rows": 1775,
+    "n_cols": 12,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "null_0005",
+   "suite": "NULLSET",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4675,
+    "registry_size": 9,
+    "seed": 5,
+    "n_rows": 1775,
+    "n_cols": 12,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "null_0006",
+   "suite": "NULLSET",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 1,
+   "true_positives": 0,
+   "false_positives": 1,
+   "n_true": 0,
+   "claimed_pairs": [
+    [
+     "hours_logged",
+     "churned"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 4078,
+    "registry_size": 8,
+    "seed": 6,
+    "n_rows": 1279,
+    "n_cols": 10,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "null_0006",
+   "suite": "NULLSET",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 4078,
+    "registry_size": 8,
+    "seed": 6,
+    "n_rows": 1279,
+    "n_cols": 10,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "null_0007",
+   "suite": "NULLSET",
+   "n_candidates": 6,
+   "n_tested": 6,
+   "n_claimed": 1,
+   "true_positives": 0,
+   "false_positives": 1,
+   "n_true": 0,
+   "claimed_pairs": [
+    [
+     "flagged",
+     "browser"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 7,
+    "usable_pairs": 6,
+    "tokens": 4409,
+    "registry_size": 6,
+    "seed": 7,
+    "n_rows": 2378,
+    "n_cols": 11,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "null_0007",
+   "suite": "NULLSET",
+   "n_candidates": 6,
+   "n_tested": 6,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 7,
+    "usable_pairs": 6,
+    "tokens": 4409,
+    "registry_size": 6,
+    "seed": 7,
+    "n_rows": 2378,
+    "n_cols": 11,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "null_0008",
+   "suite": "NULLSET",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 3983,
+    "registry_size": 8,
+    "seed": 8,
+    "n_rows": 1883,
+    "n_cols": 8,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "null_0008",
+   "suite": "NULLSET",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 3983,
+    "registry_size": 8,
+    "seed": 8,
+    "n_rows": 1883,
+    "n_cols": 8,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "null_0009",
+   "suite": "NULLSET",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4211,
+    "registry_size": 10,
+    "seed": 9,
+    "n_rows": 1227,
+    "n_cols": 12,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "null_0009",
+   "suite": "NULLSET",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4211,
+    "registry_size": 10,
+    "seed": 9,
+    "n_rows": 1227,
+    "n_cols": 12,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "null_0010",
+   "suite": "NULLSET",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 5208,
+    "registry_size": 10,
+    "seed": 10,
+    "n_rows": 2008,
+    "n_cols": 13,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "null_0010",
+   "suite": "NULLSET",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 5208,
+    "registry_size": 10,
+    "seed": 10,
+    "n_rows": 2008,
+    "n_cols": 13,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "null_0011",
+   "suite": "NULLSET",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 1,
+   "true_positives": 0,
+   "false_positives": 1,
+   "n_true": 0,
+   "claimed_pairs": [
+    [
+     "tenure_months",
+     "status"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 3594,
+    "registry_size": 9,
+    "seed": 11,
+    "n_rows": 594,
+    "n_cols": 7,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "null_0011",
+   "suite": "NULLSET",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 3594,
+    "registry_size": 9,
+    "seed": 11,
+    "n_rows": 594,
+    "n_cols": 7,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "null_0012",
+   "suite": "NULLSET",
+   "n_candidates": 7,
+   "n_tested": 7,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 7,
+    "usable_pairs": 7,
+    "tokens": 3671,
+    "registry_size": 7,
+    "seed": 12,
+    "n_rows": 1647,
+    "n_cols": 8,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "null_0012",
+   "suite": "NULLSET",
+   "n_candidates": 7,
+   "n_tested": 7,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 7,
+    "usable_pairs": 7,
+    "tokens": 3671,
+    "registry_size": 7,
+    "seed": 12,
+    "n_rows": 1647,
+    "n_cols": 8,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "null_0013",
+   "suite": "NULLSET",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4841,
+    "registry_size": 10,
+    "seed": 13,
+    "n_rows": 2271,
+    "n_cols": 12,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "null_0013",
+   "suite": "NULLSET",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4841,
+    "registry_size": 10,
+    "seed": 13,
+    "n_rows": 2271,
+    "n_cols": 12,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "null_0014",
+   "suite": "NULLSET",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4575,
+    "registry_size": 9,
+    "seed": 14,
+    "n_rows": 630,
+    "n_cols": 12,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "null_0014",
+   "suite": "NULLSET",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4575,
+    "registry_size": 9,
+    "seed": 14,
+    "n_rows": 630,
+    "n_cols": 12,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "null_0015",
+   "suite": "NULLSET",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 4410,
+    "registry_size": 8,
+    "seed": 15,
+    "n_rows": 2348,
+    "n_cols": 11,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "null_0015",
+   "suite": "NULLSET",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 4410,
+    "registry_size": 8,
+    "seed": 15,
+    "n_rows": 2348,
+    "n_cols": 11,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "null_0016",
+   "suite": "NULLSET",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4212,
+    "registry_size": 10,
+    "seed": 16,
+    "n_rows": 1484,
+    "n_cols": 10,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "null_0016",
+   "suite": "NULLSET",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4212,
+    "registry_size": 10,
+    "seed": 16,
+    "n_rows": 1484,
+    "n_cols": 10,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "null_0017",
+   "suite": "NULLSET",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4356,
+    "registry_size": 9,
+    "seed": 17,
+    "n_rows": 1930,
+    "n_cols": 12,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "null_0017",
+   "suite": "NULLSET",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4356,
+    "registry_size": 9,
+    "seed": 17,
+    "n_rows": 1930,
+    "n_cols": 12,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "null_0018",
+   "suite": "NULLSET",
+   "n_candidates": 11,
+   "n_tested": 11,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 11,
+    "usable_pairs": 11,
+    "tokens": 4064,
+    "registry_size": 11,
+    "seed": 18,
+    "n_rows": 2265,
+    "n_cols": 9,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "null_0018",
+   "suite": "NULLSET",
+   "n_candidates": 11,
+   "n_tested": 11,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 11,
+    "usable_pairs": 11,
+    "tokens": 4064,
+    "registry_size": 11,
+    "seed": 18,
+    "n_rows": 2265,
+    "n_cols": 9,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "null_0019",
+   "suite": "NULLSET",
+   "n_candidates": 7,
+   "n_tested": 7,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 7,
+    "usable_pairs": 7,
+    "tokens": 4213,
+    "registry_size": 7,
+    "seed": 19,
+    "n_rows": 1595,
+    "n_cols": 9,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "null_0019",
+   "suite": "NULLSET",
+   "n_candidates": 7,
+   "n_tested": 7,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 7,
+    "usable_pairs": 7,
+    "tokens": 4213,
+    "registry_size": 7,
+    "seed": 19,
+    "n_rows": 1595,
+    "n_cols": 9,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "null_0020",
+   "suite": "NULLSET",
+   "n_candidates": 6,
+   "n_tested": 6,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 6,
+    "usable_pairs": 6,
+    "tokens": 3806,
+    "registry_size": 6,
+    "seed": 20,
+    "n_rows": 2262,
+    "n_cols": 8,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "null_0020",
+   "suite": "NULLSET",
+   "n_candidates": 6,
+   "n_tested": 6,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 6,
+    "usable_pairs": 6,
+    "tokens": 3806,
+    "registry_size": 6,
+    "seed": 20,
+    "n_rows": 2262,
+    "n_cols": 8,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "null_0021",
+   "suite": "NULLSET",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4686,
+    "registry_size": 10,
+    "seed": 21,
+    "n_rows": 963,
+    "n_cols": 12,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "null_0021",
+   "suite": "NULLSET",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4686,
+    "registry_size": 10,
+    "seed": 21,
+    "n_rows": 963,
+    "n_cols": 12,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "null_0022",
+   "suite": "NULLSET",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 3581,
+    "registry_size": 9,
+    "seed": 22,
+    "n_rows": 1996,
+    "n_cols": 8,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "null_0022",
+   "suite": "NULLSET",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 3581,
+    "registry_size": 9,
+    "seed": 22,
+    "n_rows": 1996,
+    "n_cols": 8,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "null_0023",
+   "suite": "NULLSET",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4520,
+    "registry_size": 9,
+    "seed": 23,
+    "n_rows": 379,
+    "n_cols": 11,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "null_0023",
+   "suite": "NULLSET",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4520,
+    "registry_size": 9,
+    "seed": 23,
+    "n_rows": 379,
+    "n_cols": 11,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "null_0024",
+   "suite": "NULLSET",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 2,
+   "true_positives": 0,
+   "false_positives": 2,
+   "n_true": 0,
+   "claimed_pairs": [
+    [
+     "unit_price",
+     "device"
+    ],
+    [
+     "device",
+     "plan_tier"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 3706,
+    "registry_size": 8,
+    "seed": 24,
+    "n_rows": 1141,
+    "n_cols": 8,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "null_0024",
+   "suite": "NULLSET",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 0,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 3706,
+    "registry_size": 8,
+    "seed": 24,
+    "n_rows": 1141,
+    "n_cols": 8,
+    "nuisance": false
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_0000_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 2,
+   "true_positives": 1,
+   "false_positives": 1,
+   "n_true": 3,
+   "claimed_pairs": [
+    [
+     "unit_price",
+     "score_q1"
+    ],
+    [
+     "contract_type",
+     "device"
+    ]
+   ],
+   "effect_errors": [
+    0.08204569340572125
+   ],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 3551,
+    "registry_size": 8,
+    "seed": 0,
+    "n_rows": 734,
+    "n_cols": 8,
+    "effect_size": 0.2,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_0000_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 1,
+   "true_positives": 1,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [
+    [
+     "unit_price",
+     "score_q1"
+    ]
+   ],
+   "effect_errors": [
+    0.08204569340572125
+   ],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 3551,
+    "registry_size": 8,
+    "seed": 0,
+    "n_rows": 734,
+    "n_cols": 8,
+    "effect_size": 0.2,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_0001_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 1,
+   "true_positives": 1,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [
+    [
+     "total_spend",
+     "days_since_signup"
+    ]
+   ],
+   "effect_errors": [
+    0.03952475614103118
+   ],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4589,
+    "registry_size": 9,
+    "seed": 1,
+    "n_rows": 1331,
+    "n_cols": 13,
+    "effect_size": 0.35,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_0001_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 1,
+   "true_positives": 1,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [
+    [
+     "total_spend",
+     "days_since_signup"
+    ]
+   ],
+   "effect_errors": [
+    0.03952475614103118
+   ],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4589,
+    "registry_size": 9,
+    "seed": 1,
+    "n_rows": 1331,
+    "n_cols": 13,
+    "effect_size": 0.35,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_0002_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 1,
+   "true_positives": 0,
+   "false_positives": 1,
+   "n_true": 2,
+   "claimed_pairs": [
+    [
+     "flagged",
+     "is_active"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4924,
+    "registry_size": 10,
+    "seed": 2,
+    "n_rows": 1677,
+    "n_cols": 13,
+    "effect_size": 0.5,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_0002_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 1,
+   "true_positives": 0,
+   "false_positives": 1,
+   "n_true": 2,
+   "claimed_pairs": [
+    [
+     "flagged",
+     "is_active"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4924,
+    "registry_size": 10,
+    "seed": 2,
+    "n_rows": 1677,
+    "n_cols": 13,
+    "effect_size": 0.5,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_0003_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 4,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4012,
+    "registry_size": 10,
+    "seed": 3,
+    "n_rows": 1101,
+    "n_cols": 8,
+    "effect_size": 0.8,
+    "n_planted": 4
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_0003_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 4,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4012,
+    "registry_size": 10,
+    "seed": 3,
+    "n_rows": 1101,
+    "n_cols": 8,
+    "effect_size": 0.8,
+    "n_planted": 4
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_0004_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 7,
+   "n_tested": 7,
+   "n_claimed": 2,
+   "true_positives": 0,
+   "false_positives": 2,
+   "n_true": 2,
+   "claimed_pairs": [
+    [
+     "converted",
+     "device"
+    ],
+    [
+     "opted_in",
+     "department"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 7,
+    "usable_pairs": 7,
+    "tokens": 3576,
+    "registry_size": 7,
+    "seed": 4,
+    "n_rows": 1919,
+    "n_cols": 8,
+    "effect_size": 0.2,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_0004_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 7,
+   "n_tested": 7,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 7,
+    "usable_pairs": 7,
+    "tokens": 3576,
+    "registry_size": 7,
+    "seed": 4,
+    "n_rows": 1919,
+    "n_cols": 8,
+    "effect_size": 0.2,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_0005_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 1,
+   "true_positives": 0,
+   "false_positives": 1,
+   "n_true": 3,
+   "claimed_pairs": [
+    [
+     "has_support_case",
+     "segment"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4077,
+    "registry_size": 9,
+    "seed": 5,
+    "n_rows": 1898,
+    "n_cols": 11,
+    "effect_size": 0.35,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_0005_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4077,
+    "registry_size": 9,
+    "seed": 5,
+    "n_rows": 1898,
+    "n_cols": 11,
+    "effect_size": 0.35,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_0006_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 4207,
+    "registry_size": 8,
+    "seed": 6,
+    "n_rows": 1024,
+    "n_cols": 11,
+    "effect_size": 0.5,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_0006_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 4207,
+    "registry_size": 8,
+    "seed": 6,
+    "n_rows": 1024,
+    "n_cols": 11,
+    "effect_size": 0.5,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_0007_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 6,
+   "n_tested": 6,
+   "n_claimed": 1,
+   "true_positives": 1,
+   "false_positives": 0,
+   "n_true": 4,
+   "claimed_pairs": [
+    [
+     "hours_logged",
+     "churned"
+    ]
+   ],
+   "effect_errors": [
+    0.20625695522038168
+   ],
+   "meta": {
+    "proposed": 6,
+    "usable_pairs": 6,
+    "tokens": 4165,
+    "registry_size": 6,
+    "seed": 7,
+    "n_rows": 1066,
+    "n_cols": 9,
+    "effect_size": 0.8,
+    "n_planted": 4
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_0007_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 6,
+   "n_tested": 6,
+   "n_claimed": 1,
+   "true_positives": 1,
+   "false_positives": 0,
+   "n_true": 4,
+   "claimed_pairs": [
+    [
+     "hours_logged",
+     "churned"
+    ]
+   ],
+   "effect_errors": [
+    0.20625695522038168
+   ],
+   "meta": {
+    "proposed": 6,
+    "usable_pairs": 6,
+    "tokens": 4165,
+    "registry_size": 6,
+    "seed": 7,
+    "n_rows": 1066,
+    "n_cols": 9,
+    "effect_size": 0.8,
+    "n_planted": 4
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_0008_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 1,
+   "true_positives": 0,
+   "false_positives": 1,
+   "n_true": 2,
+   "claimed_pairs": [
+    [
+     "monthly_charges",
+     "contract_type"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 5122,
+    "registry_size": 10,
+    "seed": 8,
+    "n_rows": 2356,
+    "n_cols": 13,
+    "effect_size": 0.2,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_0008_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 5122,
+    "registry_size": 10,
+    "seed": 8,
+    "n_rows": 2356,
+    "n_cols": 13,
+    "effect_size": 0.2,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_0009_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4296,
+    "registry_size": 9,
+    "seed": 9,
+    "n_rows": 1507,
+    "n_cols": 10,
+    "effect_size": 0.35,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_0009_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4296,
+    "registry_size": 9,
+    "seed": 9,
+    "n_rows": 1507,
+    "n_cols": 10,
+    "effect_size": 0.35,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_0010_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 7,
+   "n_tested": 7,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 7,
+    "usable_pairs": 7,
+    "tokens": 4486,
+    "registry_size": 7,
+    "seed": 10,
+    "n_rows": 2339,
+    "n_cols": 13,
+    "effect_size": 0.5,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_0010_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 7,
+   "n_tested": 7,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 7,
+    "usable_pairs": 7,
+    "tokens": 4486,
+    "registry_size": 7,
+    "seed": 10,
+    "n_rows": 2339,
+    "n_cols": 13,
+    "effect_size": 0.5,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_0011_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 3,
+   "true_positives": 2,
+   "false_positives": 1,
+   "n_true": 3,
+   "claimed_pairs": [
+    [
+     "payment_method",
+     "converted"
+    ],
+    [
+     "monthly_charges",
+     "browser"
+    ],
+    [
+     "monthly_charges",
+     "grade"
+    ]
+   ],
+   "effect_errors": [
+    0.6726929345019852,
+    0.0288706685132758
+   ],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 3607,
+    "registry_size": 9,
+    "seed": 11,
+    "n_rows": 1053,
+    "n_cols": 8,
+    "effect_size": 0.8,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_0011_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 2,
+   "true_positives": 2,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [
+    [
+     "monthly_charges",
+     "browser"
+    ],
+    [
+     "monthly_charges",
+     "grade"
+    ]
+   ],
+   "effect_errors": [
+    0.6726929345019852,
+    0.0288706685132758
+   ],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 3607,
+    "registry_size": 9,
+    "seed": 11,
+    "n_rows": 1053,
+    "n_cols": 8,
+    "effect_size": 0.8,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_0012_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 3689,
+    "registry_size": 8,
+    "seed": 12,
+    "n_rows": 1713,
+    "n_cols": 9,
+    "effect_size": 0.2,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_0012_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 3689,
+    "registry_size": 8,
+    "seed": 12,
+    "n_rows": 1713,
+    "n_cols": 9,
+    "effect_size": 0.2,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_0013_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 3,
+   "true_positives": 0,
+   "false_positives": 3,
+   "n_true": 2,
+   "claimed_pairs": [
+    [
+     "balance",
+     "contract_type"
+    ],
+    [
+     "balance",
+     "segment"
+    ],
+    [
+     "balance",
+     "channel"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 4537,
+    "registry_size": 8,
+    "seed": 13,
+    "n_rows": 429,
+    "n_cols": 13,
+    "effect_size": 0.35,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_0013_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 1,
+   "true_positives": 0,
+   "false_positives": 1,
+   "n_true": 2,
+   "claimed_pairs": [
+    [
+     "balance",
+     "contract_type"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 4537,
+    "registry_size": 8,
+    "seed": 13,
+    "n_rows": 429,
+    "n_cols": 13,
+    "effect_size": 0.35,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_0014_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4706,
+    "registry_size": 9,
+    "seed": 14,
+    "n_rows": 1037,
+    "n_cols": 10,
+    "effect_size": 0.5,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_0014_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4706,
+    "registry_size": 9,
+    "seed": 14,
+    "n_rows": 1037,
+    "n_cols": 10,
+    "effect_size": 0.5,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_0015_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 1,
+   "true_positives": 1,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [
+    [
+     "balance",
+     "device"
+    ]
+   ],
+   "effect_errors": [
+    0.011336729966437309
+   ],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 3849,
+    "registry_size": 9,
+    "seed": 15,
+    "n_rows": 994,
+    "n_cols": 10,
+    "effect_size": 0.8,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_0015_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 1,
+   "true_positives": 1,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [
+    [
+     "balance",
+     "device"
+    ]
+   ],
+   "effect_errors": [
+    0.011336729966437309
+   ],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 3849,
+    "registry_size": 9,
+    "seed": 15,
+    "n_rows": 994,
+    "n_cols": 10,
+    "effect_size": 0.8,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_0016_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 3,
+   "true_positives": 1,
+   "false_positives": 2,
+   "n_true": 3,
+   "claimed_pairs": [
+    [
+     "score_q2",
+     "paperless"
+    ],
+    [
+     "total_spend",
+     "days_since_signup"
+    ],
+    [
+     "paperless",
+     "contract_type"
+    ]
+   ],
+   "effect_errors": [
+    0.09564345998181445
+   ],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4427,
+    "registry_size": 9,
+    "seed": 16,
+    "n_rows": 1035,
+    "n_cols": 11,
+    "effect_size": 0.2,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_0016_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4427,
+    "registry_size": 9,
+    "seed": 16,
+    "n_rows": 1035,
+    "n_cols": 11,
+    "effect_size": 0.2,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_0017_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4342,
+    "registry_size": 9,
+    "seed": 17,
+    "n_rows": 1370,
+    "n_cols": 11,
+    "effect_size": 0.35,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_0017_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4342,
+    "registry_size": 9,
+    "seed": 17,
+    "n_rows": 1370,
+    "n_cols": 11,
+    "effect_size": 0.35,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_0018_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 3717,
+    "registry_size": 10,
+    "seed": 18,
+    "n_rows": 2217,
+    "n_cols": 9,
+    "effect_size": 0.5,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_0018_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 3717,
+    "registry_size": 10,
+    "seed": 18,
+    "n_rows": 2217,
+    "n_cols": 9,
+    "effect_size": 0.5,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_0019_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 1,
+   "true_positives": 1,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [
+    [
+     "bmi",
+     "opted_in"
+    ]
+   ],
+   "effect_errors": [
+    0.021252222985241764
+   ],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4099,
+    "registry_size": 9,
+    "seed": 19,
+    "n_rows": 2420,
+    "n_cols": 9,
+    "effect_size": 0.8,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_0019_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 1,
+   "true_positives": 1,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [
+    [
+     "bmi",
+     "opted_in"
+    ]
+   ],
+   "effect_errors": [
+    0.021252222985241764
+   ],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4099,
+    "registry_size": 9,
+    "seed": 19,
+    "n_rows": 2420,
+    "n_cols": 9,
+    "effect_size": 0.8,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_0020_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 6,
+   "n_tested": 6,
+   "n_claimed": 1,
+   "true_positives": 0,
+   "false_positives": 1,
+   "n_true": 3,
+   "claimed_pairs": [
+    [
+     "paperless",
+     "opted_in"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 7,
+    "usable_pairs": 6,
+    "tokens": 4247,
+    "registry_size": 6,
+    "seed": 20,
+    "n_rows": 1603,
+    "n_cols": 10,
+    "effect_size": 0.2,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_0020_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 6,
+   "n_tested": 6,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 7,
+    "usable_pairs": 6,
+    "tokens": 4247,
+    "registry_size": 6,
+    "seed": 20,
+    "n_rows": 1603,
+    "n_cols": 10,
+    "effect_size": 0.2,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_0021_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4327,
+    "registry_size": 10,
+    "seed": 21,
+    "n_rows": 751,
+    "n_cols": 12,
+    "effect_size": 0.35,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_0021_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4327,
+    "registry_size": 10,
+    "seed": 21,
+    "n_rows": 751,
+    "n_cols": 12,
+    "effect_size": 0.35,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_0022_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 9,
+    "tokens": 3941,
+    "registry_size": 9,
+    "seed": 22,
+    "n_rows": 2207,
+    "n_cols": 10,
+    "effect_size": 0.5,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_0022_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 9,
+    "tokens": 3941,
+    "registry_size": 9,
+    "seed": 22,
+    "n_rows": 2207,
+    "n_cols": 10,
+    "effect_size": 0.5,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_0023_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 1,
+   "true_positives": 0,
+   "false_positives": 1,
+   "n_true": 3,
+   "claimed_pairs": [
+    [
+     "flagged",
+     "region"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 3626,
+    "registry_size": 9,
+    "seed": 23,
+    "n_rows": 1408,
+    "n_cols": 8,
+    "effect_size": 0.8,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_0023_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 3626,
+    "registry_size": 9,
+    "seed": 23,
+    "n_rows": 1408,
+    "n_cols": 8,
+    "effect_size": 0.8,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_0024_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 1,
+   "true_positives": 1,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [
+    [
+     "session_minutes",
+     "cohort"
+    ]
+   ],
+   "effect_errors": [
+    0.09020679771302831
+   ],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4032,
+    "registry_size": 10,
+    "seed": 24,
+    "n_rows": 2165,
+    "n_cols": 9,
+    "effect_size": 0.2,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_0024_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 1,
+   "true_positives": 1,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [
+    [
+     "session_minutes",
+     "cohort"
+    ]
+   ],
+   "effect_errors": [
+    0.09020679771302831
+   ],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4032,
+    "registry_size": 10,
+    "seed": 24,
+    "n_rows": 2165,
+    "n_cols": 9,
+    "effect_size": 0.2,
+    "n_planted": 3
+   }
+  }
+ ],
+ "failures": []
+}

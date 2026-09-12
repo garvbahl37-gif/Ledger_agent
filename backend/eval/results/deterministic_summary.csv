@@ -1,0 +1,7 @@
+arm,suite,tables,mean_claims,median_claims,mean_false_positives,total_false_positives,any_false_discovery_rate,mean_fdp,mean_power,mean_candidates,mean_effect_abs_error
+exhaustive_bh,NULLSET,200,0.025,0.0,0.025,5,0.025,0.025,,46.445,
+exhaustive_bh,NULLSET_NUISANCE,40,1.075,1.0,0.075,3,0.05,0.029166666666666664,1.0,56.125,
+exhaustive_bh,PLANTED,240,2.85,3.0,0.24583333333333332,59,0.19583333333333333,0.055813492063492065,0.8989583333333333,51.5625,0.19091398932021153
+exhaustive_uncorrected,NULLSET,200,2.2,2.0,2.2,440,0.81,0.81,,46.445,
+exhaustive_uncorrected,NULLSET_NUISANCE,40,4.025,3.0,3.025,121,0.95,0.6678869047619047,1.0,56.125,
+exhaustive_uncorrected,PLANTED,240,5.2875,5.0,2.5,600,0.8583333333333333,0.4098610417360417,0.9597222222222223,51.5625,0.18953742917778846

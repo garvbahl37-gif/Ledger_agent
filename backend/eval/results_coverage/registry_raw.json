@@ -1,0 +1,1892 @@
+{
+ "results": [
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5000_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 1,
+   "true_positives": 0,
+   "false_positives": 1,
+   "n_true": 2,
+   "claimed_pairs": [
+    [
+     "cohort",
+     "converted"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4344,
+    "truth_covered": 0,
+    "truth_total": 2,
+    "coverage": 0.0,
+    "registry_size": 9,
+    "seed": 5000,
+    "n_rows": 1091,
+    "n_cols": 12,
+    "effect_size": 0.2,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5000_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4344,
+    "truth_covered": 0,
+    "truth_total": 2,
+    "coverage": 0.0,
+    "registry_size": 9,
+    "seed": 5000,
+    "n_rows": 1091,
+    "n_cols": 12,
+    "effect_size": 0.2,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5001_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 1,
+   "true_positives": 0,
+   "false_positives": 1,
+   "n_true": 2,
+   "claimed_pairs": [
+    [
+     "bmi",
+     "hours_logged"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 3921,
+    "truth_covered": 0,
+    "truth_total": 2,
+    "coverage": 0.0,
+    "registry_size": 9,
+    "seed": 5001,
+    "n_rows": 2293,
+    "n_cols": 10,
+    "effect_size": 0.35,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5001_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 3921,
+    "truth_covered": 0,
+    "truth_total": 2,
+    "coverage": 0.0,
+    "registry_size": 9,
+    "seed": 5001,
+    "n_rows": 2293,
+    "n_cols": 10,
+    "effect_size": 0.35,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5002_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 1,
+   "true_positives": 0,
+   "false_positives": 1,
+   "n_true": 3,
+   "claimed_pairs": [
+    [
+     "cohort",
+     "churned"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4846,
+    "truth_covered": 0,
+    "truth_total": 3,
+    "coverage": 0.0,
+    "registry_size": 10,
+    "seed": 5002,
+    "n_rows": 1804,
+    "n_cols": 12,
+    "effect_size": 0.5,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5002_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4846,
+    "truth_covered": 0,
+    "truth_total": 3,
+    "coverage": 0.0,
+    "registry_size": 10,
+    "seed": 5002,
+    "n_rows": 1804,
+    "n_cols": 12,
+    "effect_size": 0.5,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5003_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 6,
+   "n_tested": 6,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 6,
+    "usable_pairs": 6,
+    "tokens": 4366,
+    "truth_covered": 0,
+    "truth_total": 3,
+    "coverage": 0.0,
+    "registry_size": 6,
+    "seed": 5003,
+    "n_rows": 1331,
+    "n_cols": 11,
+    "effect_size": 0.8,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5003_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 6,
+   "n_tested": 6,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 6,
+    "usable_pairs": 6,
+    "tokens": 4366,
+    "truth_covered": 0,
+    "truth_total": 3,
+    "coverage": 0.0,
+    "registry_size": 6,
+    "seed": 5003,
+    "n_rows": 1331,
+    "n_cols": 11,
+    "effect_size": 0.8,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5004_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 1,
+   "true_positives": 0,
+   "false_positives": 1,
+   "n_true": 3,
+   "claimed_pairs": [
+    [
+     "channel",
+     "segment"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4064,
+    "truth_covered": 0,
+    "truth_total": 3,
+    "coverage": 0.0,
+    "registry_size": 10,
+    "seed": 5004,
+    "n_rows": 2128,
+    "n_cols": 9,
+    "effect_size": 0.2,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5004_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4064,
+    "truth_covered": 0,
+    "truth_total": 3,
+    "coverage": 0.0,
+    "registry_size": 10,
+    "seed": 5004,
+    "n_rows": 2128,
+    "n_cols": 9,
+    "effect_size": 0.2,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5005_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 1,
+   "true_positives": 0,
+   "false_positives": 1,
+   "n_true": 4,
+   "claimed_pairs": [
+    [
+     "segment",
+     "converted"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 4421,
+    "truth_covered": 0,
+    "truth_total": 4,
+    "coverage": 0.0,
+    "registry_size": 8,
+    "seed": 5005,
+    "n_rows": 672,
+    "n_cols": 11,
+    "effect_size": 0.35,
+    "n_planted": 4
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5005_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 1,
+   "true_positives": 0,
+   "false_positives": 1,
+   "n_true": 4,
+   "claimed_pairs": [
+    [
+     "segment",
+     "converted"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 4421,
+    "truth_covered": 0,
+    "truth_total": 4,
+    "coverage": 0.0,
+    "registry_size": 8,
+    "seed": 5005,
+    "n_rows": 672,
+    "n_cols": 11,
+    "effect_size": 0.35,
+    "n_planted": 4
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5006_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 1,
+   "true_positives": 1,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [
+    [
+     "bmi",
+     "department"
+    ]
+   ],
+   "effect_errors": [
+    0.46072217184014763
+   ],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 3993,
+    "truth_covered": 1,
+    "truth_total": 2,
+    "coverage": 0.5,
+    "registry_size": 10,
+    "seed": 5006,
+    "n_rows": 1313,
+    "n_cols": 9,
+    "effect_size": 0.5,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5006_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 1,
+   "true_positives": 1,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [
+    [
+     "bmi",
+     "department"
+    ]
+   ],
+   "effect_errors": [
+    0.46072217184014763
+   ],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 3993,
+    "truth_covered": 1,
+    "truth_total": 2,
+    "coverage": 0.5,
+    "registry_size": 10,
+    "seed": 5006,
+    "n_rows": 1313,
+    "n_cols": 9,
+    "effect_size": 0.5,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5007_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 1,
+   "true_positives": 0,
+   "false_positives": 1,
+   "n_true": 3,
+   "claimed_pairs": [
+    [
+     "hours_logged",
+     "latency_ms"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4526,
+    "truth_covered": 0,
+    "truth_total": 3,
+    "coverage": 0.0,
+    "registry_size": 10,
+    "seed": 5007,
+    "n_rows": 2189,
+    "n_cols": 12,
+    "effect_size": 0.8,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5007_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4526,
+    "truth_covered": 0,
+    "truth_total": 3,
+    "coverage": 0.0,
+    "registry_size": 10,
+    "seed": 5007,
+    "n_rows": 2189,
+    "n_cols": 12,
+    "effect_size": 0.8,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5008_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 1,
+   "true_positives": 0,
+   "false_positives": 1,
+   "n_true": 4,
+   "claimed_pairs": [
+    [
+     "unit_price",
+     "paperless"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 5168,
+    "truth_covered": 0,
+    "truth_total": 4,
+    "coverage": 0.0,
+    "registry_size": 9,
+    "seed": 5008,
+    "n_rows": 1981,
+    "n_cols": 12,
+    "effect_size": 0.2,
+    "n_planted": 4
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5008_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 4,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 5168,
+    "truth_covered": 0,
+    "truth_total": 4,
+    "coverage": 0.0,
+    "registry_size": 9,
+    "seed": 5008,
+    "n_rows": 1981,
+    "n_cols": 12,
+    "effect_size": 0.2,
+    "n_planted": 4
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5009_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 3,
+   "true_positives": 2,
+   "false_positives": 1,
+   "n_true": 4,
+   "claimed_pairs": [
+    [
+     "systolic_bp",
+     "plan_tier"
+    ],
+    [
+     "bmi",
+     "department"
+    ],
+    [
+     "bmi",
+     "browser"
+    ]
+   ],
+   "effect_errors": [
+    0.3244112957431264,
+    0.32145719750899704
+   ],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4864,
+    "truth_covered": 2,
+    "truth_total": 4,
+    "coverage": 0.5,
+    "registry_size": 9,
+    "seed": 5009,
+    "n_rows": 1641,
+    "n_cols": 13,
+    "effect_size": 0.35,
+    "n_planted": 4
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5009_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 2,
+   "true_positives": 2,
+   "false_positives": 0,
+   "n_true": 4,
+   "claimed_pairs": [
+    [
+     "systolic_bp",
+     "plan_tier"
+    ],
+    [
+     "bmi",
+     "department"
+    ]
+   ],
+   "effect_errors": [
+    0.3244112957431264,
+    0.32145719750899704
+   ],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4864,
+    "truth_covered": 2,
+    "truth_total": 4,
+    "coverage": 0.5,
+    "registry_size": 9,
+    "seed": 5009,
+    "n_rows": 1641,
+    "n_cols": 13,
+    "effect_size": 0.35,
+    "n_planted": 4
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5010_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 1,
+   "true_positives": 0,
+   "false_positives": 1,
+   "n_true": 4,
+   "claimed_pairs": [
+    [
+     "payment_method",
+     "churned"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 3810,
+    "truth_covered": 0,
+    "truth_total": 4,
+    "coverage": 0.0,
+    "registry_size": 8,
+    "seed": 5010,
+    "n_rows": 778,
+    "n_cols": 8,
+    "effect_size": 0.5,
+    "n_planted": 4
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5010_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 4,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 3810,
+    "truth_covered": 0,
+    "truth_total": 4,
+    "coverage": 0.0,
+    "registry_size": 8,
+    "seed": 5010,
+    "n_rows": 778,
+    "n_cols": 8,
+    "effect_size": 0.5,
+    "n_planted": 4
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5011_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 1,
+   "true_positives": 1,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [
+    [
+     "score_q1",
+     "converted"
+    ]
+   ],
+   "effect_errors": [
+    0.028522444183946782
+   ],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4146,
+    "truth_covered": 1,
+    "truth_total": 3,
+    "coverage": 0.3333333333333333,
+    "registry_size": 9,
+    "seed": 5011,
+    "n_rows": 1033,
+    "n_cols": 10,
+    "effect_size": 0.8,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5011_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 1,
+   "true_positives": 1,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [
+    [
+     "score_q1",
+     "converted"
+    ]
+   ],
+   "effect_errors": [
+    0.028522444183946782
+   ],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4146,
+    "truth_covered": 1,
+    "truth_total": 3,
+    "coverage": 0.3333333333333333,
+    "registry_size": 9,
+    "seed": 5011,
+    "n_rows": 1033,
+    "n_cols": 10,
+    "effect_size": 0.8,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5012_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 4,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4191,
+    "truth_covered": 0,
+    "truth_total": 4,
+    "coverage": 0.0,
+    "registry_size": 10,
+    "seed": 5012,
+    "n_rows": 908,
+    "n_cols": 11,
+    "effect_size": 0.2,
+    "n_planted": 4
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5012_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 4,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4191,
+    "truth_covered": 0,
+    "truth_total": 4,
+    "coverage": 0.0,
+    "registry_size": 10,
+    "seed": 5012,
+    "n_rows": 908,
+    "n_cols": 11,
+    "effect_size": 0.2,
+    "n_planted": 4
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5013_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 3,
+   "true_positives": 1,
+   "false_positives": 2,
+   "n_true": 3,
+   "claimed_pairs": [
+    [
+     "unit_price",
+     "total_spend"
+    ],
+    [
+     "churned",
+     "plan_tier"
+    ],
+    [
+     "latency_ms",
+     "unit_price"
+    ]
+   ],
+   "effect_errors": [
+    0.03233839922765533
+   ],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4276,
+    "truth_covered": 1,
+    "truth_total": 3,
+    "coverage": 0.3333333333333333,
+    "registry_size": 10,
+    "seed": 5013,
+    "n_rows": 1015,
+    "n_cols": 10,
+    "effect_size": 0.35,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5013_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 1,
+   "true_positives": 1,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [
+    [
+     "latency_ms",
+     "unit_price"
+    ]
+   ],
+   "effect_errors": [
+    0.03233839922765533
+   ],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4276,
+    "truth_covered": 1,
+    "truth_total": 3,
+    "coverage": 0.3333333333333333,
+    "registry_size": 10,
+    "seed": 5013,
+    "n_rows": 1015,
+    "n_cols": 10,
+    "effect_size": 0.35,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5014_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 2,
+   "true_positives": 1,
+   "false_positives": 1,
+   "n_true": 2,
+   "claimed_pairs": [
+    [
+     "score_q1",
+     "is_active"
+    ],
+    [
+     "score_q1",
+     "tenure_months"
+    ]
+   ],
+   "effect_errors": [
+    0.0031923554850479263
+   ],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4396,
+    "truth_covered": 1,
+    "truth_total": 2,
+    "coverage": 0.5,
+    "registry_size": 10,
+    "seed": 5014,
+    "n_rows": 2463,
+    "n_cols": 11,
+    "effect_size": 0.5,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5014_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 1,
+   "true_positives": 1,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [
+    [
+     "score_q1",
+     "is_active"
+    ]
+   ],
+   "effect_errors": [
+    0.0031923554850479263
+   ],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4396,
+    "truth_covered": 1,
+    "truth_total": 2,
+    "coverage": 0.5,
+    "registry_size": 10,
+    "seed": 5014,
+    "n_rows": 2463,
+    "n_cols": 11,
+    "effect_size": 0.5,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5015_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 4,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 3858,
+    "truth_covered": 0,
+    "truth_total": 4,
+    "coverage": 0.0,
+    "registry_size": 9,
+    "seed": 5015,
+    "n_rows": 1398,
+    "n_cols": 8,
+    "effect_size": 0.8,
+    "n_planted": 4
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5015_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 4,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 3858,
+    "truth_covered": 0,
+    "truth_total": 4,
+    "coverage": 0.0,
+    "registry_size": 9,
+    "seed": 5015,
+    "n_rows": 1398,
+    "n_cols": 8,
+    "effect_size": 0.8,
+    "n_planted": 4
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5016_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 2,
+   "true_positives": 0,
+   "false_positives": 2,
+   "n_true": 4,
+   "claimed_pairs": [
+    [
+     "total_spend",
+     "is_active"
+    ],
+    [
+     "device",
+     "is_active"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 4230,
+    "truth_covered": 0,
+    "truth_total": 4,
+    "coverage": 0.0,
+    "registry_size": 8,
+    "seed": 5016,
+    "n_rows": 1642,
+    "n_cols": 11,
+    "effect_size": 0.2,
+    "n_planted": 4
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5016_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 1,
+   "true_positives": 0,
+   "false_positives": 1,
+   "n_true": 4,
+   "claimed_pairs": [
+    [
+     "total_spend",
+     "is_active"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 4230,
+    "truth_covered": 0,
+    "truth_total": 4,
+    "coverage": 0.0,
+    "registry_size": 8,
+    "seed": 5016,
+    "n_rows": 1642,
+    "n_cols": 11,
+    "effect_size": 0.2,
+    "n_planted": 4
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5017_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 7,
+   "n_tested": 7,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 7,
+    "usable_pairs": 7,
+    "tokens": 3989,
+    "truth_covered": 0,
+    "truth_total": 2,
+    "coverage": 0.0,
+    "registry_size": 7,
+    "seed": 5017,
+    "n_rows": 593,
+    "n_cols": 9,
+    "effect_size": 0.35,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5017_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 7,
+   "n_tested": 7,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 7,
+    "usable_pairs": 7,
+    "tokens": 3989,
+    "truth_covered": 0,
+    "truth_total": 2,
+    "coverage": 0.0,
+    "registry_size": 7,
+    "seed": 5017,
+    "n_rows": 593,
+    "n_cols": 9,
+    "effect_size": 0.35,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5018_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4550,
+    "truth_covered": 0,
+    "truth_total": 3,
+    "coverage": 0.0,
+    "registry_size": 9,
+    "seed": 5018,
+    "n_rows": 983,
+    "n_cols": 12,
+    "effect_size": 0.5,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5018_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4550,
+    "truth_covered": 0,
+    "truth_total": 3,
+    "coverage": 0.0,
+    "registry_size": 9,
+    "seed": 5018,
+    "n_rows": 983,
+    "n_cols": 12,
+    "effect_size": 0.5,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5019_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 2,
+   "true_positives": 2,
+   "false_positives": 0,
+   "n_true": 4,
+   "claimed_pairs": [
+    [
+     "total_spend",
+     "visit_count"
+    ],
+    [
+     "visit_count",
+     "opted_in"
+    ]
+   ],
+   "effect_errors": [
+    0.098185397099954,
+    0.021954308744558504
+   ],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 3767,
+    "truth_covered": 2,
+    "truth_total": 4,
+    "coverage": 0.5,
+    "registry_size": 8,
+    "seed": 5019,
+    "n_rows": 2412,
+    "n_cols": 9,
+    "effect_size": 0.8,
+    "n_planted": 4
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5019_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 2,
+   "true_positives": 2,
+   "false_positives": 0,
+   "n_true": 4,
+   "claimed_pairs": [
+    [
+     "total_spend",
+     "visit_count"
+    ],
+    [
+     "visit_count",
+     "opted_in"
+    ]
+   ],
+   "effect_errors": [
+    0.098185397099954,
+    0.021954308744558504
+   ],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 3767,
+    "truth_covered": 2,
+    "truth_total": 4,
+    "coverage": 0.5,
+    "registry_size": 8,
+    "seed": 5019,
+    "n_rows": 2412,
+    "n_cols": 9,
+    "effect_size": 0.8,
+    "n_planted": 4
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5020_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4352,
+    "truth_covered": 0,
+    "truth_total": 2,
+    "coverage": 0.0,
+    "registry_size": 9,
+    "seed": 5020,
+    "n_rows": 938,
+    "n_cols": 10,
+    "effect_size": 0.2,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5020_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4352,
+    "truth_covered": 0,
+    "truth_total": 2,
+    "coverage": 0.0,
+    "registry_size": 9,
+    "seed": 5020,
+    "n_rows": 938,
+    "n_cols": 10,
+    "effect_size": 0.2,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5021_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 1,
+   "true_positives": 0,
+   "false_positives": 1,
+   "n_true": 3,
+   "claimed_pairs": [
+    [
+     "systolic_bp",
+     "device"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 3612,
+    "truth_covered": 0,
+    "truth_total": 3,
+    "coverage": 0.0,
+    "registry_size": 10,
+    "seed": 5021,
+    "n_rows": 1426,
+    "n_cols": 8,
+    "effect_size": 0.35,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5021_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 3612,
+    "truth_covered": 0,
+    "truth_total": 3,
+    "coverage": 0.0,
+    "registry_size": 10,
+    "seed": 5021,
+    "n_rows": 1426,
+    "n_cols": 8,
+    "effect_size": 0.35,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5022_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 1,
+   "true_positives": 1,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [
+    [
+     "bmi",
+     "score_q1"
+    ]
+   ],
+   "effect_errors": [
+    0.03774247596445163
+   ],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4531,
+    "truth_covered": 1,
+    "truth_total": 2,
+    "coverage": 0.5,
+    "registry_size": 10,
+    "seed": 5022,
+    "n_rows": 941,
+    "n_cols": 10,
+    "effect_size": 0.5,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5022_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 1,
+   "true_positives": 1,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [
+    [
+     "bmi",
+     "score_q1"
+    ]
+   ],
+   "effect_errors": [
+    0.03774247596445163
+   ],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4531,
+    "truth_covered": 1,
+    "truth_total": 2,
+    "coverage": 0.5,
+    "registry_size": 10,
+    "seed": 5022,
+    "n_rows": 941,
+    "n_cols": 10,
+    "effect_size": 0.5,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5023_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 1,
+   "true_positives": 1,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [
+    [
+     "days_since_signup",
+     "opted_in"
+    ]
+   ],
+   "effect_errors": [
+    0.04967962699725059
+   ],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4131,
+    "truth_covered": 1,
+    "truth_total": 3,
+    "coverage": 0.3333333333333333,
+    "registry_size": 9,
+    "seed": 5023,
+    "n_rows": 1011,
+    "n_cols": 9,
+    "effect_size": 0.8,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5023_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 1,
+   "true_positives": 1,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [
+    [
+     "days_since_signup",
+     "opted_in"
+    ]
+   ],
+   "effect_errors": [
+    0.04967962699725059
+   ],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4131,
+    "truth_covered": 1,
+    "truth_total": 3,
+    "coverage": 0.3333333333333333,
+    "registry_size": 9,
+    "seed": 5023,
+    "n_rows": 1011,
+    "n_cols": 9,
+    "effect_size": 0.8,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5024_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 2,
+   "true_positives": 1,
+   "false_positives": 1,
+   "n_true": 3,
+   "claimed_pairs": [
+    [
+     "grade",
+     "converted"
+    ],
+    [
+     "systolic_bp",
+     "payment_method"
+    ]
+   ],
+   "effect_errors": [
+    0.1980909886754741
+   ],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 3780,
+    "truth_covered": 1,
+    "truth_total": 3,
+    "coverage": 0.3333333333333333,
+    "registry_size": 10,
+    "seed": 5024,
+    "n_rows": 1209,
+    "n_cols": 8,
+    "effect_size": 0.2,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5024_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 2,
+   "true_positives": 1,
+   "false_positives": 1,
+   "n_true": 3,
+   "claimed_pairs": [
+    [
+     "grade",
+     "converted"
+    ],
+    [
+     "systolic_bp",
+     "payment_method"
+    ]
+   ],
+   "effect_errors": [
+    0.1980909886754741
+   ],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 3780,
+    "truth_covered": 1,
+    "truth_total": 3,
+    "coverage": 0.3333333333333333,
+    "registry_size": 10,
+    "seed": 5024,
+    "n_rows": 1209,
+    "n_cols": 8,
+    "effect_size": 0.2,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5025_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 1,
+   "true_positives": 0,
+   "false_positives": 1,
+   "n_true": 3,
+   "claimed_pairs": [
+    [
+     "visit_count",
+     "region"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 4310,
+    "truth_covered": 0,
+    "truth_total": 3,
+    "coverage": 0.0,
+    "registry_size": 8,
+    "seed": 5025,
+    "n_rows": 2231,
+    "n_cols": 11,
+    "effect_size": 0.35,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5025_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 8,
+   "n_tested": 8,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 3,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 8,
+    "usable_pairs": 8,
+    "tokens": 4310,
+    "truth_covered": 0,
+    "truth_total": 3,
+    "coverage": 0.0,
+    "registry_size": 8,
+    "seed": 5025,
+    "n_rows": 2231,
+    "n_cols": 11,
+    "effect_size": 0.35,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5026_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4094,
+    "truth_covered": 1,
+    "truth_total": 2,
+    "coverage": 0.5,
+    "registry_size": 9,
+    "seed": 5026,
+    "n_rows": 512,
+    "n_cols": 9,
+    "effect_size": 0.5,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5026_d0.5",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 2,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4094,
+    "truth_covered": 1,
+    "truth_total": 2,
+    "coverage": 0.5,
+    "registry_size": 9,
+    "seed": 5026,
+    "n_rows": 512,
+    "n_cols": 9,
+    "effect_size": 0.5,
+    "n_planted": 2
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5027_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 2,
+   "true_positives": 0,
+   "false_positives": 2,
+   "n_true": 3,
+   "claimed_pairs": [
+    [
+     "cohort",
+     "converted"
+    ],
+    [
+     "visit_count",
+     "credit_score"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4740,
+    "truth_covered": 0,
+    "truth_total": 3,
+    "coverage": 0.0,
+    "registry_size": 9,
+    "seed": 5027,
+    "n_rows": 1675,
+    "n_cols": 13,
+    "effect_size": 0.8,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5027_d0.8",
+   "suite": "PLANTED",
+   "n_candidates": 9,
+   "n_tested": 9,
+   "n_claimed": 1,
+   "true_positives": 0,
+   "false_positives": 1,
+   "n_true": 3,
+   "claimed_pairs": [
+    [
+     "cohort",
+     "converted"
+    ]
+   ],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 9,
+    "usable_pairs": 9,
+    "tokens": 4740,
+    "truth_covered": 0,
+    "truth_total": 3,
+    "coverage": 0.0,
+    "registry_size": 9,
+    "seed": 5027,
+    "n_rows": 1675,
+    "n_cols": 13,
+    "effect_size": 0.8,
+    "n_planted": 3
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5028_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 6,
+   "n_tested": 6,
+   "n_claimed": 1,
+   "true_positives": 1,
+   "false_positives": 0,
+   "n_true": 4,
+   "claimed_pairs": [
+    [
+     "response_time",
+     "department"
+    ]
+   ],
+   "effect_errors": [
+    0.19328228017104063
+   ],
+   "meta": {
+    "proposed": 7,
+    "usable_pairs": 6,
+    "tokens": 3601,
+    "truth_covered": 1,
+    "truth_total": 4,
+    "coverage": 0.25,
+    "registry_size": 6,
+    "seed": 5028,
+    "n_rows": 2172,
+    "n_cols": 8,
+    "effect_size": 0.2,
+    "n_planted": 4
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5028_d0.2",
+   "suite": "PLANTED",
+   "n_candidates": 6,
+   "n_tested": 6,
+   "n_claimed": 1,
+   "true_positives": 1,
+   "false_positives": 0,
+   "n_true": 4,
+   "claimed_pairs": [
+    [
+     "response_time",
+     "department"
+    ]
+   ],
+   "effect_errors": [
+    0.19328228017104063
+   ],
+   "meta": {
+    "proposed": 7,
+    "usable_pairs": 6,
+    "tokens": 3601,
+    "truth_covered": 1,
+    "truth_total": 4,
+    "coverage": 0.25,
+    "registry_size": 6,
+    "seed": 5028,
+    "n_rows": 2172,
+    "n_cols": 8,
+    "effect_size": 0.2,
+    "n_planted": 4
+   }
+  },
+  {
+   "arm": "registry_uncorrected",
+   "table": "planted_5029_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 4,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4535,
+    "truth_covered": 0,
+    "truth_total": 4,
+    "coverage": 0.0,
+    "registry_size": 10,
+    "seed": 5029,
+    "n_rows": 1349,
+    "n_cols": 12,
+    "effect_size": 0.35,
+    "n_planted": 4
+   }
+  },
+  {
+   "arm": "registry_bh",
+   "table": "planted_5029_d0.35",
+   "suite": "PLANTED",
+   "n_candidates": 10,
+   "n_tested": 10,
+   "n_claimed": 0,
+   "true_positives": 0,
+   "false_positives": 0,
+   "n_true": 4,
+   "claimed_pairs": [],
+   "effect_errors": [],
+   "meta": {
+    "proposed": 10,
+    "usable_pairs": 10,
+    "tokens": 4535,
+    "truth_covered": 0,
+    "truth_total": 4,
+    "coverage": 0.0,
+    "registry_size": 10,
+    "seed": 5029,
+    "n_rows": 1349,
+    "n_cols": 12,
+    "effect_size": 0.35,
+    "n_planted": 4
+   }
+  }
+ ],
+ "failures": []
+}

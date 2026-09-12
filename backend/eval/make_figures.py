@@ -43,7 +43,15 @@ ARM_LABEL = {
     "exhaustive_uncorrected": "Exhaustive, uncorrected",
     "exhaustive_bh": "Exhaustive, BH-corrected",
     "registry_uncorrected": "Registry, uncorrected",
-    "registry_bh": "Ledger (registry + BH)",
+    "registry_bh": "Registry + BH (Ledger)",
+}
+
+# Two-line forms for axis ticks, where the full labels collide at four arms.
+ARM_TICK = {
+    "exhaustive_uncorrected": "Exhaustive\nuncorrected",
+    "exhaustive_bh": "Exhaustive\n+ BH",
+    "registry_uncorrected": "Registry\nuncorrected",
+    "registry_bh": "Registry + BH\n(Ledger)",
 }
 
 
@@ -81,7 +89,7 @@ def fig_null(df, out):
     sems = [null[null["arm"] == a]["n_claimed"].sem() for a in arms]
     anyfd = [(null[null["arm"] == a]["false_positives"] > 0).mean() * 100 for a in arms]
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(6.6, 2.5))
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(7.0, 2.6))
     colors = [SUBJECT if a.endswith("_bh") else BASELINE for a in arms]
     x = np.arange(len(arms))
 
@@ -91,7 +99,7 @@ def fig_null(df, out):
     ax1.axhline(0, color=INK, lw=1.0)
     ax1.set_ylim(0, top)
     ax1.set_xticks(x)
-    ax1.set_xticklabels([ARM_LABEL[a].replace(", ", ",\n") for a in arms], fontsize=7)
+    ax1.set_xticklabels([ARM_TICK[a] for a in arms], fontsize=6.5)
     ax1.set_ylabel("Findings claimed per table")
     ax1.set_title("(a) Mean findings on null tables", fontsize=8, loc="left")
     # Place each value above its own error bar, not above the bar, so the two
@@ -99,17 +107,27 @@ def fig_null(df, out):
     for xi, m, se in zip(x, means, sems):
         ax1.text(xi, m + (se if np.isfinite(se) else 0) + top * 0.045,
                  f"{m:.2f}", ha="center", fontsize=7.5)
+    # An exactly-zero bar has no height and would read as a missing arm rather
+    # than as the result, so give it a visible baseline tick.
+    for xi, m, c in zip(x, means, colors):
+        if m == 0:
+            ax1.plot([xi - 0.3, xi + 0.3], [top * 0.006] * 2, color=c, lw=2.2,
+                     solid_capstyle="butt")
     ax1.text(0.5, 0.93, "ground truth = 0 findings", transform=ax1.transAxes,
              fontsize=7, color=INK, ha="center", style="italic")
 
     ax2.bar(x, anyfd, color=colors, width=0.6)
     ax2.set_xticks(x)
-    ax2.set_xticklabels([ARM_LABEL[a].replace(", ", ",\n") for a in arms], fontsize=7)
+    ax2.set_xticklabels([ARM_TICK[a] for a in arms], fontsize=6.5)
     ax2.set_ylabel("Tables with $\\geq$1 false finding (%)")
     ax2.set_ylim(0, 108)
     ax2.set_title("(b) Fraction of null tables contaminated", fontsize=8, loc="left")
     for xi, v in zip(x, anyfd):
         ax2.text(xi, v + 2.5, f"{v:.1f}%", ha="center", fontsize=7.5)
+    for xi, v, c in zip(x, anyfd, colors):
+        if v == 0:
+            ax2.plot([xi - 0.3, xi + 0.3], [0.7] * 2, color=c, lw=2.2,
+                     solid_capstyle="butt")
 
     for ax in (ax1, ax2):
         ax.spines[["top", "right"]].set_visible(False)

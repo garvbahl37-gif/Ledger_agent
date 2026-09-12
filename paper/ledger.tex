@@ -62,16 +62,28 @@ discretion; Benjamini--Hochberg correction is applied once across the entire
 registered family; and the natural-language report can only emit sentences the
 statistical layer has licensed.
 
-We evaluate on 480 synthetic tables with ground truth known by construction. On
-200 null tables, an exhaustive uncorrected analyst---the behaviour of current
-agent pipelines---claims a false finding on \textbf{81.0\%} of tables
-(2.20 claims/table). The same test machinery under session-level correction
-claims one on \textbf{2.5\%} (0.03 claims/table). On 240 tables with planted
-effects, correction reduces the false discovery proportion from 0.410 to 0.056
-while retaining 0.899 of the power, and the cost is concentrated entirely at
-small effect sizes: at $d \geq 0.5$ the corrected system loses under one
-percentage point of power. We release the generators, the harness and the
-system.
+We evaluate on 535 synthetic tables with ground truth known by construction,
+and report two results---one confirming the design, one undermining it.
+
+First, session-level correction works. On 200 null tables an exhaustive
+uncorrected analyst---the behaviour of current agent pipelines---claims a false
+finding on \textbf{81.0\%} of tables; the same test machinery under one
+session-level correction claims one on \textbf{2.5\%}. The cost is six points of
+power and is concentrated entirely at small effects: above $d = 0.5$ it is under
+one percentage point.
+
+Second, and less comfortably, pre-registration by a language model carries a
+severe hidden cost. When the registry is supplied by the proposer rather than by
+exhaustive enumeration, false discovery control becomes near-perfect (zero false
+findings across 25 null tables) but power collapses to \textbf{0.13}. We localise
+the failure precisely: power \emph{conditional} on a relationship having been
+registered is \textbf{0.92}, while the proposer registers only \textbf{14\%} of
+the relationships that exist. The bottleneck is not the statistics but the
+blindness that makes the statistics valid---the proposer is restricted to
+marginal summaries precisely so that it cannot peek, and that restriction is
+what prevents it from finding anything. We quantify this tension, which we
+believe is intrinsic to pre-registration in autonomous agents, and release the
+generators, the harness and the system.
 \end{abstract}
 
 \section{Introduction}
@@ -120,8 +132,10 @@ correctly reports nothing.} NULLSET and PLANTED are generated suites with
 ground truth known by construction rather than by adjudication
 (\S\ref{sec:protocol}).
 
-\item \textbf{A measured decomposition of where the control comes from}, and a
-power curve stating what the discipline costs in sensitivity
+\item \textbf{A measured decomposition of where the control comes from}, a power
+curve stating what correction costs in sensitivity, and---the result we did not
+expect---a quantification of the coverage--validity tension that makes
+LLM pre-registration far more expensive than correction alone
 (\S\ref{sec:results}).
 \end{enumerate}
 
@@ -311,6 +325,11 @@ $p<0.05$. This is what an agent with code execution and no discipline does.
 \item \textbf{Exhaustive, BH-corrected.} Every column pair, corrected once
 across all of them. Isolates the contribution of correction alone, holding the
 candidate set fixed.
+\item \textbf{Registry, uncorrected} and \textbf{Registry, BH-corrected.} The
+candidate set is whatever the A2 proposer registered from the marginal profile,
+frozen before execution. Comparing these against the exhaustive arms separates
+the effect of a \emph{smaller, model-chosen} family from the effect of
+correcting across it.
 \end{itemize}
 
 Failed tests remain in the family at $p = 1.0$ rather than being dropped;
@@ -432,6 +451,97 @@ $0.077$ at $d = 0.2, 0.35, 0.5, 0.8$ against a nominal $q = 0.05$. That the
 achieved rate sits near the nominal rate, rather than far below it, indicates
 the procedure is neither broken nor gratuitously conservative on these suites.
 
+\subsection{The cost of pre-registration}
+\label{sec:coverage}
+
+The arms above hold the candidate family fixed at every column pair. That
+isolates correction, but it is not how Ledger runs: in the deployed system the
+family is whatever the proposer registered. Substituting the model-chosen
+registry produces the result in Table~\ref{tab:registry}, and it is not the
+result we expected.
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}llrrr@{}}
+\toprule
+\textbf{Family} & \textbf{Corr.} & \textbf{$m$} & \textbf{Any FD} & \textbf{Power} \\
+\midrule
+Exhaustive & no  & 51.6 & 85.8\% & 0.960 \\
+Exhaustive & BH  & 51.6 & 19.6\% & 0.899 \\
+Registry   & no  & \phantom{0}8.7 & 40.0\% & 0.137 \\
+Registry   & BH  & \phantom{0}8.7 & \textbf{\phantom{0}8.0\%} & \textbf{0.123} \\
+\bottomrule
+\end{tabular}
+\caption{PLANTED. A model-chosen registry drives false discovery down further
+than correction alone, and takes power with it.}
+\label{tab:registry}
+\vspace{-4mm}
+\end{table}
+
+On null tables the registry arm is flawless: across 25 tables it claimed
+\emph{zero} false findings, against 2.5\% of tables for exhaustive-plus-BH. A
+smaller family is a genuinely powerful error-control mechanism, and combining it
+with correction is better than either alone.
+
+But power falls from $0.899$ to $0.123$. A system that finds one planted
+relationship in eight is not an analyst. The obvious reading---that discipline
+has made the system too conservative---turns out to be wrong, and the
+instrumentation says why. Over 30 further PLANTED tables containing 92 planted
+relationships in total:
+
+\begin{center}\small
+\begin{tabular}{@{}lr@{}}
+\toprule
+Planted relationships & 92 \\
+\dots\ the proposer \emph{registered} & 13 \ \ (14.1\%) \\
+\dots\ the system then \emph{detected} & 12 \\
+\midrule
+Unconditional power & 0.130 \\
+\textbf{Power conditional on registration} & \textbf{0.923} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+Once a real relationship is in the registry, the pipeline finds it $92\%$ of the
+time. Nothing is wrong with the tests, the assumption checks, or the correction.
+The entire loss is upstream: the proposer registers about nine of roughly
+fifty-two available pairs, and those nine are mostly not the ones that carry
+signal.
+
+\paragraph{Why this is not a prompt-engineering bug.} It would be natural to
+conclude that the proposer simply needs a better prompt. We think the problem is
+structural. The proposer is shown marginal summaries \emph{only}---types,
+cardinality, missingness, per-column distributions---and that restriction is not
+incidental. It is what makes the correction sound: if hypothesis selection were
+informed by the relationships in the data, the registry would be a
+data-dependent choice and the family would no longer be fixed independently of
+the results, exactly the leakage that FDR control assumes away. So the proposer
+is blind by construction, and a blind proposer choosing nine pairs out of
+fifty-two will cover about seventeen percent of the space regardless of how
+well it is prompted.
+
+This is the coverage--validity tension, and we state it plainly because it
+constrains the whole design: \emph{the restriction that makes pre-registration
+statistically meaningful is the same restriction that prevents the proposer from
+knowing where to look.} Any system that pre-registers hypotheses through a model
+that has not seen the relationships will face some version of it.
+
+\paragraph{What this implies.} The tension is a budgeting problem, not a
+refutation. Three directions follow, in increasing order of interest. The
+registration budget can simply be raised---registering thirty pairs instead of
+nine trades a more conservative threshold for much better coverage, and because
+BH scales gracefully in $m$ this trade is cheap. Domain knowledge, supplied
+through the data dictionary rather than through the data, raises coverage
+without creating leakage, which is an argument for the RAG path the system
+already has. Most interestingly, sample splitting would permit a proposer to see
+relationships in one partition and register hypotheses tested on another,
+recovering coverage while keeping the family independent of the data it is
+evaluated on; this is the adaptive-data-analysis
+setting~\cite{dwork2015} and connecting the two properly is the clearest next
+step for this work.
+
 \section{Threats to Validity}
 \label{sec:threats}
 
@@ -472,19 +582,26 @@ direction of the comparison does not depend on it.
 \section{Limitations and Future Work}
 \label{sec:limits}
 
-The evaluation reported here covers the two deterministic arms at $n=480$
-tables. A model-driven arm---in which the LLM proposer supplies the registry
-and correction is applied across exactly what it registered---is implemented and
-running, and is required to separate the contribution of a smaller,
-better-chosen family from the contribution of correcting across it. We report
-only what has completed.
+The registry arms are run at $n=25$ null and $n=55$ planted tables against
+$n=480$ for the deterministic arms, because each costs a model call. The
+coverage figure of \S\ref{sec:coverage} is therefore the least precisely
+estimated number in the paper, and the one most worth re-running at scale. Its
+direction is not in doubt---a proposer that registers nine of fifty-two pairs
+cannot have high coverage---but the point estimate should be read with that
+sample size in mind.
 
-Three further extensions follow directly. First, the proposer-leakage
-measurement described in \S\ref{sec:threats}. Second, evaluation on an external
-benchmark: P-Bench~\cite{miao2026fisher} is the natural target, extended so that
-multiple tasks are bundled into a single session, which would test session-level
-validity on data we did not generate. Third, composing our multiplicity
-argument with the stability argument of Rewolinski et
+We evaluate one proposer model. Coverage is plausibly model-dependent in a way
+that correction is not, so the $14\%$ figure should be read as a measurement of
+this configuration rather than a constant of nature.
+
+Four extensions follow directly. First, the registration-budget sweep of
+\S\ref{sec:coverage}, which is cheap and would turn the tension we report into a
+dose--response curve. Second, sample splitting to break the tension outright,
+connecting this work to adaptive data analysis~\cite{dwork2015}. Third,
+evaluation on an external benchmark: P-Bench~\cite{miao2026fisher} is the
+natural target, extended so that multiple tasks are bundled into one session,
+which would test session-level validity on data we did not generate. Fourth,
+composing our multiplicity argument with the stability argument of Rewolinski et
 al.~\cite{rewolinski2026sanity}; the two screen for different failures and
 neither subsumes the other.
 
@@ -492,11 +609,18 @@ neither subsumes the other.
 
 Automated analysts have inherited the search behaviour of human exploratory
 analysis without its discipline. We have shown that the discipline can be made
-architectural rather than advisory---that pre-registration and session-level
-correction can be enforced by the structure of a system rather than requested of
-a model---and that doing so takes the fraction of null tables yielding a false
-finding from 81.0\% to 2.5\%, at a cost in power that is negligible above
-$d = 0.5$.
+architectural rather than advisory, and that doing so takes the fraction of null
+tables yielding a false finding from 81.0\% to 2.5\% at a cost in power that is
+negligible above $d = 0.5$.
+
+We have also shown that the two mechanisms are not equally cheap. Correction is
+close to free; pre-registration through a blind proposer is not, and costs
+roughly seven-eighths of the system's power in our configuration---not because
+the statistics are too strict but because the proposer covers $14\%$ of the
+search space. We would rather report that than not. It is the more useful
+finding of the two: it says where the next improvement has to come from, and a
+version of this paper that omitted it would have described a system that
+controls false discovery beautifully and finds almost nothing.
 
 The system, the generators and the harness are available at
 \url{https://github.com/garvbahl37-gif/Ledger_agent}.

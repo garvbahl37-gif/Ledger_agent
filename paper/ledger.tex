@@ -62,7 +62,7 @@ discretion; Benjamini--Hochberg correction is applied once across the entire
 registered family; and the natural-language report can only emit sentences the
 statistical layer has licensed.
 
-We evaluate on 535 synthetic tables with ground truth known by construction,
+We evaluate on 510 synthetic tables with ground truth known by construction,
 and report two results---one confirming the design, one undermining it.
 
 First, session-level correction works. On 200 null tables an exhaustive
@@ -336,6 +336,13 @@ Failed tests remain in the family at $p = 1.0$ rather than being dropped;
 removing them would shrink $m$ and make the threshold more permissive for
 everything else, which is the exact accounting error the architecture exists to
 prevent.
+
+\paragraph{Suite accounting.} The deterministic arms run on all 480 tables
+(200 NULLSET, 240 PLANTED, 40 nuisance). The registry arms re-evaluate a
+50-table subset of those same tables---the same data, a different family---so
+they add no new tables. The coverage diagnostic of \S\ref{sec:coverage} uses 30
+further PLANTED tables drawn from a disjoint seed range. The unique total is
+therefore 510 tables, not the sum of the per-experiment counts.
 
 \paragraph{Measures.} We report mean findings claimed per table; the fraction of
 tables on which at least one false finding is claimed (the quantity a
